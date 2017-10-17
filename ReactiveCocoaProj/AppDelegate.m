@@ -7,6 +7,11 @@
 //
 
 #import "AppDelegate.h"
+#import "SUHomeVC.h"
+#import "Macros.h"
+#import "UIImage+Size.h"
+#import "ViewController.h"
+#import "AdVC.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +21,11 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    [NSThread sleepForTimeInterval:1];
+    self.window = [[UIWindow alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+    UIViewController *vc = [AdVC new];
+    self.window.rootViewController = vc;
+    [self.window makeKeyAndVisible];
     return YES;
 }
 

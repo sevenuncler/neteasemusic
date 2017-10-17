@@ -8,9 +8,15 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import <ReactiveCocoa/ReactiveCocoa.h>
 
 @interface SUGoHorseLampViewModel : NSObject <UICollectionViewDataSource, UICollectionViewDelegate>
 
-@property (nonatomic, strong) NSMutableArray *items;
+@property (nonatomic, strong) NSMutableArray    *items;
+@property (nonatomic, strong) dispatch_source_t timer;
+@property (nonatomic, strong) RACSubject        *timerSignal;
+
+- (void)startTimer;
+- (void)pauseTimer;
 
 @end

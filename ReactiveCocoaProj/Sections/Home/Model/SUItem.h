@@ -7,7 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreGraphics/CoreGraphics.h>
 
 @interface SUItem : NSObject
+
+@property (nonatomic, assign) CGFloat         itemHeight;
+@property (nonatomic, strong) NSMutableArray *subItems;
 
 @end
