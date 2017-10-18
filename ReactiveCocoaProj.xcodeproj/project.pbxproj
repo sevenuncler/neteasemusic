@@ -43,6 +43,7 @@
 		87DD37FA1F9200020006C289 /* UIImage+Size.m in Sources */ = {isa = PBXBuildFile; fileRef = 87DD37F91F9200020006C289 /* UIImage+Size.m */; };
 		87DD38001F9208A80006C289 /* generic_img.png in Resources */ = {isa = PBXBuildFile; fileRef = 87DD37FF1F9208A70006C289 /* generic_img.png */; };
 		87DD38021F92150B0006C289 /* image.png in Resources */ = {isa = PBXBuildFile; fileRef = 87DD38011F92150B0006C289 /* image.png */; };
+		87EF34CC1F96D26900B913F1 /* Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = 87EF34CB1F96D26900B913F1 /* Layout.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -106,6 +107,8 @@
 		87DD37FE1F9206E10006C289 /* home_tab_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home_tab_selected.png; sourceTree = "<group>"; };
 		87DD37FF1F9208A70006C289 /* generic_img.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = generic_img.png; sourceTree = "<group>"; };
 		87DD38011F92150B0006C289 /* image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image.png; sourceTree = "<group>"; };
+		87EF34CA1F96D26900B913F1 /* Layout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Layout.h; sourceTree = "<group>"; };
+		87EF34CB1F96D26900B913F1 /* Layout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Layout.m; sourceTree = "<group>"; };
 		8C5B51C6115F848A5FB3EF13 /* Pods-ReactiveCocoaProj.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactiveCocoaProj.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReactiveCocoaProj/Pods-ReactiveCocoaProj.release.xcconfig"; sourceTree = "<group>"; };
 		B5463F38F7745AAB909399B3 /* Pods-ReactiveCocoaProj.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactiveCocoaProj.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReactiveCocoaProj/Pods-ReactiveCocoaProj.debug.xcconfig"; sourceTree = "<group>"; };
 		E0704B9D92418B737A4BFEA8 /* Pods_ReactiveCocoaProj.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReactiveCocoaProj.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -234,6 +237,8 @@
 				87085DDF1F85DC02009065C8 /* SUGoodsItem.m */,
 				87085DDB1F85C7CE009065C8 /* SUCommodityItem.h */,
 				87085DDC1F85C7CE009065C8 /* SUCommodityItem.m */,
+				87EF34CA1F96D26900B913F1 /* Layout.h */,
+				87EF34CB1F96D26900B913F1 /* Layout.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -469,6 +474,7 @@
 				87085DC81F7F1981009065C8 /* NavigationController.m in Sources */,
 				8793B2D21F95812F006DDC24 /* RadioVC.m in Sources */,
 				87085DCB1F7F19B6009065C8 /* SUHomeVC.m in Sources */,
+				87EF34CC1F96D26900B913F1 /* Layout.m in Sources */,
 				87085DEA1F866E99009065C8 /* SUGoHorseLampCell.m in Sources */,
 				87085DA91F7DC61B009065C8 /* AppDelegate.m in Sources */,
 				87085DE41F85DC8B009065C8 /* SUImageManager.m in Sources */,
@@ -611,6 +617,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_WARN_STRICT_PROTOTYPES = NO;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 398K388263;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -618,8 +626,9 @@
 				);
 				INFOPLIST_FILE = ReactiveCocoaProj/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.netease.vcloud.ext.ui.fh2048;
+				PRODUCT_BUNDLE_IDENTIFIER = com.netease.vcloud.fh8160;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
@@ -630,6 +639,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_WARN_STRICT_PROTOTYPES = NO;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 398K388263;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -637,8 +648,9 @@
 				);
 				INFOPLIST_FILE = ReactiveCocoaProj/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.netease.vcloud.ext.ui.fh2048;
+				PRODUCT_BUNDLE_IDENTIFIER = com.netease.vcloud.fh8160;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};
