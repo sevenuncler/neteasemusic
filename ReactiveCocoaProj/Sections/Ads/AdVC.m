@@ -24,7 +24,7 @@
     imageView.frame = self.view.bounds;
     imageView.image = [UIImage imageNamed:@"jhht.jpg"];
     [self.view addSubview:imageView];
-    [self performSelector:@selector(transiteMainVC:) withObject:nil afterDelay:3];
+    [self performSelector:@selector(transiteMainVC:) withObject:nil afterDelay:0];
 }
 
 - (void)transiteMainVC:(id)sender {

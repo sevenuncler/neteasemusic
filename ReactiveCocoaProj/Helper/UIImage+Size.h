@@ -11,5 +11,10 @@
 @interface UIImage (Size)
 
 - (UIImage *)imageWithSize:(CGSize)size;
+- (UIImage *)imageWithCornerRadius:(CGFloat )radius;
+- (UIImage *)imageWithCornerRadius:(CGFloat )radius targetSize:(CGSize)size;
+
+- (UIImage *(^)(CGSize target, CGFloat value))round;
+- (UIImage *(^)(CGSize target, CGFloat radium, CGFloat boardWidth))roundWithBoard;
 
 @end

@@ -8,10 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreGraphics/CoreGraphics.h>
+#import "Layout.h"
 
 @interface SUItem : NSObject
 
 @property (nonatomic, assign) CGFloat         itemHeight;
-@property (nonatomic, strong) NSMutableArray *subItems;
+@property (nonatomic, strong) NSMutableArray  *subItems;
+@property (nonatomic, strong) Layout          *layout;;
 
 @end

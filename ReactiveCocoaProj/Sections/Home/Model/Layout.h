@@ -7,7 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreGraphics/CoreGraphics.h>
 
 @interface Layout : NSObject
+
+@property (nonatomic, assign) CGRect frame;
 
 @end

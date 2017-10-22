@@ -15,8 +15,11 @@
 @property (nonatomic, strong) NSMutableArray    *items;
 @property (nonatomic, strong) dispatch_source_t timer;
 @property (nonatomic, strong) RACSubject        *timerSignal;
+@property (nonatomic, assign) Class             *registerClz;
 
++ (NSString *)reuseID;
 - (void)startTimer;
 - (void)pauseTimer;
+
 
 @end

@@ -12,6 +12,7 @@
 #import "UIImage+Size.h"
 #import "ViewController.h"
 #import "AdVC.h"
+#import "MusicVC.h"
 
 @interface AppDelegate ()
 
@@ -21,9 +22,9 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [NSThread sleepForTimeInterval:1];
+//    [NSThread sleepForTimeInterval:1];
     self.window = [[UIWindow alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
-    UIViewController *vc = [AdVC new];
+    UIViewController *vc = [MusicVC new];
     self.window.rootViewController = vc;
     [self.window makeKeyAndVisible];
     return YES;

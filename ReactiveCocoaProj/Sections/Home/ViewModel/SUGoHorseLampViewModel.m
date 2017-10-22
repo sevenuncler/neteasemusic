@@ -9,6 +9,7 @@
 #import "SUGoHorseLampViewModel.h"
 #import "SUGoHorseLampCell.h"
 #import "SUImageManager.h"
+#import "Macros.h"
 
 
 @interface SUGoHorseLampViewModel ()
@@ -18,6 +19,10 @@
 @end
 
 @implementation SUGoHorseLampViewModel
+
++ (NSString *)reuseID {
+    return @"goHorseCell";
+}
 
 - (void)startTimer {
     @synchronized (self) {
@@ -43,6 +48,11 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     static NSString * const reuseID = @"goHorseCell";
+//    static dispatch_once_t onceToken;
+//    dispatch_once(&onceToken, ^{
+        [collectionView registerClass:[SUGoHorseLampCell class] forCellWithReuseIdentifier:reuseID];
+//    });
+    collectionView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
     SUGoHorseLampCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseID forIndexPath:indexPath];
     
     SUImageManager *imageManager = [SUImageManager defaultImageManager];
@@ -53,7 +63,9 @@
     return cell;
 }
 
-
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return CGSizeMake(SCREEN_WIDTH, SCREEN_WIDTH*0.382);
+}
 #pragma mark - Getter & Setter
 
 - (NSMutableArray *)items {
