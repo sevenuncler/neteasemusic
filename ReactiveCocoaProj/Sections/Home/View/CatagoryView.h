@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <ReactiveCocoa/ReactiveCocoa.h>
 
 @interface CatagoryView : UIView
 
@@ -15,5 +16,7 @@
 @property (nonatomic, copy)             NSArray            *items;
 
 - (instancetype)initWithFrame:(CGRect)frame items:(NSArray *)items;
+- (void(^)(CGFloat))underLineProgress;
+- (RACSignal *)selectedIndexSignal;
 
 @end

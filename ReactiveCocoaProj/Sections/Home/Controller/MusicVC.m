@@ -40,8 +40,10 @@ static NSString * const reuseID = @"reuseID";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    self.view.backgroundColor = [UIColor yellowColor];
+    [self.view addSubview:self.collectionView];
 
-    self.view.backgroundColor = [UIColor greenColor];
     [self setUpGoHorseView];
     [self setUpSetView];
     [self setUpRecommandSongView];
@@ -50,9 +52,7 @@ static NSString * const reuseID = @"reuseID";
     [self setUpMVView];
     [self setUpExclusizeView];
     
-    [self.view addSubview:self.collectionView];
     
-    self.automaticallyAdjustsScrollViewInsets = NO;
     
 }
 
@@ -502,6 +502,7 @@ static NSString * const reuseID = @"reuseID";
 - (UICollectionView *)collectionView {
     if(!_collectionView) {
         _collectionView = [[UICollectionView alloc] initWithFrame:self.view.frame collectionViewLayout:self.flowLayout];
+        _collectionView.backgroundColor = [UIColor whiteColor];
         _collectionView.dataSource     = self;
         _collectionView.delegate       = self;
         [_collectionView registerClass:[SUCollectionViewCell class] forCellWithReuseIdentifier:reuseID];

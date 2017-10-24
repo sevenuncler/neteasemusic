@@ -22,6 +22,7 @@
 #import "RadioVC.h"
 #import "CatagoryView.h"
 #import "UIView+Layout.h"
+#import <ReactiveCocoa/ReactiveCocoa.h>
 
 @interface SUHomeVC ()<UICollectionViewDataSource, UICollectionViewDelegate>
 
@@ -49,6 +50,17 @@ static NSString * const reuseID = @"reuseID";
     
     [self.view addSubview:self.firstView];
     [self.view addSubview:self.collecctionView];
+    
+    @weakify(self);
+    [[self.firstView selectedIndexSignal] subscribeNext:^(NSNumber *x) {
+        @strongify(self);
+        [self.collecctionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:[x integerValue] inSection:0] atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
+    }];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    self.firstView.segmentedControl.selectedSegmentIndex = 0;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -71,9 +83,18 @@ static NSString * const reuseID = @"reuseID";
 
 
 #pragma mark - UICollectionViewDelegate
+
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return CGSizeMake(SCREEN_WIDTH, SCREEN_HEIGHT - 44 - 44);
+    return self.collecctionView.size;
 }
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    CGPoint contentOffset =  scrollView.contentOffset;
+    NSInteger x = (NSInteger)contentOffset.x;
+    CGFloat   progress =  x / SCREEN_WIDTH;
+    self.firstView.underLineProgress(progress);
+}
+
 #pragma mark - Getter && Setter
 
 - (CatagoryView *)firstView {
@@ -85,10 +106,11 @@ static NSString * const reuseID = @"reuseID";
 
 - (UICollectionView *)collecctionView {
     if(!_collecctionView) {
-        _collecctionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, self.firstView.botton + 1, SCREEN_WIDTH, SCREEN_HEIGHT - 64 - self.firstView.size.height - 1) collectionViewLayout:self.flowLayout];
+        _collecctionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, self.firstView.botton, SCREEN_WIDTH, SCREEN_HEIGHT - 64 - self.firstView.size.height - 44) collectionViewLayout:self.flowLayout];
         _collecctionView.dataSource     = self;
         _collecctionView.delegate       = self;
         _collecctionView.pagingEnabled  = YES;
+        _collecctionView.backgroundColor = [UIColor orangeColor];
         [_collecctionView registerClass:[SUCollectionViewCell class] forCellWithReuseIdentifier:reuseID];
     }
     return _collecctionView;
