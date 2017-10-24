@@ -54,6 +54,7 @@
 		8793B2CF1F95811D006DDC24 /* VideoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8793B2CE1F95811D006DDC24 /* VideoVC.m */; };
 		8793B2D21F95812F006DDC24 /* RadioVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8793B2D11F95812F006DDC24 /* RadioVC.m */; };
 		8793B2D51F95820E006DDC24 /* SUCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8793B2D41F95820E006DDC24 /* SUCollectionViewCell.m */; };
+		87A1917E1F9EBA1B00D7DC3B /* CatagoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 87A1917D1F9EBA1B00D7DC3B /* CatagoryView.m */; };
 		87DD37FA1F9200020006C289 /* UIImage+Size.m in Sources */ = {isa = PBXBuildFile; fileRef = 87DD37F91F9200020006C289 /* UIImage+Size.m */; };
 		87DD38001F9208A80006C289 /* generic_img.png in Resources */ = {isa = PBXBuildFile; fileRef = 87DD37FF1F9208A70006C289 /* generic_img.png */; };
 		87DD38021F92150B0006C289 /* image.png in Resources */ = {isa = PBXBuildFile; fileRef = 87DD38011F92150B0006C289 /* image.png */; };
@@ -143,6 +144,8 @@
 		8793B2D11F95812F006DDC24 /* RadioVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RadioVC.m; sourceTree = "<group>"; };
 		8793B2D31F95820E006DDC24 /* SUCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SUCollectionViewCell.h; sourceTree = "<group>"; };
 		8793B2D41F95820E006DDC24 /* SUCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SUCollectionViewCell.m; sourceTree = "<group>"; };
+		87A1917C1F9EBA1B00D7DC3B /* CatagoryView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CatagoryView.h; sourceTree = "<group>"; };
+		87A1917D1F9EBA1B00D7DC3B /* CatagoryView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CatagoryView.m; sourceTree = "<group>"; };
 		87DD37F81F9200010006C289 /* UIImage+Size.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+Size.h"; sourceTree = "<group>"; };
 		87DD37F91F9200020006C289 /* UIImage+Size.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Size.m"; sourceTree = "<group>"; };
 		87DD37FD1F9206E10006C289 /* home_tab_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home_tab_normal.png; sourceTree = "<group>"; };
@@ -316,6 +319,8 @@
 				874CE3031F9C53490075722A /* RecommandSongViewCell.m */,
 				874CE30E1F9C98AB0075722A /* AlbumsViewCell.h */,
 				874CE30F1F9C98AB0075722A /* AlbumsViewCell.m */,
+				87A1917C1F9EBA1B00D7DC3B /* CatagoryView.h */,
+				87A1917D1F9EBA1B00D7DC3B /* CatagoryView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -532,6 +537,7 @@
 				8793B2CC1F95810C006DDC24 /* MusicVC.m in Sources */,
 				872D10D61F9261D600A293FA /* Animator.m in Sources */,
 				87085DD71F7F1D91009065C8 /* SUTableViewCell.m in Sources */,
+				87A1917E1F9EBA1B00D7DC3B /* CatagoryView.m in Sources */,
 				8793B2D51F95820E006DDC24 /* SUCollectionViewCell.m in Sources */,
 				875C2F8D1F97897000145E57 /* GeneralModel.m in Sources */,
 				87085DD41F7F1B45009065C8 /* SUGoHorseLampViewModel.m in Sources */,
@@ -710,7 +716,7 @@
 				);
 				INFOPLIST_FILE = ReactiveCocoaProj/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.netease.vcloud.su8160;
+				PRODUCT_BUNDLE_IDENTIFIER = com.netease.vcloud.su2359;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
@@ -732,7 +738,7 @@
 				);
 				INFOPLIST_FILE = ReactiveCocoaProj/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.netease.vcloud.su8160;
+				PRODUCT_BUNDLE_IDENTIFIER = com.netease.vcloud.su2359;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 			};

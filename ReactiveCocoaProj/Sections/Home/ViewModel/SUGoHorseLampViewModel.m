@@ -15,6 +15,7 @@
 @interface SUGoHorseLampViewModel ()
 
 @property (nonatomic, assign) NSInteger currentIndex;
+@property (nonatomic, assign) BOOL      isUsed;
 
 @end
 
@@ -48,6 +49,7 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     static NSString * const reuseID = @"goHorseCell";
+    self.isUsed = YES;
 //    static dispatch_once_t onceToken;
 //    dispatch_once(&onceToken, ^{
         [collectionView registerClass:[SUGoHorseLampCell class] forCellWithReuseIdentifier:reuseID];

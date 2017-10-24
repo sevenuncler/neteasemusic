@@ -23,6 +23,7 @@
 #import "RecommandSong.h"
 #import "AlbumsItem.h"
 #import "AlbumsViewModel.h"
+#import "UIView+Layout.h"
 
 
 @interface MusicVC ()<UICollectionViewDataSource, UICollectionViewDelegate>
@@ -48,7 +49,7 @@ static NSString * const reuseID = @"reuseID";
     [self setUpNewestView];
     [self setUpMVView];
     [self setUpExclusizeView];
-
+    
     [self.view addSubview:self.collectionView];
     
     self.automaticallyAdjustsScrollViewInsets = NO;
@@ -79,6 +80,7 @@ static NSString * const reuseID = @"reuseID";
     ReuseCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:generalModel.reuseID forIndexPath:indexPath];
     cell.collectionView.dataSource = generalModel.viewModel;
     cell.collectionView.delegate   = generalModel.viewModel;
+    
     return cell;
 }
 
@@ -345,7 +347,7 @@ static NSString * const reuseID = @"reuseID";
 
 - (void)setUpRecommandSongView {
     CGFloat itemWidth  = SCREEN_WIDTH / 3 - 10;
-    CGFloat itemHeight = SCREEN_WIDTH / 3 + 10;
+    CGFloat itemHeight = SCREEN_WIDTH / 3 + 25;
     GeneralModel *generalModel = [GeneralModel new];
 
     RecommandSongViewModel *recommandSongVM = [RecommandSongViewModel new];
@@ -429,10 +431,10 @@ static NSString * const reuseID = @"reuseID";
 //        @strongify(view);
 //        [view scrollToItemAtIndexPath:x atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
 //    }];
-    
     view.dataSource = self.goHorseLampVM;
     view.delegate   = self.goHorseLampVM;
     viewModel = self.goHorseLampVM;
+    
     GeneralModel *oneGeneralModel = [GeneralModel new];
     oneGeneralModel.viewModel = viewModel;
     Layout *layout = [Layout new];
@@ -489,7 +491,7 @@ static NSString * const reuseID = @"reuseID";
     generalModel.reuseID = [ReuseCollectionViewCell reuseID];
     generalModel.viewModel = viewModel;
     Layout *layout = [Layout new];
-    layout.frame = CGRectMake(0, 0, SCREEN_WIDTH, height + 20);
+    layout.frame = CGRectMake(0, 0, SCREEN_WIDTH, height + 30);
     generalModel.layout = layout;
     [self.items addObject:generalModel];
 }

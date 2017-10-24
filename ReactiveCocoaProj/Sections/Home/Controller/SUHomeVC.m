@@ -20,6 +20,8 @@
 #import "MusicVC.h"
 #import "VideoVC.h"
 #import "RadioVC.h"
+#import "CatagoryView.h"
+#import "UIView+Layout.h"
 
 @interface SUHomeVC ()<UICollectionViewDataSource, UICollectionViewDelegate>
 
@@ -29,6 +31,7 @@
 @property (nonatomic, strong) SUGoHorseLampView *goHorseLampView;
 @property (nonatomic, strong) SUGoHorseLampViewModel *goHorseLampVM;
 @property (nonatomic, strong) UIView *myView;
+@property (nonatomic, strong) CatagoryView *firstView;
 
 @end
 
@@ -37,11 +40,14 @@ static NSString * const reuseID = @"reuseID";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.automaticallyAdjustsScrollViewInsets = NO;
     self.view.backgroundColor = [UIColor whiteColor];
+    
     [self.items addObject:[MusicVC new]];
     [self.items addObject:[RadioVC new]];
     [self.items addObject:[VideoVC new]];
     
+    [self.view addSubview:self.firstView];
     [self.view addSubview:self.collecctionView];
 }
 
@@ -70,9 +76,16 @@ static NSString * const reuseID = @"reuseID";
 }
 #pragma mark - Getter && Setter
 
+- (CatagoryView *)firstView {
+    if(!_firstView) {
+        _firstView = [[CatagoryView alloc] initWithFrame:CGRectMake(0, 64, SCREEN_WIDTH, 44) items:@[@"音乐",@"视频",@"电台"]];
+    }
+    return _firstView;
+}
+
 - (UICollectionView *)collecctionView {
     if(!_collecctionView) {
-        _collecctionView = [[UICollectionView alloc] initWithFrame:self.view.frame collectionViewLayout:self.flowLayout];
+        _collecctionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, self.firstView.botton + 1, SCREEN_WIDTH, SCREEN_HEIGHT - 64 - self.firstView.size.height - 1) collectionViewLayout:self.flowLayout];
         _collecctionView.dataSource     = self;
         _collecctionView.delegate       = self;
         _collecctionView.pagingEnabled  = YES;
