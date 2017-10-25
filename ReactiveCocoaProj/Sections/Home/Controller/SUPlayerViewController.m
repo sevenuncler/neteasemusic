@@ -8,6 +8,8 @@
 
 #import "SUPlayerViewController.h"
 #import "PlayerView.h"
+#import "UIView+Layout.h"
+#import "Macros.h"
 
 @interface SUPlayerViewController ()
 
@@ -17,10 +19,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    PlayerLongPlaying *plp = [[PlayerLongPlaying alloc] initWithFrame:CGRectMake(100, 100, 200, 200)];
-    [self.view addSubview:plp];
+    self.view.backgroundColor = [UIColor whiteColor];
+    
+
+    
+    PlayerView *view = [[PlayerView alloc] initWithFrame:self.view.bounds];
+    [self.view addSubview:view];
+
+    PlayerLongPlaying *plp = [[PlayerLongPlaying alloc] initWithFrame:CGRectMake(0, 0, 300, 300)];
+    plp.centerX = view.centerX;
+    plp.centerY = view.centerY*0.86;
+    [view addSubview:plp];
     [plp start];
-    // Do any additional setup after loading the view.
+    
+    PlayerMenu *menu = [[PlayerMenu alloc] initWithFrame:CGRectMake(0, 500, SCREEN_WIDTH, 120)];
+    menu.botton = view.botton;
+    [view addSubview:menu];
 }
 
 - (void)didReceiveMemoryWarning {
