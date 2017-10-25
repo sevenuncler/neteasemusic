@@ -51,11 +51,7 @@ static NSString * const reuseID = @"reuseID";
     [self.view addSubview:self.firstView];
     [self.view addSubview:self.collecctionView];
     
-    @weakify(self);
-    [[self.firstView selectedIndexSignal] subscribeNext:^(NSNumber *x) {
-        @strongify(self);
-        [self.collecctionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:[x integerValue] inSection:0] atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
-    }];
+    [self setUp];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -66,6 +62,14 @@ static NSString * const reuseID = @"reuseID";
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)setUp {
+    @weakify(self);
+    [[self.firstView selectedIndexSignal] subscribeNext:^(NSNumber *x) {
+        @strongify(self);
+        [self.collecctionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:[x integerValue] inSection:0] atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
+    }];
 }
 
 #pragma mark - UICollectionViewDataSource
