@@ -20,6 +20,21 @@
 - (void)stop;
 @end
 
+//辅助功能
+@interface PlayerAssistant : UIView
+@property (nonatomic, strong) UIButton *likeButton;
+@property (nonatomic, strong) UIButton *downloadButton;
+@property (nonatomic, strong) UIButton *commentButton;
+@property (nonatomic, strong) UIButton *profileButton;
+@end
+
+//播放进度
+@interface PlayerProgress : UIView
+@property (nonatomic, strong) UILabel  *currentTime;
+@property (nonatomic, strong) UILabel  *totalTime;
+@property (nonatomic, strong) UISlider *progressSlider;
+@end
+
 //播放菜单
 @interface PlayerMenu : UIView
 @property (nonatomic, strong) UIButton *playOrderButton;

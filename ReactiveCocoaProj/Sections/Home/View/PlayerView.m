@@ -61,6 +61,63 @@
 
 @end
 
+@implementation PlayerProgress
+- (instancetype)initWithFrame:(CGRect)frame {
+    if(self = [super initWithFrame:frame]) {
+        [self addSubview:self.currentTime];
+        [self addSubview:self.totalTime];
+        [self addSubview:self.progressSlider];
+    }
+    return self;
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    CGFloat timeWidth = 60;
+    self.progressSlider.size = CGSizeMake(self.size.width - timeWidth*2, 10);
+    self.progressSlider.centerX = self.size.width/2;
+    self.progressSlider.centerY = self.size.height/2;
+    
+    [self.currentTime sizeToFit];
+    self.currentTime.centerX = timeWidth/2;
+    self.currentTime.centerY = self.progressSlider.centerY;
+    
+    [self.totalTime sizeToFit];
+    self.totalTime.centerX = self.size.width - timeWidth/2;
+    self.totalTime.centerY = self.progressSlider.centerY;
+}
+
+- (UILabel *)currentTime {
+    if(!_currentTime) {
+        _currentTime  = [[UILabel alloc] init];
+        _currentTime.font = [UIFont systemFontOfSize:9];
+        _currentTime.textColor = [UIColor whiteColor];
+        _currentTime.text = @"00:00";
+    }
+    return _currentTime;
+}
+- (UILabel *)totalTime {
+    if(!_totalTime) {
+        _totalTime = [UILabel new];
+        _totalTime.font = [UIFont systemFontOfSize:9];
+        _totalTime.textColor = [UIColor whiteColor];
+        _totalTime.text = @"04:24";
+    }
+    return _totalTime;
+}
+- (UISlider *)progressSlider {
+    if(!_progressSlider) {
+        _progressSlider = [[UISlider alloc] init];
+        _progressSlider.minimumValue = 0;
+        _progressSlider.maximumValue = 5;
+        _progressSlider.minimumTrackTintColor = [UIColor redColor];
+        _progressSlider.maximumTrackTintColor = [UIColor whiteColor];
+        _progressSlider.thumbTintColor = [UIColor blackColor];
+    }
+    return _progressSlider;
+}
+@end
+
 @implementation PlayerMenu
 static CGFloat buttonWidth = 45;
 

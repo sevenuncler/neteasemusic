@@ -35,6 +35,10 @@
     PlayerMenu *menu = [[PlayerMenu alloc] initWithFrame:CGRectMake(0, 500, SCREEN_WIDTH, 120)];
     menu.botton = view.botton;
     [view addSubview:menu];
+    
+    PlayerProgress *progress = [[PlayerProgress alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 15)];
+    progress.botton = menu.top;
+    [view addSubview:progress];
 }
 
 - (void)didReceiveMemoryWarning {
