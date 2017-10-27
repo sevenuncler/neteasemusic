@@ -10,6 +10,7 @@
 
 //磁头
 @interface PlayerPointer : UIView
+@property (nonatomic, strong) UIImageView *pointer;
 @end
 
 //黑胶片

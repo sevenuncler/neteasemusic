@@ -28,7 +28,7 @@
 
     PlayerLongPlaying *plp = [[PlayerLongPlaying alloc] initWithFrame:CGRectMake(0, 0, 300, 300)];
     plp.centerX = view.centerX;
-    plp.centerY = view.centerY*0.86;
+    plp.centerY = view.centerY*0.89;
     [view addSubview:plp];
     [plp start];
     
@@ -39,6 +39,10 @@
     PlayerProgress *progress = [[PlayerProgress alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 15)];
     progress.botton = menu.top;
     [view addSubview:progress];
+    
+    PlayerAssistant *assistant = [[PlayerAssistant alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 70)];
+    assistant.botton = progress.top;
+    [view addSubview:assistant];
 }
 
 - (void)didReceiveMemoryWarning {

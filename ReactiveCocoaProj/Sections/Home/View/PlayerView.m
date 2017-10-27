@@ -9,6 +9,24 @@
 #import "PlayerView.h"
 #import "UIImage+Size.h"
 #import "UIView+Layout.h"
+#import "Macros.h"
+
+@implementation PlayerPointer
+- (instancetype)initWithFrame:(CGRect)frame {
+    if(self = [super initWithFrame:frame]) {
+        [self addSubview:self.pointer];
+    }
+    return self;
+}
+
+- (UIImageView *)pointer {
+    if(!_pointer) {
+        _pointer = [[UIImageView alloc] init];
+    }
+    return _pointer;
+}
+
+@end
 
 @implementation PlayerLongPlaying
 {
@@ -61,6 +79,83 @@
 
 @end
 
+@implementation PlayerAssistant
+{
+     CGFloat assistantButtonWidth;
+     CGFloat space;
+
+}
+- (instancetype)initWithFrame:(CGRect)frame {
+    if(self = [super initWithFrame:frame]) {
+        assistantButtonWidth = 40;
+        space = (SCREEN_WIDTH - 4*assistantButtonWidth) / 5;
+        
+        [self addSubview:self.likeButton];
+        [self addSubview:self.downloadButton];
+        [self addSubview:self.commentButton];
+        [self addSubview:self.profileButton];
+    }
+    return self;
+}
+- (void)layoutSubviews {
+    [super layoutSubviews];
+   
+    self.likeButton.size = CGSizeMake(assistantButtonWidth, assistantButtonWidth);
+    self.likeButton.centerX = space + assistantButtonWidth/2;
+    self.likeButton.centerY = self.size.height / 2;
+    
+    self.downloadButton.size = CGSizeMake(assistantButtonWidth, assistantButtonWidth);
+    self.downloadButton.centerX = self.likeButton.right + space + assistantButtonWidth/2;
+    self.downloadButton.centerY = self.size.height / 2;
+    
+    self.commentButton.size = CGSizeMake(assistantButtonWidth, assistantButtonWidth);
+    self.commentButton.centerX = self.downloadButton.right + space + assistantButtonWidth/2;
+    self.commentButton.centerY = self.size.height / 2;
+    
+    self.profileButton.size = CGSizeMake(assistantButtonWidth, assistantButtonWidth);
+    self.profileButton.centerX = self.commentButton.right + space + assistantButtonWidth/2;
+    self.profileButton.centerY = self.size.height / 2;
+}
+
+- (UIButton *)likeButton {
+    if(!_likeButton) {
+        _likeButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_likeButton setImage:[UIImage imageNamed:@"cm2_rcd_icn_love"] forState:UIControlStateNormal];
+        [_likeButton setImage:[UIImage imageNamed:@"cm2_play_icn_loved"] forState:UIControlStateSelected];
+    }
+    return _likeButton;
+}
+
+- (UIButton *)downloadButton {
+    if(!_downloadButton) {
+        _downloadButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_downloadButton setImage:[UIImage imageNamed:@"cm2_rcd_icn_dld"] forState:UIControlStateNormal];
+        [_downloadButton setImage:[UIImage imageNamed:@"cm2_runfm_btn_next_dis"] forState:UIControlStateSelected];
+    }
+    return _downloadButton;
+}
+
+- (UIButton *)commentButton {
+    if(!_commentButton) {
+        _commentButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_commentButton setImage:[UIImage imageNamed:@"cm2_runfm_btn_next_dis"] forState:UIControlStateNormal];
+        [_commentButton setImage:[UIImage imageNamed:@"cm2_runfm_btn_next_dis"] forState:UIControlStateSelected];
+        
+    }
+    return _commentButton;
+}
+
+- (UIButton *)profileButton {
+    if(!_profileButton) {
+        _profileButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_profileButton setImage:[UIImage imageNamed:@"cm2_runfm_btn_next_dis"] forState:UIControlStateNormal];
+        [_profileButton setImage:[UIImage imageNamed:@"cm2_runfm_btn_next_dis"] forState:UIControlStateSelected];
+        
+    }
+    return _profileButton;
+}
+@end
+
 @implementation PlayerProgress
 - (instancetype)initWithFrame:(CGRect)frame {
     if(self = [super initWithFrame:frame]) {
@@ -92,6 +187,7 @@
         _currentTime  = [[UILabel alloc] init];
         _currentTime.font = [UIFont systemFontOfSize:9];
         _currentTime.textColor = [UIColor whiteColor];
+        _currentTime.textAlignment = NSTextAlignmentCenter;
         _currentTime.text = @"00:00";
     }
     return _currentTime;
@@ -101,6 +197,7 @@
         _totalTime = [UILabel new];
         _totalTime.font = [UIFont systemFontOfSize:9];
         _totalTime.textColor = [UIColor whiteColor];
+        _totalTime.textAlignment = NSTextAlignmentCenter;
         _totalTime.text = @"04:24";
     }
     return _totalTime;
@@ -112,7 +209,7 @@
         _progressSlider.maximumValue = 5;
         _progressSlider.minimumTrackTintColor = [UIColor redColor];
         _progressSlider.maximumTrackTintColor = [UIColor whiteColor];
-        _progressSlider.thumbTintColor = [UIColor blackColor];
+        _progressSlider.thumbTintColor = [UIColor redColor];
     }
     return _progressSlider;
 }
@@ -229,7 +326,7 @@ static CGFloat buttonWidth = 45;
 - (UIImageView *)maskView {
     if(!_maskView) {
         _maskView = [[UIImageView alloc] initWithFrame:self.bounds];
-        _maskView.image = [UIImage imageNamed:@"cm2_play_disc_mask"];
+        _maskView.image = [UIImage imageNamed:@"cm2_play_disc_mask-ip6"];
     }
     return _maskView;
 }

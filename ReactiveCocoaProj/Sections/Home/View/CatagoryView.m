@@ -39,7 +39,6 @@
     _underLine.centerX          = SCREEN_WIDTH / self.items.count * (self.segmentedControl.selectedSegmentIndex + 0.5);
 }
 
-static bool flag = false;
 - (void(^)(CGFloat))underLineProgress {
     return ^void(CGFloat progress) {
         CGFloat itemWidth = SCREEN_WIDTH / self.items.count;

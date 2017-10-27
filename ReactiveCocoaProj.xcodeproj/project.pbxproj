@@ -24,6 +24,11 @@
 		87085DE01F85DC02009065C8 /* SUGoodsItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 87085DDF1F85DC02009065C8 /* SUGoodsItem.m */; };
 		87085DE41F85DC8B009065C8 /* SUImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 87085DE31F85DC8B009065C8 /* SUImageManager.m */; };
 		87085DEA1F866E99009065C8 /* SUGoHorseLampCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87085DE91F866E99009065C8 /* SUGoHorseLampCell.m */; };
+		871979621FA2BC330068B1F3 /* cm2_play_needle_play@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8719795D1FA2BC320068B1F3 /* cm2_play_needle_play@2x.png */; };
+		871979631FA2BC330068B1F3 /* cm2_play_needle_play@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8719795E1FA2BC330068B1F3 /* cm2_play_needle_play@3x.png */; };
+		871979641FA2BC330068B1F3 /* cm2_play_needle_play-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8719795F1FA2BC330068B1F3 /* cm2_play_needle_play-568h@2x.png */; };
+		871979651FA2BC330068B1F3 /* cm2_play_needle_play-ip6@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 871979601FA2BC330068B1F3 /* cm2_play_needle_play-ip6@2x.png */; };
+		871979661FA2BC330068B1F3 /* cm2_play_needle_play.png in Resources */ = {isa = PBXBuildFile; fileRef = 871979611FA2BC330068B1F3 /* cm2_play_needle_play.png */; };
 		872D10D31F925BA300A293FA /* TransitionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 872D10D21F925BA300A293FA /* TransitionManager.m */; };
 		872D10D61F9261D600A293FA /* Animator.m in Sources */ = {isa = PBXBuildFile; fileRef = 872D10D51F9261D600A293FA /* Animator.m */; };
 		872D10D81F94D7C600A293FA /* cover.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 872D10D71F94D7C600A293FA /* cover.jpg */; };
@@ -165,6 +170,11 @@
 		87085DE81F866E99009065C8 /* SUGoHorseLampCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUGoHorseLampCell.h; sourceTree = "<group>"; };
 		87085DE91F866E99009065C8 /* SUGoHorseLampCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUGoHorseLampCell.m; sourceTree = "<group>"; };
 		87085DEB1F867862009065C8 /* Macros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Macros.h; sourceTree = "<group>"; };
+		8719795D1FA2BC320068B1F3 /* cm2_play_needle_play@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cm2_play_needle_play@2x.png"; sourceTree = "<group>"; };
+		8719795E1FA2BC330068B1F3 /* cm2_play_needle_play@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cm2_play_needle_play@3x.png"; sourceTree = "<group>"; };
+		8719795F1FA2BC330068B1F3 /* cm2_play_needle_play-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cm2_play_needle_play-568h@2x.png"; sourceTree = "<group>"; };
+		871979601FA2BC330068B1F3 /* cm2_play_needle_play-ip6@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cm2_play_needle_play-ip6@2x.png"; sourceTree = "<group>"; };
+		871979611FA2BC330068B1F3 /* cm2_play_needle_play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cm2_play_needle_play.png; sourceTree = "<group>"; };
 		872D10D11F925BA300A293FA /* TransitionManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TransitionManager.h; sourceTree = "<group>"; };
 		872D10D21F925BA300A293FA /* TransitionManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TransitionManager.m; sourceTree = "<group>"; };
 		872D10D41F9261D600A293FA /* Animator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Animator.h; sourceTree = "<group>"; };
@@ -553,6 +563,11 @@
 		87A191821FA0102F00D7DC3B /* play */ = {
 			isa = PBXGroup;
 			children = (
+				8719795F1FA2BC330068B1F3 /* cm2_play_needle_play-568h@2x.png */,
+				871979601FA2BC330068B1F3 /* cm2_play_needle_play-ip6@2x.png */,
+				871979611FA2BC330068B1F3 /* cm2_play_needle_play.png */,
+				8719795D1FA2BC320068B1F3 /* cm2_play_needle_play@2x.png */,
+				8719795E1FA2BC330068B1F3 /* cm2_play_needle_play@3x.png */,
 				87A1920A1FA0CBD900D7DC3B /* cm2_play_btn_src.png */,
 				87A1920B1FA0CBD900D7DC3B /* cm2_play_btn_src@2x.png */,
 				87A1920C1FA0CBD900D7DC3B /* cm2_play_btn_src@3x.png */,
@@ -660,7 +675,7 @@
 				TargetAttributes = {
 					87085DA01F7DC61B009065C8 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = ZA43ZW39F3;
+						DevelopmentTeam = 7WAPB4EAX2;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -694,6 +709,7 @@
 				87A191E71FA0C96700D7DC3B /* cm2_play_btn_prev@2x.png in Resources */,
 				87A191FC1FA0CA7800D7DC3B /* cm2_runfm_btn_next_dis@3x.png in Resources */,
 				87A191F11FA0C96700D7DC3B /* cm2_play_btn_play@2x.png in Resources */,
+				871979651FA2BC330068B1F3 /* cm2_play_needle_play-ip6@2x.png in Resources */,
 				872D10E51F94E3FB00A293FA /* 640_1136.jpeg in Resources */,
 				87A191F61FA0C96700D7DC3B /* cm2_play_btn_pause.png in Resources */,
 				87A192011FA0CB2500D7DC3B /* cm2_runfm_btn_pause@2x.png in Resources */,
@@ -701,6 +717,7 @@
 				87A191871FA0105400D7DC3B /* cm2_play_disc.png in Resources */,
 				872D10E11F94E0E000A293FA /* 750_1334.jpg in Resources */,
 				87085DB11F7DC61B009065C8 /* Assets.xcassets in Resources */,
+				871979621FA2BC330068B1F3 /* cm2_play_needle_play@2x.png in Resources */,
 				87A192081FA0CB5A00D7DC3B /* cm2_runfm_btn_play_prs@2x.png in Resources */,
 				87A191B61FA0C54E00D7DC3B /* cm2_playlist_icn_shuffle_prs@3x.png in Resources */,
 				87A191B91FA0C54E00D7DC3B /* cm2_playlist_icn_one_prs.png in Resources */,
@@ -717,6 +734,7 @@
 				87A191CD1FA0C54E00D7DC3B /* cm2_playlist_icn_shuffle_prs@2x.png in Resources */,
 				87A191CB1FA0C54E00D7DC3B /* cm2_playlist_icn_loop_prs.png in Resources */,
 				87A191D31FA0C54E00D7DC3B /* cm2_rcd_icn_dld@2x.png in Resources */,
+				871979641FA2BC330068B1F3 /* cm2_play_needle_play-568h@2x.png in Resources */,
 				87A192021FA0CB2500D7DC3B /* cm2_runfm_btn_pause@3x.png in Resources */,
 				87A191E81FA0C96700D7DC3B /* cm2_play_icn_loved@2x.png in Resources */,
 				87A192071FA0CB5A00D7DC3B /* cm2_runfm_btn_play_prs.png in Resources */,
@@ -735,6 +753,7 @@
 				87A191F41FA0C96700D7DC3B /* cm2_play_icn_cmt_num_dis.png in Resources */,
 				872D10DD1F94DC7F00A293FA /* Images.xcassets in Resources */,
 				87085DAF1F7DC61B009065C8 /* Main.storyboard in Resources */,
+				871979661FA2BC330068B1F3 /* cm2_play_needle_play.png in Resources */,
 				87A191EC1FA0C96700D7DC3B /* cm2_play_btn_play@3x.png in Resources */,
 				872D10D81F94D7C600A293FA /* cover.jpg in Resources */,
 				87A191EE1FA0C96700D7DC3B /* cm2_play_btn_pause@2x.png in Resources */,
@@ -744,6 +763,7 @@
 				87A191961FA0B78900D7DC3B /* cm2_play_disc_mask@2x.png in Resources */,
 				87A191CE1FA0C54E00D7DC3B /* cm2_playlist_icn_one@2x.png in Resources */,
 				87A191BF1FA0C54E00D7DC3B /* cm2_runfm_btn_loved_prs@3x.png in Resources */,
+				871979631FA2BC330068B1F3 /* cm2_play_needle_play@3x.png in Resources */,
 				87A191EA1FA0C96700D7DC3B /* cm2_play_btn_play.png in Resources */,
 				87A191891FA0105400D7DC3B /* cm2_play_disc@2x.png in Resources */,
 				87A191C81FA0C54E00D7DC3B /* cm2_playlist_icn_loop@2x.png in Resources */,
@@ -1005,14 +1025,14 @@
 				CLANG_WARN_STRICT_PROTOTYPES = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ZA43ZW39F3;
+				DEVELOPMENT_TEAM = 7WAPB4EAX2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos/ReactiveCocoa",
 				);
 				INFOPLIST_FILE = ReactiveCocoaProj/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.netease.vcloud.su2359;
+				PRODUCT_BUNDLE_IDENTIFIER = com.netease.vcloud.su8160;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
@@ -1027,14 +1047,14 @@
 				CLANG_WARN_STRICT_PROTOTYPES = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ZA43ZW39F3;
+				DEVELOPMENT_TEAM = 7WAPB4EAX2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos/ReactiveCocoa",
 				);
 				INFOPLIST_FILE = ReactiveCocoaProj/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.netease.vcloud.su2359;
+				PRODUCT_BUNDLE_IDENTIFIER = com.netease.vcloud.su8160;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
