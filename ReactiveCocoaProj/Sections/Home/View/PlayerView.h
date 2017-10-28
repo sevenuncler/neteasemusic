@@ -11,6 +11,8 @@
 //磁头
 @interface PlayerPointer : UIView
 @property (nonatomic, strong) UIImageView *pointer;
+- (void)play;
+- (void)stop;
 @end
 
 //黑胶片

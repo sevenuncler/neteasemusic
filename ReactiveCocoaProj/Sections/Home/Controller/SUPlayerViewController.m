@@ -43,6 +43,14 @@
     PlayerAssistant *assistant = [[PlayerAssistant alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 70)];
     assistant.botton = progress.top;
     [view addSubview:assistant];
+    
+    CGFloat width = 111;
+    PlayerPointer *pointer = [[PlayerPointer alloc] initWithFrame:CGRectMake(0, 0, width, width*366/222)];
+    pointer.centerX = SCREEN_WIDTH / 2 + 20;
+    pointer.top = 20;
+    [view addSubview:pointer];
+    [pointer stop];
+    [pointer play];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -19,9 +19,18 @@
     return self;
 }
 
+- (void)play {
+    self.transform = CGAffineTransformMakeRotation(0);
+}
+
+- (void)stop {
+    self.transform = CGAffineTransformMakeRotation(-M_LOG10E);
+}
+
 - (UIImageView *)pointer {
     if(!_pointer) {
-        _pointer = [[UIImageView alloc] init];
+        _pointer = [[UIImageView alloc] initWithFrame:self.frame];
+        _pointer.image = [UIImage imageNamed:@"cm2_play_needle_play-ip6"];
     }
     return _pointer;
 }
@@ -120,7 +129,7 @@
 - (UIButton *)likeButton {
     if(!_likeButton) {
         _likeButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_likeButton setImage:[UIImage imageNamed:@"cm2_rcd_icn_love"] forState:UIControlStateNormal];
+        [_likeButton setImage:[UIImage imageNamed:@"cm2_play_icn_love_prs"] forState:UIControlStateNormal];
         [_likeButton setImage:[UIImage imageNamed:@"cm2_play_icn_loved"] forState:UIControlStateSelected];
     }
     return _likeButton;
@@ -129,8 +138,8 @@
 - (UIButton *)downloadButton {
     if(!_downloadButton) {
         _downloadButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_downloadButton setImage:[UIImage imageNamed:@"cm2_rcd_icn_dld"] forState:UIControlStateNormal];
-        [_downloadButton setImage:[UIImage imageNamed:@"cm2_runfm_btn_next_dis"] forState:UIControlStateSelected];
+        [_downloadButton setImage:[UIImage imageNamed:@"cm2_play_icn_dld_prs"] forState:UIControlStateNormal];
+        [_downloadButton setImage:[UIImage imageNamed:@"cm2_play_icn_dld_prs"] forState:UIControlStateSelected];
     }
     return _downloadButton;
 }
@@ -138,8 +147,8 @@
 - (UIButton *)commentButton {
     if(!_commentButton) {
         _commentButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_commentButton setImage:[UIImage imageNamed:@"cm2_runfm_btn_next_dis"] forState:UIControlStateNormal];
-        [_commentButton setImage:[UIImage imageNamed:@"cm2_runfm_btn_next_dis"] forState:UIControlStateSelected];
+        [_commentButton setImage:[UIImage imageNamed:@"cm2_play_icn_cmt_num_prs"] forState:UIControlStateNormal];
+        [_commentButton setImage:[UIImage imageNamed:@"cm2_play_icn_cmt_num_prs"] forState:UIControlStateSelected];
         
     }
     return _commentButton;
@@ -148,8 +157,8 @@
 - (UIButton *)profileButton {
     if(!_profileButton) {
         _profileButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_profileButton setImage:[UIImage imageNamed:@"cm2_runfm_btn_next_dis"] forState:UIControlStateNormal];
-        [_profileButton setImage:[UIImage imageNamed:@"cm2_runfm_btn_next_dis"] forState:UIControlStateSelected];
+        [_profileButton setImage:[UIImage imageNamed:@"cm2_play_icn_more_prs"] forState:UIControlStateNormal];
+        [_profileButton setImage:[UIImage imageNamed:@"cm2_play_icn_more_prs"] forState:UIControlStateSelected];
         
     }
     return _profileButton;
@@ -252,8 +261,8 @@ static CGFloat buttonWidth = 45;
     if(!_playOrderButton) {
         _playOrderButton = [UIButton buttonWithType:UIButtonTypeCustom];
         _playOrderButton.size = CGSizeMake(buttonWidth, buttonWidth);
-        [_playOrderButton setImage:[UIImage imageNamed:@"cm2_playlist_icn_loop"] forState:UIControlStateNormal];
-        [_playOrderButton setImage:[UIImage imageNamed:@"cm2_playlist_icn_shuffle"] forState:UIControlStateSelected];
+        [_playOrderButton setImage:[UIImage imageNamed:@"cm2_icn_loop_prs"] forState:UIControlStateNormal];
+        [_playOrderButton setImage:[UIImage imageNamed:@"cm2_icn_shuffle_prs"] forState:UIControlStateSelected];
     }
     return _playOrderButton;
 }
@@ -262,8 +271,8 @@ static CGFloat buttonWidth = 45;
     if(!_playPreButton) {
         _playPreButton = [UIButton buttonWithType:UIButtonTypeCustom];
         _playPreButton.size = CGSizeMake(buttonWidth, buttonWidth);
-        [_playPreButton setImage:[UIImage imageNamed:@"cm2_play_btn_prev"] forState:UIControlStateNormal];
-        [_playPreButton setImage:[UIImage imageNamed:@"cm2_play_btn_prev"] forState:UIControlStateSelected];
+        [_playPreButton setImage:[UIImage imageNamed:@"cm2_play_btn_prev_prs"] forState:UIControlStateNormal];
+        [_playPreButton setImage:[UIImage imageNamed:@"cm2_play_btn_prev_prs"] forState:UIControlStateSelected];
     }
     return _playPreButton;
 }
@@ -272,8 +281,8 @@ static CGFloat buttonWidth = 45;
     if(!_playNextButton) {
         _playNextButton = [UIButton buttonWithType:UIButtonTypeCustom];
         _playNextButton.size = CGSizeMake(buttonWidth, buttonWidth);
-        [_playNextButton setImage:[UIImage imageNamed:@"cm2_runfm_btn_next_dis"] forState:UIControlStateNormal];
-        [_playNextButton setImage:[UIImage imageNamed:@"cm2_runfm_btn_next_dis"] forState:UIControlStateSelected];
+        [_playNextButton setImage:[UIImage imageNamed:@"cm2_runfm_btn_next_prs"] forState:UIControlStateNormal];
+        [_playNextButton setImage:[UIImage imageNamed:@"cm2_runfm_btn_next_prs"] forState:UIControlStateSelected];
     }
     return _playNextButton;
 }
@@ -292,8 +301,8 @@ static CGFloat buttonWidth = 45;
     if(!_playListButton) {
         _playListButton = [UIButton buttonWithType:UIButtonTypeCustom];
         _playListButton.size = CGSizeMake(buttonWidth, buttonWidth);
-        [_playListButton setImage:[UIImage imageNamed:@"cm2_play_btn_src"] forState:UIControlStateNormal];
-        [_playListButton setImage:[UIImage imageNamed:@"cm2_play_btn_src"] forState:UIControlStateSelected];
+        [_playListButton setImage:[UIImage imageNamed:@"cm2_icn_list_prs"] forState:UIControlStateNormal];
+        [_playListButton setImage:[UIImage imageNamed:@"cm2_icn_list_prs"] forState:UIControlStateSelected];
     }
     return _playListButton;
 }
