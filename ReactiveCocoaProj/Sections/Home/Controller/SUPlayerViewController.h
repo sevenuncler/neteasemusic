@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SUPlayerViewController : UIViewController
 
+@interface SUPlayerViewController : UIViewController
+@property (nonatomic, strong) NSMutableArray *songs;
 @end

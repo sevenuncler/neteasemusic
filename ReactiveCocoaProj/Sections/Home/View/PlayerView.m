@@ -1,5 +1,5 @@
 //
-//  PlayerView.m
+//  Playerself.m
 //  ReactiveCocoaProj
 //
 //  Created by He on 2017/10/25.
@@ -15,16 +15,21 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     if(self = [super initWithFrame:frame]) {
         [self addSubview:self.pointer];
+        [self stop];
     }
     return self;
 }
 
-- (void)play {
-    self.transform = CGAffineTransformMakeRotation(0);
+- (void)start {
+    [UIView animateWithDuration:0.3 animations:^{
+        self.transform = CGAffineTransformMakeRotation(0);
+    }];
 }
 
 - (void)stop {
-    self.transform = CGAffineTransformMakeRotation(-M_LOG10E);
+    [UIView animateWithDuration:0.3 animations:^{
+        self.transform = CGAffineTransformMakeRotation(-M_LOG10E);
+    }];
 }
 
 - (UIImageView *)pointer {
@@ -37,9 +42,14 @@
 
 @end
 
+@interface PlayerLongPlaying()
+@property (nonatomic, strong) dispatch_source_t timer;
+@property (nonatomic, strong) NSTimer *myTimer;
+@end
+
 @implementation PlayerLongPlaying
 {
-    dispatch_source_t timer;
+//    dispatch_source_t timer;
 }
 - (instancetype)initWithFrame:(CGRect)frame {
     if(self = [super initWithFrame:frame]) {
@@ -48,23 +58,32 @@
     }
     return self;
 }
-
+static CGFloat angle = 0;
 - (void)start {
-    timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());
-
     CGFloat timeInternal = 0.01; //每x时间转动一个弧度
-    dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, timeInternal * NSEC_PER_SEC, 1 * NSEC_PER_SEC);
-    static CGFloat angle = M_PI_4/2;
-    dispatch_source_set_event_handler(timer, ^{
-        
+    @weakify(self);
+    self.myTimer = [NSTimer timerWithTimeInterval:timeInternal repeats:YES block:^(NSTimer * _Nonnull timer) {
+        @strongify(self);
         self.container.transform = CGAffineTransformMakeRotation(angle);
         angle += M_PI * timeInternal  / 10;  //20s走完一圈
-    });
-    dispatch_resume(timer);
+    }];
+    
+    [[NSRunLoop currentRunLoop] addTimer:self.myTimer forMode:NSDefaultRunLoopMode];
 }
 
 - (void)stop {
-    dispatch_suspend(timer);
+    if(self.myTimer) {
+        [self.myTimer invalidate];
+        angle = 0;
+        self.container.transform = CGAffineTransformMakeRotation(0);
+        
+    }
+}
+
+- (void)pause {
+    if(self.myTimer) {
+        [self.myTimer invalidate];
+    }
 }
 
 - (UIImageView *)albumsCover {
@@ -177,7 +196,7 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    CGFloat timeWidth = 60;
+    CGFloat timeWidth = 65;
     self.progressSlider.size = CGSizeMake(self.size.width - timeWidth*2, 10);
     self.progressSlider.centerX = self.size.width/2;
     self.progressSlider.centerY = self.size.height/2;
@@ -257,6 +276,16 @@ static CGFloat buttonWidth = 45;
     self.playListButton.centerY = self.playButton.centerY;
 }
 
+- (void)onPlayAction:(UIButton *)sender {
+    sender.selected = !sender.isSelected;
+}
+- (void)onPreAction:(UIButton *)sender {
+    _playStatus = PlayerStatusPre;
+}
+- (void)onNextAction:(UIButton *)sender {
+    _playStatus = PlayerStatusNext;
+}
+
 - (UIButton *)playOrderButton {
     if(!_playOrderButton) {
         _playOrderButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -273,6 +302,7 @@ static CGFloat buttonWidth = 45;
         _playPreButton.size = CGSizeMake(buttonWidth, buttonWidth);
         [_playPreButton setImage:[UIImage imageNamed:@"cm2_play_btn_prev_prs"] forState:UIControlStateNormal];
         [_playPreButton setImage:[UIImage imageNamed:@"cm2_play_btn_prev_prs"] forState:UIControlStateSelected];
+        [_playPreButton addTarget:self action:@selector(onPreAction:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _playPreButton;
 }
@@ -283,6 +313,7 @@ static CGFloat buttonWidth = 45;
         _playNextButton.size = CGSizeMake(buttonWidth, buttonWidth);
         [_playNextButton setImage:[UIImage imageNamed:@"cm2_runfm_btn_next_prs"] forState:UIControlStateNormal];
         [_playNextButton setImage:[UIImage imageNamed:@"cm2_runfm_btn_next_prs"] forState:UIControlStateSelected];
+        [_playNextButton addTarget:self action:@selector(onNextAction:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _playNextButton;
 }
@@ -293,6 +324,7 @@ static CGFloat buttonWidth = 45;
         _playButton.size = CGSizeMake(buttonWidth+15, buttonWidth+15);
         [_playButton setImage:[UIImage imageNamed:@"cm2_runfm_btn_play_prs"] forState:UIControlStateNormal];
         [_playButton setImage:[UIImage imageNamed:@"cm2_runfm_btn_pause"] forState:UIControlStateSelected];
+        [_playButton addTarget:self action:@selector(onPlayAction:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _playButton;
 }
@@ -310,24 +342,101 @@ static CGFloat buttonWidth = 45;
 
 
 @end
+@interface PlayerView()
+@property (nonatomic, strong) PlayerLongPlaying *playerLongPlaying;
+@property (nonatomic, strong) PlayerMenu        *playerMenu;
+@property (nonatomic, strong) PlayerProgress    *playerProgress;
+@property (nonatomic, strong) PlayerAssistant   *playerAssistan;
+@property (nonatomic, strong) PlayerPointer     *playerPointer;
+@end
 
 @implementation PlayerView
 @synthesize backgroudView = _backgroudView;
 @synthesize maskView      = _maskView;
 
+
 - (instancetype)initWithFrame:(CGRect)frame {
     if(self = [super initWithFrame:frame]) {
         [self addSubview:self.backgroudView];
         [self addSubview:self.maskView];
+        [self addSubview:self.playerLongPlaying];
+        [self addSubview:self.playerMenu];
+        [self addSubview:self.playerProgress];
+        [self addSubview:self.playerAssistan];
+        [self addSubview:self.playerPointer];
+        UITextField *text = [UITextField new];
+        [text.rac_textSignal subscribeNext:^(id x) {
+            
+        }];
     }
     return self;
+}
+
+- (void)startPlay {
+    self.playerMenu.playButton.selected = YES;
+    [self.playerPointer start];
+    [self.playerLongPlaying start];
+}
+
+- (void)stopPlay {
+        [self.playerPointer stop];
+        [self.playerLongPlaying stop];
+        self.playerMenu.playButton.selected = NO;
+}
+
+- (void)pausePlay {
+    [self.playerPointer stop];
+    [self.playerLongPlaying pause];
+    self.playerMenu.playButton.selected = NO;
+}
+
+- (void)seekToPlay:(NSTimeInterval)time {
+    
+}
+
+#pragma mark - Getter & Setter
+
+- (RACSignal *)actionSignal {
+    @weakify(self);
+    return [[[RACSignal
+             defer:^RACSignal *{
+                 @strongify(self);
+                 return [RACSignal return:self.playerMenu.playButton];
+             }]
+            concat:[self.playerMenu.playButton rac_signalForControlEvents:UIControlEventTouchUpInside]]
+            map:^id(UIButton *value) {
+                return value;
+            }];
+}
+
+- (RACSignal *)preAndNextSignal {
+    @weakify(self);
+    return [[[RACSignal defer:^RACSignal *{
+                return [RACSignal return:@(0)];
+            }]
+             concat:[self.playerMenu.playNextButton rac_signalForControlEvents:UIControlEventTouchUpInside]]
+             map:^id(id value) {
+                 @strongify(self);
+                 if([self.playerMenu.playNextButton isEqual:value]) {
+                     return @(1);
+                 }else if([self.playerMenu.playPreButton isEqual:value]) {
+                     return @(-1);
+                 }
+                 return @(0);
+            }];
+}
+
+- (RACSignal *)seekSignal {
+    return [[self.playerProgress.progressSlider rac_signalForControlEvents:UIControlEventValueChanged]
+            map:^id(UISlider *value) {
+                return @(value.value);
+            }];
 }
 
 - (UIImageView *)backgroudView {
     if(!_backgroudView) {
         _backgroudView = [[UIImageView alloc] initWithFrame:self.bounds];
-//        _backgroudView.image = [UIImage imageNamed:@"750_1334.jpg"];
-        _backgroudView.backgroundColor = [UIColor blackColor];
+        _backgroudView.backgroundColor = [UIColor lightGrayColor];
     }
     return _backgroudView;
 }
@@ -340,4 +449,64 @@ static CGFloat buttonWidth = 45;
     return _maskView;
 }
 
+- (PlayerPointer *)playerPointer {
+    if(!_playerPointer) {
+        CGFloat width = 111;
+        _playerPointer = [[PlayerPointer alloc] initWithFrame:CGRectMake(0, 0, width, width*366/222)];
+        _playerPointer.layer.anchorPoint = CGPointMake(0.25, 0.15);
+        _playerPointer.centerX = self.size.width / 2;
+        _playerPointer.centerY = 60;
+//        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+//        view.backgroundColor = [UIColor redColor];
+//        view.centerX = self.size.width / 2;
+//        view.centerY = 60;
+//        [self addSubview:view];
+    }
+    return _playerPointer;
+}
+- (PlayerLongPlaying *)playerLongPlaying {
+    if(!_playerLongPlaying) {
+        _playerLongPlaying = [[PlayerLongPlaying alloc] initWithFrame:CGRectMake(0, 0, 300, 300)];
+        _playerLongPlaying.centerX = self.centerX;
+        _playerLongPlaying.centerY = self.centerY*0.89;
+    }
+    return _playerLongPlaying;
+}
+- (PlayerMenu *)playerMenu {
+    if(!_playerMenu) {
+        _playerMenu = [[PlayerMenu alloc] initWithFrame:CGRectMake(0, 500, self.size.width, 120)];
+        _playerMenu.botton = self.botton;
+    }
+    return _playerMenu;
+}
+- (PlayerProgress *)playerProgress {
+    if(!_playerProgress) {
+        _playerProgress = [[PlayerProgress alloc] initWithFrame:CGRectMake(0, 0, self.size.width, 15)];
+        _playerProgress.botton = self.playerMenu.top;
+    }
+    return _playerProgress;
+}
+- (PlayerAssistant *)playerAssistan {
+    if(!_playerAssistan) {
+        _playerAssistan = [[PlayerAssistant alloc] initWithFrame:CGRectMake(0, 0, self.size.width, 70)];
+        _playerAssistan.botton = self.playerProgress.top;
+    }
+    return _playerAssistan;
+}
+
+- (void)setCurrentTime:(NSTimeInterval)currentTime {
+    NSInteger time = (NSInteger)currentTime;
+    NSInteger min  = time/60;
+    NSInteger sec  = time%60;
+    self.playerProgress.currentTime.text = [NSString stringWithFormat:@"%02ld:%02ld", min, sec];
+    self.playerProgress.progressSlider.value = currentTime;
+}
+
+- (void)setTotolTime:(NSTimeInterval)totolTime {
+    NSInteger time = (NSInteger)totolTime;
+    NSInteger min  = time/60;
+    NSInteger sec  = time%60;
+    self.playerProgress.totalTime.text = [NSString stringWithFormat:@"%02ld:%02ld", min, sec];
+    self.playerProgress.progressSlider.maximumValue = totolTime;
+}
 @end
