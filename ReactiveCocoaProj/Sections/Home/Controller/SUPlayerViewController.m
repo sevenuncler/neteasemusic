@@ -95,10 +95,12 @@ typedef NS_ENUM(NSUInteger, PlayListOrder){
     [self.playerView.actionSignal subscribeNext:^(UIButton *x) {
         @strongify(self);
         if(x.isSelected) {
-            self.liveplayer.shouldAutoplay = YES;
-            [self.liveplayer prepareToPlay];
+//            self.liveplayer.shouldAutoplay = YES;
+            [self.liveplayer play];
+            [self.playerView startPlay];
         }else {
             [self.liveplayer pause];
+            [self.playerView pausePlay];
         }
     }];
     
@@ -238,6 +240,8 @@ typedef NS_ENUM(NSUInteger, PlayListOrder){
         NSString *urlString = [self.songs objectAtIndex:_currentIdx];
         _liveplayer = [[NELivePlayerController alloc] initWithContentURL:[NSURL URLWithString:urlString] error:nil];
         _liveplayer.view.frame = self.view.bounds;
+        _liveplayer.shouldAutoplay = NO;
+        [_liveplayer prepareToPlay];
     }
     return _liveplayer;
 }

@@ -62,6 +62,9 @@ static CGFloat angle = 0;
 - (void)start {
     CGFloat timeInternal = 0.01; //每x时间转动一个弧度
     @weakify(self);
+    if(self.myTimer) {
+        [self.myTimer invalidate];
+    }
     self.myTimer = [NSTimer timerWithTimeInterval:timeInternal repeats:YES block:^(NSTimer * _Nonnull timer) {
         @strongify(self);
         self.container.transform = CGAffineTransformMakeRotation(angle);

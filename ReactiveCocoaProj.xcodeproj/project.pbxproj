@@ -644,8 +644,8 @@
 				874CE30F1F9C98AB0075722A /* AlbumsViewCell.m */,
 				87A1917C1F9EBA1B00D7DC3B /* CatagoryView.h */,
 				87A1917D1F9EBA1B00D7DC3B /* CatagoryView.m */,
-				87A191801FA00BBD00D7DC3B /* PlayerView.m */,
 				87A1917F1FA00BBD00D7DC3B /* PlayerView.h */,
+				87A191801FA00BBD00D7DC3B /* PlayerView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
