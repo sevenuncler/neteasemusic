@@ -11,6 +11,8 @@
 #import "Macros.h"
 #import "UIImage+Size.h"
 #import "ViewController.h"
+#import "SUPlayerViewController.h"
+#import "MyTabBarController.h"
 
 @interface AdVC ()
 
@@ -75,20 +77,14 @@
     }
     
     
-    UITabBarController *tabBarController = [UITabBarController new];
+    MyTabBarController *tabBarController = [MyTabBarController new];
     tabBarController.view.tintColor = [UIColor colorWithRed:0.8 green:0 blue:0 alpha:1];
     tabBarController.viewControllers = controllers.copy;
     UINavigationController *mainNaviController = [[UINavigationController alloc] initWithRootViewController:tabBarController];
-    
     mainNaviController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
     [self presentViewController:mainNaviController animated:YES completion:nil];
-
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 /*
 #pragma mark - Navigation

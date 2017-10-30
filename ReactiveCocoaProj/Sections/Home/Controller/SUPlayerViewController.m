@@ -42,6 +42,14 @@ typedef NS_ENUM(NSUInteger, PlayListOrder){
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
 }
++ (instancetype)sharedInstance {
+    static SUPlayerViewController *instance;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        instance = [self new];
+    });
+    return instance;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -49,8 +57,9 @@ typedef NS_ENUM(NSUInteger, PlayListOrder){
     [self bindData];
     [self addPlayerObserver];
     [self.view addSubview:self.playerView];
-    
-//    [self startPlayList];
+    self.hidesBottomBarWhenPushed = YES;
+
+    //    [self startPlayList];
 }
 #pragma mark - Private
 
@@ -129,6 +138,7 @@ typedef NS_ENUM(NSUInteger, PlayListOrder){
 
 - (void)NELivePlayerDidPreparedToPlay:(id)sender {
     NSLog(@"%s", __func__);
+    [self.liveplayer play];
 }
 
 - (void)NeLivePlayerloadStateChanged:(id)sender {

@@ -23,6 +23,7 @@
 #import "CatagoryView.h"
 #import "UIView+Layout.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
+#import "SUPlayerViewController.h"
 
 @interface SUHomeVC ()<UICollectionViewDataSource, UICollectionViewDelegate>
 
@@ -52,6 +53,8 @@ static NSString * const reuseID = @"reuseID";
     [self.view addSubview:self.collecctionView];
     
     [self setUp];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -65,12 +68,19 @@ static NSString * const reuseID = @"reuseID";
 }
 
 - (void)setUp {
+    
+
     @weakify(self);
     [[self.firstView selectedIndexSignal] subscribeNext:^(NSNumber *x) {
         @strongify(self);
         [self.collecctionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:[x integerValue] inSection:0] atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
     }];
+    
 }
+
+
+
+
 
 #pragma mark - UICollectionViewDataSource
 

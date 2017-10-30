@@ -11,4 +11,5 @@
 
 @interface SUPlayerViewController : UIViewController
 @property (nonatomic, strong) NSMutableArray *songs;
++ (instancetype)sharedInstance;
 @end
