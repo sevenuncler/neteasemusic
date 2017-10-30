@@ -80,6 +80,9 @@ static NSString * const reuseID = @"reuseID";
     ReuseCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:generalModel.reuseID forIndexPath:indexPath];
     cell.collectionView.dataSource = generalModel.viewModel;
     cell.collectionView.delegate   = generalModel.viewModel;
+    if([generalModel.viewModel isKindOfClass:[SUGoHorseLampViewModel class]]) {
+        [cell.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:5000 inSection:0]atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
+    }
     
     return cell;
 }
@@ -425,7 +428,7 @@ static NSString * const reuseID = @"reuseID";
     SUGoHorseLampView *view = [[SUGoHorseLampView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WIDTH*0.382)];
     SUGoHorseLampViewModel *viewModel;
     self.goHorseLampVM = [SUGoHorseLampViewModel new];
-    self.goHorseLampVM.items = @[@"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2876169151,2235209253&fm=27&gp=0.jpg", @"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3257648166,2653121674&fm=27&gp=0.jpg", @"https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3372103345,2665413911&fm=27&gp=0.jpg", @"https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3396335410,3051374929&fm=27&gp=0.jpg"].mutableCopy;
+    self.goHorseLampVM.items = @[@"http://p1.music.126.net/Sc2HDX2IvpHPK6xwjk9erQ==/18498183627794682.jpg", @"http://p1.music.126.net/wFXrgibvEmQbpFDCsqOtew==/18979769719067771.jpg", @"http://p1.music.126.net/fQWu3IsaWPPy0cAmbJS7nQ==/19151293533021281.jpg", @"http://p1.music.126.net/gxElIYa1lmLZSh-OiTWmaQ==/19149094509764777.jpg",@"http://p1.music.126.net/kDXfWJ_F52X2T2_TUsxjsQ==/18657612813802698.jpg",@"http://p1.music.126.net/KxGwDQvYnmb7lqwFXiDAPw==/18864320998122907.jpg"].mutableCopy;
 //    @weakify(view);
 //    [self.goHorseLampVM.timerSignal subscribeNext:^(id x) {
 //        @strongify(view);
@@ -451,7 +454,7 @@ static NSString * const reuseID = @"reuseID";
     NSMutableArray *items = @[].mutableCopy;
     {
         SongSetItem *songSetItem = [SongSetItem new];
-        songSetItem.coverImage = @"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2876169151,2235209253&fm=27&gp=0.jpg";
+        songSetItem.coverImage = @"cm4_disc_topbtn_fm";
         songSetItem.title = @"私人FM";
         Layout *layout = [Layout new];
         layout.frame   = CGRectMake(0, 0, width, height);
@@ -460,8 +463,8 @@ static NSString * const reuseID = @"reuseID";
     }
     {
         SongSetItem *songSetItem = [SongSetItem new];
-        songSetItem.coverImage = @"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2876169151,2235209253&fm=27&gp=0.jpg";
-        songSetItem.title = @"私人FM";
+        songSetItem.coverImage = @"cm4_disc_topbtn_daily";
+        songSetItem.title = @"每日推荐";
         Layout *layout = [Layout new];
         layout.frame   = CGRectMake(0, 0, width, height);
         songSetItem.layout = layout;
@@ -469,8 +472,8 @@ static NSString * const reuseID = @"reuseID";
     }
     {
         SongSetItem *songSetItem = [SongSetItem new];
-        songSetItem.coverImage = @"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2876169151,2235209253&fm=27&gp=0.jpg";
-        songSetItem.title = @"私人FM";
+        songSetItem.coverImage = @"cm4_disc_topbtn_list";
+        songSetItem.title = @"歌单";
         Layout *layout = [Layout new];
         layout.frame   = CGRectMake(0, 0, width, height);
         songSetItem.layout = layout;
@@ -478,8 +481,8 @@ static NSString * const reuseID = @"reuseID";
     }
     {
         SongSetItem *songSetItem = [SongSetItem new];
-        songSetItem.coverImage = @"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2876169151,2235209253&fm=27&gp=0.jpg";
-        songSetItem.title = @"私人FM";
+        songSetItem.coverImage = @"cm4_disc_topbtn_rank";
+        songSetItem.title = @"排行榜";
         Layout *layout = [Layout new];
         layout.frame   = CGRectMake(0, 0, width, height);
         songSetItem.layout = layout;

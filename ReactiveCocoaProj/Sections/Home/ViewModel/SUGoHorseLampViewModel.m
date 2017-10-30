@@ -44,21 +44,22 @@
 #pragma mark - UICollectionViewDataSource
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.items.count;
+    return 9999;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     static NSString * const reuseID = @"goHorseCell";
     self.isUsed = YES;
+    collectionView.scrollEnabled = YES;
 //    static dispatch_once_t onceToken;
 //    dispatch_once(&onceToken, ^{
         [collectionView registerClass:[SUGoHorseLampCell class] forCellWithReuseIdentifier:reuseID];
 //    });
     collectionView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
     SUGoHorseLampCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseID forIndexPath:indexPath];
-    
+    NSUInteger idx = indexPath.item % self.items.count;
     SUImageManager *imageManager = [SUImageManager defaultImageManager];
-    [[imageManager imageWithUrl:self.items[indexPath.row]] subscribeNext:^(id x) {
+    [[imageManager imageWithUrl:self.items[idx]] subscribeNext:^(id x) {
         [cell.myImageView setImage:x];
     }];
     

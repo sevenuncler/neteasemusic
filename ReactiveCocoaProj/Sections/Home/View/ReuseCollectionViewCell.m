@@ -33,6 +33,8 @@
         _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height) collectionViewLayout:self.flowLayout];
         _collectionView.pagingEnabled = YES;
         _collectionView.backgroundColor = [UIColor whiteColor];
+        _collectionView.showsHorizontalScrollIndicator = NO;
+        _collectionView.showsVerticalScrollIndicator   = NO;
     }
     return _collectionView;
 }

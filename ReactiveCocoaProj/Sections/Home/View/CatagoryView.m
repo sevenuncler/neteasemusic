@@ -59,7 +59,7 @@
 
 - (void)onSelectedAction:(UISegmentedControl *)sender {
     NSInteger idx = sender.selectedSegmentIndex;
-    self.underLine.centerX = SCREEN_WIDTH / self.items.count * (idx + 0.5);
+//    self.underLine.centerX = SCREEN_WIDTH / self.items.count * (idx + 0.5);
     [self.selectIndexSignal sendNext:@(idx)];
 }
 

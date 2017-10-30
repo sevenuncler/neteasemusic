@@ -11,6 +11,7 @@
 #import "SUItem.h"
 #import "SUImageManager.h"
 #import "SongSetItem.h"
+#import "UIImage+Size.h"
 
 @implementation SetViewModel
 
@@ -20,17 +21,19 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-//    static dispatch_once_t onceToken;
+    collectionView.scrollEnabled = NO;
+    //    static dispatch_once_t onceToken;
 //    dispatch_once(&onceToken, ^{
         [collectionView registerClass:[SongSetView class] forCellWithReuseIdentifier:[SongSetView reuseID]];
 //    });
     collectionView.contentInset = UIEdgeInsetsMake(0, 15, 0, 15);
     SongSetView *songSetViewCell = [collectionView dequeueReusableCellWithReuseIdentifier:[SongSetView reuseID] forIndexPath:indexPath];
     SongSetItem *item = [self.items objectAtIndex:indexPath.item];
-    [[[SUImageManager defaultImageManager] imageWithUrl:item.coverImage] subscribeNext:^(id x) {
-        songSetViewCell.imageView.image = x;
-    }];
+ 
+    songSetViewCell.imageView.image = [UIImage imageNamed:item.coverImage].roundWithBoard(CGSizeMake(30, 30),15,0.8);
+
     songSetViewCell.label.text = item.title;
+    [songSetViewCell setNeedsLayout];
     return songSetViewCell;
 }
 

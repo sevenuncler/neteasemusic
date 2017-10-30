@@ -42,7 +42,7 @@
         CGContextClip(context);
         [self drawInRect:(CGRect){0,0,target}];
         
-        CGContextSetRGBStrokeColor(context,1,1,1,1.0);//画笔线的颜色
+        CGContextSetRGBStrokeColor(context,1,0,0,1.0);//画笔线的颜色
         CGContextSetLineWidth(context, boardWidth);//线的宽度
         //void CGContextAddArc(CGContextRef c,CGFloat x, CGFloat y,CGFloat radius,CGFloat startAngle,CGFloat endAngle, int clockwise)1弧度＝180°/π （≈57.3°） 度＝弧度×180°/π 360°＝360×π/180 ＝2π 弧度
         // x,y为圆点坐标，radius半径，startAngle为开始的弧度，endAngle为 结束的弧度，clockwise 0为顺时针，1为逆时针。
