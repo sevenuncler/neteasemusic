@@ -15,5 +15,6 @@
 @property (nonatomic, strong) id<UICollectionViewDelegate, UICollectionViewDataSource> viewModel;
 @property (nonatomic, copy)   NSString *reuseID;
 @property (nonatomic, strong) Layout   *layout;
-
+@property (nonatomic, assign) CGSize   headerSize;
+@property (nonatomic, assign) CGSize   footerSize;
 @end

@@ -24,9 +24,11 @@
 #import "AlbumsItem.h"
 #import "AlbumsViewModel.h"
 #import "UIView+Layout.h"
+#import "HeaderView.h"
+#import "FooterView.h"
 
 
-@interface MusicVC ()<UICollectionViewDataSource, UICollectionViewDelegate>
+@interface MusicVC ()<UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, strong) UICollectionView           *collectionView;
 @property (nonatomic, strong) UICollectionViewFlowLayout *flowLayout;
@@ -71,9 +73,17 @@ static NSString * const reuseID = @"reuseID";
     return 1;
 }
 
-//- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
-//    return nil;
-//}
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
+    NSString *reuseHeader = @"reuseHeader";
+    NSString *reuseFotter = @"reuseFooter";
+    UICollectionReusableView *reuseView;
+    if([kind isEqualToString:UICollectionElementKindSectionHeader]) {
+        reuseView = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:reuseHeader forIndexPath:indexPath];
+    }else {
+        reuseView = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:reuseFotter forIndexPath:indexPath];
+    }
+    return reuseView;
+}
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     GeneralModel *generalModel = [self.items objectAtIndex:indexPath.section];
@@ -87,11 +97,20 @@ static NSString * const reuseID = @"reuseID";
     return cell;
 }
 
-#pragma mark - UICollectionViewFlowLayoutDelegate
+#pragma mark - UICollectionViewDelegateFlowLayout
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     GeneralModel *generalModel = [self.items objectAtIndex:indexPath.section];
     return generalModel.layout.frame.size;
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
+    GeneralModel *generalModel = [self.items objectAtIndex:section];
+    return generalModel.headerSize;
+}
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section {
+    GeneralModel *generalModel = [self.items objectAtIndex:section];
+    return generalModel.footerSize;
 }
 
 #pragma mark - Internal
@@ -342,7 +361,8 @@ static NSString * const reuseID = @"reuseID";
     Layout *layout = [Layout new];
     layout.frame   = CGRectMake(0, 0, SCREEN_WIDTH, itemHeight * 2 + 20);
     generalModel.layout = layout;
-    
+    generalModel.headerSize = CGSizeMake(self.view.size.width, 44);
+    generalModel.footerSize = CGSizeMake(self.view.size.width, 0.5);
     generalModel.reuseID = [ReuseCollectionViewCell reuseID];
     
     [self.items addObject:generalModel];
@@ -418,7 +438,8 @@ static NSString * const reuseID = @"reuseID";
     Layout *layout = [Layout new];
     layout.frame   = CGRectMake(0, 0, SCREEN_WIDTH, itemHeight * 2 + 20);
     generalModel.layout = layout;
-    
+    generalModel.headerSize = CGSizeMake(self.view.size.width, 44);
+    generalModel.footerSize = CGSizeMake(self.view.size.width, 0.5);
     generalModel.reuseID = [ReuseCollectionViewCell reuseID];
     
     [self.items addObject:generalModel];
@@ -496,6 +517,7 @@ static NSString * const reuseID = @"reuseID";
     Layout *layout = [Layout new];
     layout.frame = CGRectMake(0, 0, SCREEN_WIDTH, height + 30);
     generalModel.layout = layout;
+    generalModel.footerSize = CGSizeMake(self.view.size.width, 0.5);
     [self.items addObject:generalModel];
 }
 
@@ -510,6 +532,8 @@ static NSString * const reuseID = @"reuseID";
         _collectionView.delegate       = self;
         [_collectionView registerClass:[SUCollectionViewCell class] forCellWithReuseIdentifier:reuseID];
         [_collectionView registerClass:[ReuseCollectionViewCell class] forCellWithReuseIdentifier:[ReuseCollectionViewCell reuseID]];
+        [_collectionView registerClass:[HeaderView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"reuseHeader"];
+        [_collectionView registerClass:[FooterView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"reuseFooter"];
     }
     return _collectionView;
 }

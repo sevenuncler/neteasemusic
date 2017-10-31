@@ -118,6 +118,11 @@
 		873B0D701FA76F620088DFD0 /* cm4_disc_topbtn_rank-ip6@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 873B0D601FA76F620088DFD0 /* cm4_disc_topbtn_rank-ip6@2x.png */; };
 		873B0D711FA76F620088DFD0 /* cm4_disc_topbtn_list@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 873B0D611FA76F620088DFD0 /* cm4_disc_topbtn_list@3x.png */; };
 		873B0D721FA76F620088DFD0 /* cm4_disc_topbtn_fm@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 873B0D621FA76F620088DFD0 /* cm4_disc_topbtn_fm@2x.png */; };
+		873B0D751FA7F4DA0088DFD0 /* HeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 873B0D741FA7F4DA0088DFD0 /* HeaderView.m */; };
+		873B0D791FA7FA100088DFD0 /* cm2_list_icn_arr_fold@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 873B0D761FA7FA0F0088DFD0 /* cm2_list_icn_arr_fold@2x.png */; };
+		873B0D7A1FA7FA100088DFD0 /* cm2_list_icn_arr_fold.png in Resources */ = {isa = PBXBuildFile; fileRef = 873B0D771FA7FA0F0088DFD0 /* cm2_list_icn_arr_fold.png */; };
+		873B0D7B1FA7FA100088DFD0 /* cm2_list_icn_arr_fold@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 873B0D781FA7FA0F0088DFD0 /* cm2_list_icn_arr_fold@3x.png */; };
+		873B0D7E1FA7FBEC0088DFD0 /* FooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 873B0D7D1FA7FBEC0088DFD0 /* FooterView.m */; };
 		874CE3011F9C4F1E0075722A /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87085DBB1F7DC70E009065C8 /* ReactiveCocoa.framework */; };
 		874CE3041F9C53490075722A /* RecommandSongViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 874CE3031F9C53490075722A /* RecommandSongViewCell.m */; };
 		874CE3071F9C59300075722A /* Song.m in Sources */ = {isa = PBXBuildFile; fileRef = 874CE3061F9C59300075722A /* Song.m */; };
@@ -355,6 +360,13 @@
 		873B0D601FA76F620088DFD0 /* cm4_disc_topbtn_rank-ip6@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cm4_disc_topbtn_rank-ip6@2x.png"; sourceTree = "<group>"; };
 		873B0D611FA76F620088DFD0 /* cm4_disc_topbtn_list@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cm4_disc_topbtn_list@3x.png"; sourceTree = "<group>"; };
 		873B0D621FA76F620088DFD0 /* cm4_disc_topbtn_fm@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cm4_disc_topbtn_fm@2x.png"; sourceTree = "<group>"; };
+		873B0D731FA7F4DA0088DFD0 /* HeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeaderView.h; sourceTree = "<group>"; };
+		873B0D741FA7F4DA0088DFD0 /* HeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HeaderView.m; sourceTree = "<group>"; };
+		873B0D761FA7FA0F0088DFD0 /* cm2_list_icn_arr_fold@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cm2_list_icn_arr_fold@2x.png"; sourceTree = "<group>"; };
+		873B0D771FA7FA0F0088DFD0 /* cm2_list_icn_arr_fold.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cm2_list_icn_arr_fold.png; sourceTree = "<group>"; };
+		873B0D781FA7FA0F0088DFD0 /* cm2_list_icn_arr_fold@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cm2_list_icn_arr_fold@3x.png"; sourceTree = "<group>"; };
+		873B0D7C1FA7FBEC0088DFD0 /* FooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FooterView.h; sourceTree = "<group>"; };
+		873B0D7D1FA7FBEC0088DFD0 /* FooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FooterView.m; sourceTree = "<group>"; };
 		874CE3021F9C53490075722A /* RecommandSongViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecommandSongViewCell.h; sourceTree = "<group>"; };
 		874CE3031F9C53490075722A /* RecommandSongViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecommandSongViewCell.m; sourceTree = "<group>"; };
 		874CE3051F9C59300075722A /* Song.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Song.h; sourceTree = "<group>"; };
@@ -693,6 +705,10 @@
 				87A1917D1F9EBA1B00D7DC3B /* CatagoryView.m */,
 				87A1917F1FA00BBD00D7DC3B /* PlayerView.h */,
 				87A191801FA00BBD00D7DC3B /* PlayerView.m */,
+				873B0D731FA7F4DA0088DFD0 /* HeaderView.h */,
+				873B0D741FA7F4DA0088DFD0 /* HeaderView.m */,
+				873B0D7C1FA7FBEC0088DFD0 /* FooterView.h */,
+				873B0D7D1FA7FBEC0088DFD0 /* FooterView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -825,6 +841,9 @@
 		87A191821FA0102F00D7DC3B /* play */ = {
 			isa = PBXGroup;
 			children = (
+				873B0D771FA7FA0F0088DFD0 /* cm2_list_icn_arr_fold.png */,
+				873B0D761FA7FA0F0088DFD0 /* cm2_list_icn_arr_fold@2x.png */,
+				873B0D781FA7FA0F0088DFD0 /* cm2_list_icn_arr_fold@3x.png */,
 				873B0D531FA76F600088DFD0 /* cm4_disc_topbtn_daily-ip6@2x.png */,
 				873B0D5C1FA76F610088DFD0 /* cm4_disc_topbtn_daily.png */,
 				873B0D581FA76F610088DFD0 /* cm4_disc_topbtn_daily@2x.png */,
@@ -989,7 +1008,7 @@
 				TargetAttributes = {
 					87085DA01F7DC61B009065C8 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = 7WAPB4EAX2;
+						DevelopmentTeam = ZA43ZW39F3;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -1045,7 +1064,9 @@
 				872D10E11F94E0E000A293FA /* 750_1334.jpg in Resources */,
 				87085DB11F7DC61B009065C8 /* Assets.xcassets in Resources */,
 				871979621FA2BC330068B1F3 /* cm2_play_needle_play@2x.png in Resources */,
+				873B0D791FA7FA100088DFD0 /* cm2_list_icn_arr_fold@2x.png in Resources */,
 				873B0D641FA76F620088DFD0 /* cm4_disc_topbtn_fm.png in Resources */,
+				873B0D7A1FA7FA100088DFD0 /* cm2_list_icn_arr_fold.png in Resources */,
 				871979A01FA411D00068B1F3 /* cm2_icn_one_prs@3x.png in Resources */,
 				87A192081FA0CB5A00D7DC3B /* cm2_runfm_btn_play_prs@2x.png in Resources */,
 				87A191B61FA0C54E00D7DC3B /* cm2_playlist_icn_shuffle_prs@3x.png in Resources */,
@@ -1105,6 +1126,7 @@
 				872D10D81F94D7C600A293FA /* cover.jpg in Resources */,
 				87A191EE1FA0C96700D7DC3B /* cm2_play_btn_pause@2x.png in Resources */,
 				8719799D1FA411D00068B1F3 /* cm2_icn_shuffle_prs@3x.png in Resources */,
+				873B0D7B1FA7FA100088DFD0 /* cm2_list_icn_arr_fold@3x.png in Resources */,
 				87A191931FA0B78900D7DC3B /* cm2_play_disc_mask.png in Resources */,
 				871979821FA410230068B1F3 /* cm2_play_icn_cmt_num_prs@3x.png in Resources */,
 				87A191B71FA0C54E00D7DC3B /* cm2_playlist_icn_shuffle_prs.png in Resources */,
@@ -1216,6 +1238,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8793B2CC1F95810C006DDC24 /* MusicVC.m in Sources */,
+				873B0D751FA7F4DA0088DFD0 /* HeaderView.m in Sources */,
 				872D10D61F9261D600A293FA /* Animator.m in Sources */,
 				87085DD71F7F1D91009065C8 /* SUTableViewCell.m in Sources */,
 				87A1917E1F9EBA1B00D7DC3B /* CatagoryView.m in Sources */,
@@ -1249,6 +1272,7 @@
 				873B0D0C1FA4BD300088DFD0 /* SUDownloadTask.m in Sources */,
 				87085DA91F7DC61B009065C8 /* AppDelegate.m in Sources */,
 				874CE30A1F9C59530075722A /* RecommandSong.m in Sources */,
+				873B0D7E1FA7FBEC0088DFD0 /* FooterView.m in Sources */,
 				87A191811FA00BBD00D7DC3B /* PlayerView.m in Sources */,
 				873B0D0D1FA4BD300088DFD0 /* SURange.m in Sources */,
 				874CE3041F9C53490075722A /* RecommandSongViewCell.m in Sources */,
@@ -1397,7 +1421,7 @@
 				CLANG_WARN_STRICT_PROTOTYPES = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7WAPB4EAX2;
+				DEVELOPMENT_TEAM = ZA43ZW39F3;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos/ReactiveCocoa",
@@ -1409,7 +1433,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/ReactiveCocoaProj/libs",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.netease.vcloud.su2048;
+				PRODUCT_BUNDLE_IDENTIFIER = com.netease.vcloud.fh65536;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
@@ -1424,7 +1448,7 @@
 				CLANG_WARN_STRICT_PROTOTYPES = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7WAPB4EAX2;
+				DEVELOPMENT_TEAM = ZA43ZW39F3;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos/ReactiveCocoa",
@@ -1436,7 +1460,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/ReactiveCocoaProj/libs",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.netease.vcloud.su2048;
+				PRODUCT_BUNDLE_IDENTIFIER = com.netease.vcloud.fh65536;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
