@@ -43,7 +43,7 @@
     
     [self.subTitleLabel sizeToFit];
     self.subTitleLabel.top    = self.titleLabel.botton;
-    self.subTitleLabel.left   = 0;
+    self.subTitleLabel.left   = self.titleLabel.left;
     
     [self.listenedLabel sizeToFit];
     self.listenedLabel.top    = 0;

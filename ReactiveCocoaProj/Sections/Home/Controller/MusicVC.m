@@ -155,7 +155,8 @@ static NSString * const reuseID = @"reuseID";
     Layout *layout = [Layout new];
     layout.frame   = CGRectMake(0, 0, SCREEN_WIDTH, itemHeight + 20);
     generalModel.layout = layout;
-    
+    generalModel.headerSize = CGSizeMake(self.view.size.width, 44);
+    generalModel.headerTitle = @"推荐MV";
     generalModel.reuseID = [ReuseCollectionViewCell reuseID];
     
     [self.items addObject:generalModel];
@@ -212,7 +213,8 @@ static NSString * const reuseID = @"reuseID";
     Layout *layout = [Layout new];
     layout.frame   = CGRectMake(0, 0, SCREEN_WIDTH, itemHeight * 2 + 20);
     generalModel.layout = layout;
-    
+    generalModel.headerSize = CGSizeMake(self.view.size.width, 44);
+    generalModel.headerTitle = @"最新音乐";
     generalModel.reuseID = [ReuseCollectionViewCell reuseID];
     
     [self.items addObject:generalModel];
@@ -289,14 +291,15 @@ static NSString * const reuseID = @"reuseID";
     Layout *layout = [Layout new];
     layout.frame   = CGRectMake(0, 0, SCREEN_WIDTH, itemHeight * 2 + 20);
     generalModel.layout = layout;
-    
+    generalModel.headerSize = CGSizeMake(self.view.size.width, 44);
+    generalModel.headerTitle = @"独家放送";
     generalModel.reuseID = [ReuseCollectionViewCell reuseID];
     
     [self.items addObject:generalModel];
 }
 - (void)setUpAnchorView {
     CGFloat itemWidth  = SCREEN_WIDTH / 3 - 10;
-    CGFloat itemHeight = SCREEN_WIDTH / 3 + 10;
+    CGFloat itemHeight = SCREEN_WIDTH / 3 + 25;
     GeneralModel *generalModel = [GeneralModel new];
     
     RecommandSongViewModel *recommandSongVM = [RecommandSongViewModel new];
@@ -435,8 +438,8 @@ static NSString * const reuseID = @"reuseID";
 //        recommandSong.layout = layout;
 //        [recommandSongVM.items addObject:recommandSong];
 //    }
-        [recommandSongVM loadData];
-        [recommandSongVM loadData];
+    [recommandSongVM loadData];
+    [recommandSongVM loadData];
     [recommandSongVM loadData];
     [recommandSongVM loadData];
     [recommandSongVM loadData];
