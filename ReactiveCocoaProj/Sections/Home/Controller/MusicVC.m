@@ -77,8 +77,11 @@ static NSString * const reuseID = @"reuseID";
     NSString *reuseHeader = @"reuseHeader";
     NSString *reuseFotter = @"reuseFooter";
     UICollectionReusableView *reuseView;
+    GeneralModel *generalModel = [self.items objectAtIndex:indexPath.section];
     if([kind isEqualToString:UICollectionElementKindSectionHeader]) {
         reuseView = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:reuseHeader forIndexPath:indexPath];
+        HeaderView *headerView = (HeaderView *)reuseView;
+        headerView.titleLable.text = generalModel.headerTitle;
     }else {
         reuseView = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:reuseFotter forIndexPath:indexPath];
     }
@@ -362,7 +365,7 @@ static NSString * const reuseID = @"reuseID";
     layout.frame   = CGRectMake(0, 0, SCREEN_WIDTH, itemHeight * 2 + 20);
     generalModel.layout = layout;
     generalModel.headerSize = CGSizeMake(self.view.size.width, 44);
-    generalModel.footerSize = CGSizeMake(self.view.size.width, 0.5);
+    generalModel.headerTitle = @"主播电台";
     generalModel.reuseID = [ReuseCollectionViewCell reuseID];
     
     [self.items addObject:generalModel];
@@ -374,64 +377,70 @@ static NSString * const reuseID = @"reuseID";
     GeneralModel *generalModel = [GeneralModel new];
 
     RecommandSongViewModel *recommandSongVM = [RecommandSongViewModel new];
-    {
-        RecommandSong *recommandSong = [RecommandSong new];
-        recommandSong.coverPath = @"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2876169151,2235209253&fm=27&gp=0.jpg";
-        recommandSong.title     = @"如何把一份外卖吃出仪式感";
-        recommandSong.listenedCount = @"999万";
-        Layout *layout = [Layout new];
-        layout.frame   = CGRectMake(0, 0, itemWidth, itemHeight);
-        recommandSong.layout = layout;
-        [recommandSongVM.items addObject:recommandSong];
-    }
-    {
-        RecommandSong *recommandSong = [RecommandSong new];
-        recommandSong.coverPath = @"https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3372103345,2665413911&fm=27&gp=0.jpg";
-        recommandSong.title     = @"如何把一份外卖吃出仪式感";
-        recommandSong.listenedCount = @"999万";
-        Layout *layout = [Layout new];
-        layout.frame   = CGRectMake(0, 0, itemWidth, itemHeight);
-        recommandSong.layout = layout;
-        [recommandSongVM.items addObject:recommandSong];
-    }
-    {
-        RecommandSong *recommandSong = [RecommandSong new];
-        recommandSong.coverPath = @"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2876169151,2235209253&fm=27&gp=0.jpg";
-        recommandSong.title     = @"如何把一份外卖吃出仪式感";
-        recommandSong.listenedCount = @"999万";
-        Layout *layout = [Layout new];
-        layout.frame   = CGRectMake(0, 0, itemWidth, itemHeight);
-        recommandSong.layout = layout;
-        [recommandSongVM.items addObject:recommandSong];
-    }
-    {
-        RecommandSong *recommandSong = [RecommandSong new];
-        recommandSong.coverPath = @"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2876169151,2235209253&fm=27&gp=0.jpg";
-        recommandSong.title     = @"如何把一份外卖吃出仪式感";
-        recommandSong.listenedCount = @"999万";
-        Layout *layout = [Layout new];
-        layout.frame   = CGRectMake(0, 0, itemWidth, itemHeight);
-        recommandSong.layout = layout;
-        [recommandSongVM.items addObject:recommandSong];
-    }{
-        RecommandSong *recommandSong = [RecommandSong new];
-        recommandSong.coverPath = @"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2876169151,2235209253&fm=27&gp=0.jpg";
-        recommandSong.title     = @"如何把一份外卖吃出仪式感";
-        recommandSong.listenedCount = @"999万";
-        Layout *layout = [Layout new];
-        layout.frame   = CGRectMake(0, 0, itemWidth, itemHeight);
-        recommandSong.layout = layout;
-        [recommandSongVM.items addObject:recommandSong];
-    }{
-        RecommandSong *recommandSong = [RecommandSong new];
-        recommandSong.coverPath = @"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2876169151,2235209253&fm=27&gp=0.jpg";
-        recommandSong.title     = @"如何把一份外卖吃出仪式感";
-        recommandSong.listenedCount = @"999万";
-        Layout *layout = [Layout new];
-        layout.frame   = CGRectMake(0, 0, itemWidth, itemHeight);
-        recommandSong.layout = layout;
-        [recommandSongVM.items addObject:recommandSong];
-    }
+//    {
+//        RecommandSong *recommandSong = [RecommandSong new];
+//        recommandSong.coverPath = @"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2876169151,2235209253&fm=27&gp=0.jpg";
+//        recommandSong.title     = @"如何把一份外卖吃出仪式感";
+//        recommandSong.listenedCount = @"999万";
+//        Layout *layout = [Layout new];
+//        layout.frame   = CGRectMake(0, 0, itemWidth, itemHeight);
+//        recommandSong.layout = layout;
+//        [recommandSongVM.items addObject:recommandSong];
+//    }
+//    {
+//        RecommandSong *recommandSong = [RecommandSong new];
+//        recommandSong.coverPath = @"https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3372103345,2665413911&fm=27&gp=0.jpg";
+//        recommandSong.title     = @"蓦然回首，极度荣庆";
+//        recommandSong.listenedCount = @"999万";
+//        Layout *layout = [Layout new];
+//        layout.frame   = CGRectMake(0, 0, itemWidth, itemHeight);
+//        recommandSong.layout = layout;
+//        [recommandSongVM.items addObject:recommandSong];
+//    }
+//    {
+//        RecommandSong *recommandSong = [RecommandSong new];
+//        recommandSong.coverPath = @"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2876169151,2235209253&fm=27&gp=0.jpg";
+//        recommandSong.title     = @"适合在婚礼上放的歌曲";
+//        recommandSong.listenedCount = @"999万";
+//        Layout *layout = [Layout new];
+//        layout.frame   = CGRectMake(0, 0, itemWidth, itemHeight);
+//        recommandSong.layout = layout;
+//        [recommandSongVM.items addObject:recommandSong];
+//    }
+//    {
+//        RecommandSong *recommandSong = [RecommandSong new];
+//        recommandSong.coverPath = @"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2876169151,2235209253&fm=27&gp=0.jpg";
+//        recommandSong.title     = @"兽人永不为奴";
+//        recommandSong.listenedCount = @"999万";
+//        Layout *layout = [Layout new];
+//        layout.frame   = CGRectMake(0, 0, itemWidth, itemHeight);
+//        recommandSong.layout = layout;
+//        [recommandSongVM.items addObject:recommandSong];
+//    }{
+//        RecommandSong *recommandSong = [RecommandSong new];
+//        recommandSong.coverPath = @"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2876169151,2235209253&fm=27&gp=0.jpg";
+//        recommandSong.title     = @"洛丹伦的夏天";
+//        recommandSong.listenedCount = @"999万";
+//        Layout *layout = [Layout new];
+//        layout.frame   = CGRectMake(0, 0, itemWidth, itemHeight);
+//        recommandSong.layout = layout;
+//        [recommandSongVM.items addObject:recommandSong];
+//    }{
+//        RecommandSong *recommandSong = [RecommandSong new];
+//        recommandSong.coverPath = @"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2876169151,2235209253&fm=27&gp=0.jpg";
+//        recommandSong.title     = @"巫妖王之怒";
+//        recommandSong.listenedCount = @"999万";
+//        Layout *layout = [Layout new];
+//        layout.frame   = CGRectMake(0, 0, itemWidth, itemHeight);
+//        recommandSong.layout = layout;
+//        [recommandSongVM.items addObject:recommandSong];
+//    }
+        [recommandSongVM loadData];
+        [recommandSongVM loadData];
+    [recommandSongVM loadData];
+    [recommandSongVM loadData];
+    [recommandSongVM loadData];
+    [recommandSongVM loadData];
     
     generalModel.viewModel = recommandSongVM;
     
@@ -439,7 +448,7 @@ static NSString * const reuseID = @"reuseID";
     layout.frame   = CGRectMake(0, 0, SCREEN_WIDTH, itemHeight * 2 + 20);
     generalModel.layout = layout;
     generalModel.headerSize = CGSizeMake(self.view.size.width, 44);
-    generalModel.footerSize = CGSizeMake(self.view.size.width, 0.5);
+    generalModel.headerTitle = @"推荐歌单";
     generalModel.reuseID = [ReuseCollectionViewCell reuseID];
     
     [self.items addObject:generalModel];

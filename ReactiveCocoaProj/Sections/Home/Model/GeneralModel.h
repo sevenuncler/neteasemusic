@@ -17,4 +17,5 @@
 @property (nonatomic, strong) Layout   *layout;
 @property (nonatomic, assign) CGSize   headerSize;
 @property (nonatomic, assign) CGSize   footerSize;
+@property (nonatomic, copy)   NSString *headerTitle;
 @end

@@ -37,8 +37,8 @@
     self.coverImageView.frame = CGRectMake(0, 0, self.size.width, self.size.width);
     
     CGSize size = [self.titleLabel sizeThatFits:CGSizeMake(self.size.width, 0)];
-    self.titleLabel.top       = self.coverImageView.botton;
-    self.titleLabel.left      = 0;
+    self.titleLabel.top       = self.coverImageView.botton+5;
+    self.titleLabel.left      = 5;
     self.titleLabel.size      = size;
     
     [self.subTitleLabel sizeToFit];
@@ -64,7 +64,8 @@
     if(!_titleLabel) {
         _titleLabel = [UILabel new];
         _titleLabel.numberOfLines = 2;
-        _titleLabel.font = [UIFont systemFontOfSize:14];
+        _titleLabel.font = [UIFont systemFontOfSize:12];
+        
     }
     return _titleLabel;
 }

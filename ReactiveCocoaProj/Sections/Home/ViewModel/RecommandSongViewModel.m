@@ -11,8 +11,75 @@
 #import "RecommandSong.h"
 #import "SUImageManager.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
+#import "Macros.h"
+
+@interface RecommandSongViewModel () <NSURLSessionDataDelegate>
+@property (nonatomic, weak) UICollectionView *collection;
+@end
 
 @implementation RecommandSongViewModel
+@synthesize items = _items;
+- (instancetype)init {
+    if(self = [super init]) {
+        
+    }
+    return self;
+}
+
+- (void)loadData {
+    NSString *urlString = [NSString stringWithFormat:@"https://api.douban.com/v2/book/122%04d", arc4random()%10000];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]
+                                                           cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:30];
+    //    request.HTTPMethod = @"GET";
+    [request setValue:@"我只在乎你" forHTTPHeaderField:@"tag"];
+    //    [request setValue:@"周" forHTTPHeaderField:@"q"];
+    [request setValue:@"0" forHTTPHeaderField:@"start"];
+    [request setValue:@"12" forHTTPHeaderField:@"count"];
+    [request setValue:@"12" forHTTPHeaderField:@"apikey"];
+    
+    
+    
+    NSURLSessionConfiguration *sessionConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSOperationQueue *operationQueue = [NSOperationQueue mainQueue];
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfiguration delegate:self delegateQueue:operationQueue];
+    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request];
+    [dataTask resume];
+}
+
+#pragma mark - NSURLSessionDataDelegate
+
+- (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask
+didReceiveResponse:(NSURLResponse *)response
+ completionHandler:(void (^)(NSURLSessionResponseDisposition disposition))completionHandler {
+    NSLog(@"%@", response);
+    //允许服务器回传数据
+    completionHandler(NSURLSessionResponseAllow);
+}
+
+-(void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveData:(NSData *)data{
+    NSMutableDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+    CGFloat itemWidth  = SCREEN_WIDTH / 3 - 10;
+    CGFloat itemHeight = SCREEN_WIDTH / 3 + 25;
+    NSLog(@"%@", dict);
+    {
+        RecommandSong *recommandSong = [RecommandSong new];
+        recommandSong.coverPath = dict[@"image"];
+        recommandSong.title     = dict[@"title"];
+        recommandSong.listenedCount = dict[@"pages"];
+        Layout *layout = [Layout new];
+        layout.frame   = CGRectMake(0, 0, itemWidth, itemHeight);
+        recommandSong.layout = layout;
+        [self.items addObject:recommandSong];
+    }
+    if(self.collection) {
+        @synchronized(self) {
+            [self.collection reloadData];
+        }
+    }
+}
+-(void)URLSession:(NSURLSession *)session didBecomeInvalidWithError:(NSError *)error{
+    NSLog(@"%@",error);
+}
 
 #pragma mark - UICollectionViewDataSource
 
@@ -20,11 +87,12 @@
     return self.items.count <= 2?1:2;
 }
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    if(self.items.count == 0){
-        return 0;
-    }else if(self.items.count == 2) {
-        return 2;
-    }
+    self.collection = collectionView;
+//    if(self.items.count == 0){
+//        return 0;
+//    }else if(self.items.count == 2) {
+//        return 2;
+//    }
     return self.items.count / 2;
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -64,10 +132,17 @@
 }
 
 - (NSMutableArray *)items {
+//    @synchronized(self){
     if(!_items) {
         _items = [NSMutableArray new];
     }
     return _items;
+//    }
+}
+- (void)setItems:(NSMutableArray *)items {
+//    @synchronized(self){
+        _items = [items mutableCopy];
+//    }
 }
 
 @end
