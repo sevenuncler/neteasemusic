@@ -143,6 +143,9 @@
 		875539791FAA175A00A7628F /* cm2_btm_icn_account@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8755396D1FAA175A00A7628F /* cm2_btm_icn_account@2x.png */; };
 		8755397A1FAA175A00A7628F /* cm2_btm_icn_friend@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8755396E1FAA175A00A7628F /* cm2_btm_icn_friend@2x.png */; };
 		8755397B1FAA175A00A7628F /* cm2_btm_icn_account.png in Resources */ = {isa = PBXBuildFile; fileRef = 8755396F1FAA175A00A7628F /* cm2_btm_icn_account.png */; };
+		8755398D1FAA946700A7628F /* MyMusicVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8755398C1FAA946700A7628F /* MyMusicVC.m */; };
+		875539901FAA965A00A7628F /* MyMusicViewStaticCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8755398F1FAA965A00A7628F /* MyMusicViewStaticCell.m */; };
+		875539931FAA9CA900A7628F /* SUGeneralItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 875539921FAA9CA900A7628F /* SUGeneralItem.m */; };
 		875C2F841F977F1800145E57 /* SongSetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 875C2F831F977F1800145E57 /* SongSetView.m */; };
 		875C2F871F97808200145E57 /* UIView+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = 875C2F861F97808200145E57 /* UIView+Layout.m */; };
 		875C2F8A1F97858000145E57 /* ReuseCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 875C2F891F97858000145E57 /* ReuseCollectionViewCell.m */; };
@@ -405,6 +408,12 @@
 		8755396D1FAA175A00A7628F /* cm2_btm_icn_account@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cm2_btm_icn_account@2x.png"; sourceTree = "<group>"; };
 		8755396E1FAA175A00A7628F /* cm2_btm_icn_friend@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cm2_btm_icn_friend@2x.png"; sourceTree = "<group>"; };
 		8755396F1FAA175A00A7628F /* cm2_btm_icn_account.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cm2_btm_icn_account.png; sourceTree = "<group>"; };
+		8755398B1FAA946700A7628F /* MyMusicVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyMusicVC.h; sourceTree = "<group>"; };
+		8755398C1FAA946700A7628F /* MyMusicVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyMusicVC.m; sourceTree = "<group>"; };
+		8755398E1FAA965A00A7628F /* MyMusicViewStaticCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyMusicViewStaticCell.h; sourceTree = "<group>"; };
+		8755398F1FAA965A00A7628F /* MyMusicViewStaticCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyMusicViewStaticCell.m; sourceTree = "<group>"; };
+		875539911FAA9CA900A7628F /* SUGeneralItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SUGeneralItem.h; sourceTree = "<group>"; };
+		875539921FAA9CA900A7628F /* SUGeneralItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SUGeneralItem.m; sourceTree = "<group>"; };
 		875C2F821F977F1800145E57 /* SongSetView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SongSetView.h; sourceTree = "<group>"; };
 		875C2F831F977F1800145E57 /* SongSetView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SongSetView.m; sourceTree = "<group>"; };
 		875C2F851F97808200145E57 /* UIView+Layout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Layout.h"; sourceTree = "<group>"; };
@@ -643,6 +652,9 @@
 		87085DBD1F7DC79D009065C8 /* Sections */ = {
 			isa = PBXGroup;
 			children = (
+				8755397C1FAA93B500A7628F /* Account */,
+				875539861FAA93B500A7628F /* Friend */,
+				875539811FAA93B500A7628F /* MyMusic */,
 				8793B2C21F94EDDC006DDC24 /* Ads */,
 				87085DBE1F7DC79D009065C8 /* Home */,
 			);
@@ -849,6 +861,129 @@
 				873B0D1A1FA600B50088DFD0 /* NELivePlayerController.h */,
 			);
 			path = include;
+			sourceTree = "<group>";
+		};
+		8755397C1FAA93B500A7628F /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				8755397D1FAA93B500A7628F /* Controller */,
+				8755397E1FAA93B500A7628F /* Model */,
+				8755397F1FAA93B500A7628F /* View */,
+				875539801FAA93B500A7628F /* ViewModel */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
+		8755397D1FAA93B500A7628F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		8755397E1FAA93B500A7628F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8755397F1FAA93B500A7628F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		875539801FAA93B500A7628F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		875539811FAA93B500A7628F /* MyMusic */ = {
+			isa = PBXGroup;
+			children = (
+				875539821FAA93B500A7628F /* Controller */,
+				875539831FAA93B500A7628F /* Model */,
+				875539841FAA93B500A7628F /* View */,
+				875539851FAA93B500A7628F /* ViewModel */,
+			);
+			path = MyMusic;
+			sourceTree = "<group>";
+		};
+		875539821FAA93B500A7628F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8755398B1FAA946700A7628F /* MyMusicVC.h */,
+				8755398C1FAA946700A7628F /* MyMusicVC.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		875539831FAA93B500A7628F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				875539911FAA9CA900A7628F /* SUGeneralItem.h */,
+				875539921FAA9CA900A7628F /* SUGeneralItem.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		875539841FAA93B500A7628F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8755398E1FAA965A00A7628F /* MyMusicViewStaticCell.h */,
+				8755398F1FAA965A00A7628F /* MyMusicViewStaticCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		875539851FAA93B500A7628F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		875539861FAA93B500A7628F /* Friend */ = {
+			isa = PBXGroup;
+			children = (
+				875539871FAA93B500A7628F /* Controller */,
+				875539881FAA93B500A7628F /* Model */,
+				875539891FAA93B500A7628F /* View */,
+				8755398A1FAA93B500A7628F /* ViewModel */,
+			);
+			path = Friend;
+			sourceTree = "<group>";
+		};
+		875539871FAA93B500A7628F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		875539881FAA93B500A7628F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		875539891FAA93B500A7628F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8755398A1FAA93B500A7628F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		8793B2C21F94EDDC006DDC24 /* Ads */ = {
@@ -1297,9 +1432,11 @@
 				8793B2CF1F95811D006DDC24 /* VideoVC.m in Sources */,
 				873B0D4C1FA6A5350088DFD0 /* MyTabBarController.m in Sources */,
 				87085DCE1F7F1A17009065C8 /* SUItem.m in Sources */,
+				875539901FAA965A00A7628F /* MyMusicViewStaticCell.m in Sources */,
 				875C2F961F99756A00145E57 /* HotCell.m in Sources */,
 				87A1918D1FA0134C00D7DC3B /* SUPlayerViewController.m in Sources */,
 				875C2F901F9797DA00145E57 /* SetViewModel.m in Sources */,
+				8755398D1FAA946700A7628F /* MyMusicVC.m in Sources */,
 				874CE3131F9C9D9A0075722A /* AlbumsItem.m in Sources */,
 				872D10D31F925BA300A293FA /* TransitionManager.m in Sources */,
 				875C2F841F977F1800145E57 /* SongSetView.m in Sources */,
@@ -1314,6 +1451,7 @@
 				874CE3161F9C9EE20075722A /* AlbumsViewModel.m in Sources */,
 				87085DCB1F7F19B6009065C8 /* SUHomeVC.m in Sources */,
 				87EF34CC1F96D26900B913F1 /* Layout.m in Sources */,
+				875539931FAA9CA900A7628F /* SUGeneralItem.m in Sources */,
 				874CE30D1F9C5A000075722A /* RecommandSongViewModel.m in Sources */,
 				874CE3101F9C98AB0075722A /* AlbumsViewCell.m in Sources */,
 				87085DEA1F866E99009065C8 /* SUGoHorseLampCell.m in Sources */,

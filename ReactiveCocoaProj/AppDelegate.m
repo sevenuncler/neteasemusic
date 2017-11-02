@@ -14,6 +14,7 @@
 #import "AdVC.h"
 #import "MusicVC.h"
 #import "SUPlayerViewController.h"
+#import "MyMusicVC.h"
 
 @interface AppDelegate ()
 
@@ -25,7 +26,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 //    [NSThread sleepForTimeInterval:1];
     self.window = [[UIWindow alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
-    UIViewController *vc = [AdVC new];
+    UIViewController *vc = [MyMusicVC new];
     self.window.rootViewController = vc;
     [self.window makeKeyAndVisible];
     return YES;
