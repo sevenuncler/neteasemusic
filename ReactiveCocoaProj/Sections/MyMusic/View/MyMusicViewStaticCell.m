@@ -18,7 +18,7 @@
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if(self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
-        self.arrowView.centerX  = self.customeAccessoryView.centerY;
+        self.arrowView.centerY  = self.customeAccessoryView.centerY;
         self.arrowView.right    = self.customeAccessoryView.size.width;
         
         self.countLabel.centerY = self.arrowView.centerY;
@@ -26,14 +26,16 @@
         
         [self.customeAccessoryView addSubview:self.countLabel];
         [self.customeAccessoryView addSubview:self.arrowView];
-        [self.contentView addSubview:self.customeAccessoryView];
+        self.accessoryView = self.customeAccessoryView;
+        
+        self.textLabel.font = [UIFont systemFontOfSize:14];
     }
     return self;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if(self = [super initWithFrame:frame]) {
-        self.arrowView.centerX  = self.customeAccessoryView.centerY;
+        self.arrowView.centerY  = self.customeAccessoryView.centerY;
         self.arrowView.right    = self.customeAccessoryView.size.width;
         
         self.countLabel.centerY = self.arrowView.centerY;
@@ -58,7 +60,7 @@
 
 - (UIView *)customeAccessoryView {
     if(!_customeAccessoryView) {
-        _customeAccessoryView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, self.size.height)];
+        _customeAccessoryView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, self.size.height)];
         _customeAccessoryView.right     = self.size.width;
         _customeAccessoryView.centerY   = self.size.height/2;
     }
@@ -67,15 +69,18 @@
 
 - (UILabel *)countLabel {
     if(!_countLabel) {
-        _countLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, self.size.height)];
+        _countLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 50, self.size.height)];
+        _countLabel.text = @"999";
+        _countLabel.font = [UIFont systemFontOfSize:12];
+        _countLabel.textAlignment = NSTextAlignmentRight;
     }
     return _countLabel;
 }
 
 - (UIImageView *)arrowView {
     if(!_arrowView) {
-        _arrowView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
-        _arrowView.image = [UIImage imageNamed:@"cm2_list_icn_music"];
+        _arrowView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 15, 15)];
+        _arrowView.image = [UIImage imageNamed:@"cm2_list_icn_arr_fold"];
     }
     return _arrowView;
 }

@@ -9,6 +9,7 @@
 #import "MyMusicVC.h"
 #import "SUGeneralItem.h"
 #import "MyMusicViewStaticCell.h"
+#import "MyMusicItem.h"
 
 @interface MyMusicVC ()
 
@@ -22,22 +23,54 @@
     
     [self loadItems];
     self.tableView.tableFooterView = [UIView new];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
 }
 
 - (void)loadItems {
     NSMutableArray *items = [NSMutableArray new];
     {
+
         SUGeneralItem *item = [SUGeneralItem new];
+        item.contentItems   = [NSMutableArray array];
+        {
+            MyMusicItem *musicItem = [MyMusicItem new];
+            musicItem.titleString  = @"本地音乐";
+            musicItem.countString  = @"0";
+            musicItem.fileURLString = @"cm4_my_icn_music";
+            [item.contentItems addObject:musicItem];
+        }
+        {
+            MyMusicItem *musicItem = [MyMusicItem new];
+            musicItem.titleString  = @"最近播放";
+            musicItem.countString  = @"100";
+            musicItem.fileURLString = @"cm4_my_icn_recent";
+            [item.contentItems addObject:musicItem];
+        }
+        {
+            MyMusicItem *musicItem = [MyMusicItem new];
+            musicItem.titleString  = @"我的电台";
+            musicItem.countString  = @"2";
+            musicItem.fileURLString = @"cm4_my_icn_radio";
+            [item.contentItems addObject:musicItem];
+        }
+        {
+            MyMusicItem *musicItem = [MyMusicItem new];
+            musicItem.titleString  = @"我的收藏";
+            musicItem.countString  = @"11";
+            musicItem.fileURLString = @"cm4_my_icn_fav";
+            [item.contentItems addObject:musicItem];
+        }
         [items addObject:item];
     }
-    {
-        SUGeneralItem *item = [SUGeneralItem new];
-        [items addObject:item];
-    }
-    {
-        SUGeneralItem *item = [SUGeneralItem new];
-        [items addObject:item];
-    }
+//    {
+//        SUGeneralItem *item = [SUGeneralItem new];
+//        [items addObject:item];
+//    }
+//    {
+//        SUGeneralItem *item = [SUGeneralItem new];
+//        [items addObject:item];
+//    }
     self.items = items.mutableCopy;
     
 }
@@ -50,20 +83,24 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     SUGeneralItem *generalItem = [self.items objectAtIndex:section];
-    return generalItem.contentItems.count + 3;
+    return generalItem.contentItems.count;
 }
 
 static NSString *reuseID1 = @"reuseIdentifier1";
 static NSString *reuseID2 = @"reuseIdentifier2";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseID1];
+    MyMusicViewStaticCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseID1];
     if(!cell) {
         cell = [[MyMusicViewStaticCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:reuseID1];
     }
-    cell.imageView.image = [UIImage imageNamed:@"cm2_btm_icn_account"];
-    cell.textLabel.text  = @"本地音乐";
-    cell.detailTextLabel.text = @"116首";
+    SUGeneralItem *generalItem = [self.items objectAtIndex:indexPath.section];
+    MyMusicItem *item = (MyMusicItem *)[generalItem.contentItems objectAtIndex:indexPath.row];
+    
+    cell.imageView.image = [UIImage imageNamed:item.fileURLString];
+    cell.textLabel.text  = item.titleString;
+    cell.detailTextLabel.text = item.subTitleString;
+    cell.countLabel.text = item.countString;
     return cell;
 }
 
