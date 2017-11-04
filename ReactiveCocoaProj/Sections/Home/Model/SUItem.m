@@ -10,4 +10,11 @@
 
 @implementation SUItem
 
+- (Layout *)layout {
+    if(!_layout) {
+        _layout = [Layout new];
+    }
+    return _layout;
+}
+
 @end

@@ -13,6 +13,7 @@
 #import "ViewController.h"
 #import "SUPlayerViewController.h"
 #import "MyTabBarController.h"
+#import "MyMusicVC.h"
 
 @interface AdVC ()
 
@@ -43,7 +44,7 @@
         
     }
     {
-        UIViewController *vc = [ViewController new];
+        UIViewController *vc = [MyMusicVC new];
         UITabBarItem *tabBarItem = [[UITabBarItem alloc] init];
         
         tabBarItem.image  = [[UIImage imageNamed:@"cm2_btm_icn_music"] imageWithSize:CGSizeMake(25, 25)];
@@ -80,9 +81,10 @@
     MyTabBarController *tabBarController = [MyTabBarController new];
     tabBarController.view.tintColor = [UIColor colorWithRed:0.8 green:0 blue:0 alpha:1];
     tabBarController.viewControllers = controllers.copy;
-    UINavigationController *mainNaviController = [[UINavigationController alloc] initWithRootViewController:tabBarController];
-    mainNaviController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-    [self presentViewController:mainNaviController animated:YES completion:nil];
+    tabBarController.hidesBottomBarWhenPushed = YES;
+//    UINavigationController *mainNaviController = [[UINavigationController alloc] initWithRootViewController:tabBarController];
+    tabBarController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    [self presentViewController:tabBarController animated:YES completion:nil];
 }
 
 

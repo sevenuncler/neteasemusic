@@ -14,6 +14,7 @@
 
 @property (nonatomic, assign) CGFloat         itemHeight;
 @property (nonatomic, strong) NSMutableArray  *subItems;
-@property (nonatomic, strong) Layout          *layout;;
+@property (nonatomic, strong) Layout          *layout;
+@property (nonatomic, assign, getter=isHidden) BOOL hidden;
 
 @end

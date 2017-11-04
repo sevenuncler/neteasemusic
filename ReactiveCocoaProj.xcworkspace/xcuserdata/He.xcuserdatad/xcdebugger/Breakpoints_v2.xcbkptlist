@@ -180,11 +180,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ReactiveCocoaProj/AppDelegate.m"
-            timestampString = "531363358.671242"
+            timestampString = "531496971.615625"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
             landmarkName = "-application:didFinishLaunchingWithOptions:"
             landmarkType = "7">
          </BreakpointContent>
@@ -260,7 +260,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ReactiveCocoaProj/Helper/Animator.m"
-            timestampString = "529893144.601746"
+            timestampString = "531496327.351187"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "29"
@@ -276,11 +276,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ReactiveCocoaProj/Sections/Ads/AdVC.m"
-            timestampString = "531363358.67146"
+            timestampString = "531496971.615923"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
             landmarkName = "-viewDidLoad"
             landmarkType = "7">
          </BreakpointContent>
@@ -292,7 +292,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ReactiveCocoaProj/Sections/Home/Controller/MusicVC.m"
-            timestampString = "531363358.671542"
+            timestampString = "531496971.616025"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "67"
@@ -308,7 +308,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ReactiveCocoaProj/Sections/Home/Controller/MusicVC.m"
-            timestampString = "531363358.671616"
+            timestampString = "531496971.616104"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "95"
@@ -324,7 +324,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ReactiveCocoaProj/Sections/Home/Controller/MusicVC.m"
-            timestampString = "531363358.671675"
+            timestampString = "531496971.616175"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "44"
@@ -356,7 +356,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ReactiveCocoaProj/Sections/Home/Controller/MusicVC.m"
-            timestampString = "531363358.67176"
+            timestampString = "531496971.616302"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "73"
@@ -372,7 +372,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ReactiveCocoaProj/Sections/Home/Controller/MusicVC.m"
-            timestampString = "531363358.671821"
+            timestampString = "531496971.616371"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "69"
@@ -388,7 +388,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ReactiveCocoaProj/Sections/Home/Controller/MusicVC.m"
-            timestampString = "531363358.671879"
+            timestampString = "531496971.61644"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "92"
@@ -420,7 +420,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ReactiveCocoaProj/Sections/Home/Controller/MusicVC.m"
-            timestampString = "531363358.671963"
+            timestampString = "531496971.616554"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "107"
@@ -436,11 +436,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ReactiveCocoaProj/Sections/Home/ViewModel/RecommandSongViewModel.m"
-            timestampString = "531363358.672026"
+            timestampString = "531496971.616627"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "149"
-            endingLineNumber = "149">
+            startingLineNumber = "150"
+            endingLineNumber = "150">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -514,7 +514,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ReactiveCocoaProj/Sections/Home/Controller/MusicVC.m"
-            timestampString = "531363358.672175"
+            timestampString = "531496971.616873"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "541"
@@ -530,11 +530,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ReactiveCocoaProj/AppDelegate.m"
-            timestampString = "531363358.672239"
+            timestampString = "531496971.616999"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
             landmarkName = "-application:didFinishLaunchingWithOptions:"
             landmarkType = "7">
          </BreakpointContent>
@@ -610,11 +610,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ReactiveCocoaProj/Sections/Home/Controller/SUPlayerViewController.m"
-            timestampString = "531240232.80136"
+            timestampString = "531496971.617242"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "106"
-            endingLineNumber = "106"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
             landmarkName = "-bindData"
             landmarkType = "7">
          </BreakpointContent>
@@ -658,11 +658,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ReactiveCocoaProj/Sections/Home/Controller/SUPlayerViewController.m"
-            timestampString = "531240232.801466"
+            timestampString = "531496971.617352"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "119"
-            endingLineNumber = "119"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
             landmarkName = "-bindData"
             landmarkType = "7">
          </BreakpointContent>
@@ -674,11 +674,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ReactiveCocoaProj/Sections/Home/Controller/SUPlayerViewController.m"
-            timestampString = "531240232.801526"
+            timestampString = "531496971.617415"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "118"
-            endingLineNumber = "118"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
             landmarkName = "-bindData"
             landmarkType = "7">
          </BreakpointContent>
@@ -722,11 +722,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ReactiveCocoaProj/Sections/Home/Controller/SUPlayerViewController.m"
-            timestampString = "531240232.801632"
+            timestampString = "531496971.617528"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
             landmarkName = "-bindData"
             landmarkType = "7">
          </BreakpointContent>
@@ -738,11 +738,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ReactiveCocoaProj/Sections/Home/Controller/SUPlayerViewController.m"
-            timestampString = "531240232.8017"
+            timestampString = "531496971.617577"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
             landmarkName = "-playSong:"
             landmarkType = "7">
          </BreakpointContent>
@@ -754,11 +754,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ReactiveCocoaProj/Sections/Home/Controller/SUPlayerViewController.m"
-            timestampString = "531240232.801765"
+            timestampString = "531496971.61762"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "251"
-            endingLineNumber = "251"
+            startingLineNumber = "250"
+            endingLineNumber = "250"
             landmarkName = "-liveplayer"
             landmarkType = "7">
          </BreakpointContent>
@@ -770,11 +770,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ReactiveCocoaProj/Sections/Home/Controller/SUPlayerViewController.m"
-            timestampString = "531240232.801831"
+            timestampString = "531496971.61768"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "164"
-            endingLineNumber = "164"
+            startingLineNumber = "163"
+            endingLineNumber = "163"
             landmarkName = "-NELivePlayerFirstAudioDisplayed:"
             landmarkType = "7">
             <Locations>
@@ -818,11 +818,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ReactiveCocoaProj/Sections/Home/Controller/SUPlayerViewController.m"
-            timestampString = "531240232.801897"
+            timestampString = "531496971.617747"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "142"
-            endingLineNumber = "142"
+            startingLineNumber = "141"
+            endingLineNumber = "141"
             landmarkName = "-NELivePlayerDidPreparedToPlay:"
             landmarkType = "7">
          </BreakpointContent>
@@ -914,11 +914,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ReactiveCocoaProj/Sections/Home/Controller/SUPlayerViewController.m"
-            timestampString = "531240232.802047"
+            timestampString = "531496971.618065"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "166"
-            endingLineNumber = "166"
+            startingLineNumber = "165"
+            endingLineNumber = "165"
             landmarkName = "-NELivePlayerFirstAudioDisplayed:"
             landmarkType = "7">
          </BreakpointContent>
@@ -930,11 +930,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ReactiveCocoaProj/Sections/Home/Controller/SUPlayerViewController.m"
-            timestampString = "531240232.802157"
+            timestampString = "531496971.618151"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "126"
-            endingLineNumber = "126"
+            startingLineNumber = "125"
+            endingLineNumber = "125"
             landmarkName = "-bindData"
             landmarkType = "7">
          </BreakpointContent>
@@ -946,11 +946,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ReactiveCocoaProj/Sections/Home/Controller/SUPlayerViewController.m"
-            timestampString = "531240232.802268"
+            timestampString = "531496971.618217"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "130"
-            endingLineNumber = "130"
+            startingLineNumber = "129"
+            endingLineNumber = "129"
             landmarkName = "-bindData"
             landmarkType = "7">
          </BreakpointContent>
@@ -962,11 +962,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ReactiveCocoaProj/Sections/Home/Controller/SUPlayerViewController.m"
-            timestampString = "531240232.802333"
+            timestampString = "531496971.61828"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "250"
-            endingLineNumber = "250"
+            startingLineNumber = "249"
+            endingLineNumber = "249"
             landmarkName = "-liveplayer"
             landmarkType = "7">
          </BreakpointContent>
@@ -978,11 +978,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ReactiveCocoaProj/Sections/Home/Controller/SUPlayerViewController.m"
-            timestampString = "531240232.802392"
+            timestampString = "531496971.618346"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "150"
-            endingLineNumber = "150"
+            startingLineNumber = "149"
+            endingLineNumber = "149"
             landmarkName = "-NELivePlayerPlayBackFinished:"
             landmarkType = "7">
          </BreakpointContent>
@@ -994,11 +994,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ReactiveCocoaProj/Sections/Home/Controller/SUHomeVC.m"
-            timestampString = "531272020.377184"
+            timestampString = "531496971.618415"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
             landmarkName = "-setUp"
             landmarkType = "7">
          </BreakpointContent>
@@ -1010,11 +1010,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ReactiveCocoaProj/Sections/Home/Controller/SUHomeVC.m"
-            timestampString = "531272020.377259"
+            timestampString = "531496971.618511"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
             landmarkName = "-setUp"
             landmarkType = "7">
          </BreakpointContent>
@@ -1042,7 +1042,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ReactiveCocoaProj/Sections/Home/Controller/MusicVC.m"
-            timestampString = "531363358.672976"
+            timestampString = "531496971.618634"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "86"
@@ -1058,11 +1058,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ReactiveCocoaProj/Sections/Home/ViewModel/RecommandSongViewModel.m"
-            timestampString = "531363358.673046"
+            timestampString = "531496971.618748"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "120"
-            endingLineNumber = "120"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
             landmarkName = "-collectionView:layout:sizeForItemAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1074,11 +1074,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ReactiveCocoaProj/Sections/Home/ViewModel/RecommandSongViewModel.m"
-            timestampString = "531363358.673105"
+            timestampString = "531496971.618878"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "123"
-            endingLineNumber = "123"
+            startingLineNumber = "124"
+            endingLineNumber = "124"
             landmarkName = "-collectionView:layout:minimumLineSpacingForSectionAtIndex:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1090,7 +1090,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ReactiveCocoaProj/Sections/Home/Controller/MusicVC.m"
-            timestampString = "531363358.673162"
+            timestampString = "531496971.618995"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "448"
@@ -1106,7 +1106,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ReactiveCocoaProj/Sections/Home/Controller/MusicVC.m"
-            timestampString = "531363358.673219"
+            timestampString = "531496971.619116"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "442"
@@ -1122,11 +1122,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ReactiveCocoaProj/Sections/MyMusic/Controller/MyMusicVC.m"
-            timestampString = "531363358.673281"
+            timestampString = "531496971.619238"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "94"
-            endingLineNumber = "94"
+            startingLineNumber = "142"
+            endingLineNumber = "142"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1138,11 +1138,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ReactiveCocoaProj/Sections/MyMusic/Controller/MyMusicVC.m"
-            timestampString = "531363358.673749"
+            timestampString = "531496971.61938"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "95"
-            endingLineNumber = "95"
+            startingLineNumber = "143"
+            endingLineNumber = "143"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1154,11 +1154,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ReactiveCocoaProj/Sections/MyMusic/Controller/MyMusicVC.m"
-            timestampString = "531363358.674149"
+            timestampString = "531496971.619503"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
             landmarkName = "-loadItems"
             landmarkType = "7">
          </BreakpointContent>
@@ -1170,12 +1170,108 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ReactiveCocoaProj/Sections/MyMusic/Controller/MyMusicVC.m"
-            timestampString = "531363358.674519"
+            timestampString = "531496971.619613"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
             landmarkName = "-numberOfSectionsInTableView:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ReactiveCocoaProj/Sections/MyMusic/View/MyMusicHeaderView.m"
+            timestampString = "531496971.619726"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
+            landmarkName = "-initWithReuseIdentifier:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ReactiveCocoaProj/Sections/MyMusic/Controller/MyMusicVC.m"
+            timestampString = "531496971.619799"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "130"
+            endingLineNumber = "130"
+            landmarkName = "-tableView:viewForHeaderInSection:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ReactiveCocoaProj/Sections/MyMusic/View/MyMusicHeaderView.m"
+            timestampString = "531496971.619874"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "-layoutSubviews"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ReactiveCocoaProj/Sections/MyMusic/View/MyMusicHeaderView.m"
+            timestampString = "531496971.619935"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "-layoutSubviews"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ReactiveCocoaProj/Sections/Friend/View/StatusView.m"
+            timestampString = "531496971.620008"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
+            landmarkName = "-layoutSubviews"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ReactiveCocoaProj/Sections/Friend/View/StatusView.m"
+            timestampString = "531496971.620544"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "179"
+            endingLineNumber = "179"
+            landmarkName = "-setContentView:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

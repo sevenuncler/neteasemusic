@@ -159,6 +159,14 @@
 		875539AA1FABF0C100A7628F /* cm4_my_icn_recent@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8755399E1FABF0C100A7628F /* cm4_my_icn_recent@3x.png */; };
 		875539AB1FABF0C100A7628F /* cm4_my_icn_fav@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8755399F1FABF0C100A7628F /* cm4_my_icn_fav@2x.png */; };
 		875539AE1FABF0F000A7628F /* MyMusicItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 875539AD1FABF0F000A7628F /* MyMusicItem.m */; };
+		875539B11FACC02500A7628F /* MyMusicHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 875539B01FACC02500A7628F /* MyMusicHeader.m */; };
+		875539B41FACC0D100A7628F /* MyMusicHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 875539B31FACC0D100A7628F /* MyMusicHeaderView.m */; };
+		875539B81FAD9A1B00A7628F /* cm2_edit_arr@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 875539B51FAD9A1B00A7628F /* cm2_edit_arr@3x.png */; };
+		875539B91FAD9A1B00A7628F /* cm2_edit_arr.png in Resources */ = {isa = PBXBuildFile; fileRef = 875539B61FAD9A1B00A7628F /* cm2_edit_arr.png */; };
+		875539BA1FAD9A1B00A7628F /* cm2_edit_arr@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 875539B71FAD9A1B00A7628F /* cm2_edit_arr@2x.png */; };
+		875539BD1FADB23400A7628F /* StatusItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 875539BC1FADB23400A7628F /* StatusItem.m */; };
+		875539C01FADB7B600A7628F /* StatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = 875539BF1FADB7B600A7628F /* StatusView.m */; };
+		875539C31FADF3B000A7628F /* FriendVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 875539C21FADF3B000A7628F /* FriendVC.m */; };
 		875C2F841F977F1800145E57 /* SongSetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 875C2F831F977F1800145E57 /* SongSetView.m */; };
 		875C2F871F97808200145E57 /* UIView+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = 875C2F861F97808200145E57 /* UIView+Layout.m */; };
 		875C2F8A1F97858000145E57 /* ReuseCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 875C2F891F97858000145E57 /* ReuseCollectionViewCell.m */; };
@@ -441,6 +449,19 @@
 		8755399F1FABF0C100A7628F /* cm4_my_icn_fav@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cm4_my_icn_fav@2x.png"; sourceTree = "<group>"; };
 		875539AC1FABF0F000A7628F /* MyMusicItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyMusicItem.h; sourceTree = "<group>"; };
 		875539AD1FABF0F000A7628F /* MyMusicItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyMusicItem.m; sourceTree = "<group>"; };
+		875539AF1FACC02500A7628F /* MyMusicHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyMusicHeader.h; sourceTree = "<group>"; };
+		875539B01FACC02500A7628F /* MyMusicHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyMusicHeader.m; sourceTree = "<group>"; };
+		875539B21FACC0D100A7628F /* MyMusicHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyMusicHeaderView.h; sourceTree = "<group>"; };
+		875539B31FACC0D100A7628F /* MyMusicHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyMusicHeaderView.m; sourceTree = "<group>"; };
+		875539B51FAD9A1B00A7628F /* cm2_edit_arr@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cm2_edit_arr@3x.png"; sourceTree = "<group>"; };
+		875539B61FAD9A1B00A7628F /* cm2_edit_arr.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cm2_edit_arr.png; sourceTree = "<group>"; };
+		875539B71FAD9A1B00A7628F /* cm2_edit_arr@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cm2_edit_arr@2x.png"; sourceTree = "<group>"; };
+		875539BB1FADB23400A7628F /* StatusItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StatusItem.h; sourceTree = "<group>"; };
+		875539BC1FADB23400A7628F /* StatusItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StatusItem.m; sourceTree = "<group>"; };
+		875539BE1FADB7B600A7628F /* StatusView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StatusView.h; sourceTree = "<group>"; };
+		875539BF1FADB7B600A7628F /* StatusView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StatusView.m; sourceTree = "<group>"; };
+		875539C11FADF3B000A7628F /* FriendVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendVC.h; sourceTree = "<group>"; };
+		875539C21FADF3B000A7628F /* FriendVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendVC.m; sourceTree = "<group>"; };
 		875C2F821F977F1800145E57 /* SongSetView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SongSetView.h; sourceTree = "<group>"; };
 		875C2F831F977F1800145E57 /* SongSetView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SongSetView.m; sourceTree = "<group>"; };
 		875C2F851F97808200145E57 /* UIView+Layout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Layout.h"; sourceTree = "<group>"; };
@@ -956,6 +977,8 @@
 				875539921FAA9CA900A7628F /* SUGeneralItem.m */,
 				875539AC1FABF0F000A7628F /* MyMusicItem.h */,
 				875539AD1FABF0F000A7628F /* MyMusicItem.m */,
+				875539AF1FACC02500A7628F /* MyMusicHeader.h */,
+				875539B01FACC02500A7628F /* MyMusicHeader.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -965,6 +988,8 @@
 			children = (
 				8755398E1FAA965A00A7628F /* MyMusicViewStaticCell.h */,
 				8755398F1FAA965A00A7628F /* MyMusicViewStaticCell.m */,
+				875539B21FACC0D100A7628F /* MyMusicHeaderView.h */,
+				875539B31FACC0D100A7628F /* MyMusicHeaderView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -990,6 +1015,8 @@
 		875539871FAA93B500A7628F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				875539C11FADF3B000A7628F /* FriendVC.h */,
+				875539C21FADF3B000A7628F /* FriendVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -997,6 +1024,8 @@
 		875539881FAA93B500A7628F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				875539BB1FADB23400A7628F /* StatusItem.h */,
+				875539BC1FADB23400A7628F /* StatusItem.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1004,6 +1033,8 @@
 		875539891FAA93B500A7628F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				875539BE1FADB7B600A7628F /* StatusView.h */,
+				875539BF1FADB7B600A7628F /* StatusView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1029,6 +1060,9 @@
 		87A191821FA0102F00D7DC3B /* play */ = {
 			isa = PBXGroup;
 			children = (
+				875539B61FAD9A1B00A7628F /* cm2_edit_arr.png */,
+				875539B71FAD9A1B00A7628F /* cm2_edit_arr@2x.png */,
+				875539B51FAD9A1B00A7628F /* cm2_edit_arr@3x.png */,
 				875539941FABF0BF00A7628F /* cm4_my_icn_fav.png */,
 				8755399F1FABF0C100A7628F /* cm4_my_icn_fav@2x.png */,
 				8755399A1FABF0C000A7628F /* cm4_my_icn_fav@3x.png */,
@@ -1252,6 +1286,7 @@
 				875539791FAA175A00A7628F /* cm2_btm_icn_account@2x.png in Resources */,
 				875539701FAA175A00A7628F /* cm2_btm_icn_account@3x.png in Resources */,
 				87A1918A1FA0105400D7DC3B /* cm2_play_disc-ip6@2x.png in Resources */,
+				875539B81FAD9A1B00A7628F /* cm2_edit_arr@3x.png in Resources */,
 				875539A21FABF0C100A7628F /* cm4_my_icn_radio@2x.png in Resources */,
 				875539A41FABF0C100A7628F /* cm4_my_icn_radio@3x.png in Resources */,
 				87A191CC1FA0C54E00D7DC3B /* cm2_playlist_icn_loop_prs@2x.png in Resources */,
@@ -1301,6 +1336,7 @@
 				873B0D6E1FA76F620088DFD0 /* cm4_disc_topbtn_fm@3x.png in Resources */,
 				873B0D661FA76F620088DFD0 /* cm4_disc_topbtn_list.png in Resources */,
 				875539A11FABF0C100A7628F /* cm4_my_icn_music@2x.png in Resources */,
+				875539B91FAD9A1B00A7628F /* cm2_edit_arr.png in Resources */,
 				87A191D21FA0C54E00D7DC3B /* cm2_runfm_btn_loved.png in Resources */,
 				871979A21FA411D00068B1F3 /* cm2_icn_one_prs.png in Resources */,
 				87A1920E1FA0CBD900D7DC3B /* cm2_play_btn_src@2x.png in Resources */,
@@ -1387,6 +1423,7 @@
 				87A191BA1FA0C54E00D7DC3B /* cm2_playlist_icn_one_prs@2x.png in Resources */,
 				87A191C91FA0C54E00D7DC3B /* cm2_playlist_icn_loop@3x.png in Resources */,
 				87A191ED1FA0C96700D7DC3B /* cm2_play_icn_cmt_num_dis@2x.png in Resources */,
+				875539BA1FAD9A1B00A7628F /* cm2_edit_arr@2x.png in Resources */,
 				873B0D501FA75B5A0088DFD0 /* cm2_topbar_icn_mic_prs@3x.png in Resources */,
 				87A191F51FA0C96700D7DC3B /* cm2_play_icn_loved@3x.png in Resources */,
 				87A191EF1FA0C96700D7DC3B /* cm2_play_icn_dld_ok_dis@3x.png in Resources */,
@@ -1481,12 +1518,15 @@
 				8793B2D51F95820E006DDC24 /* SUCollectionViewCell.m in Sources */,
 				875C2F8D1F97897000145E57 /* GeneralModel.m in Sources */,
 				87085DD41F7F1B45009065C8 /* SUGoHorseLampViewModel.m in Sources */,
+				875539BD1FADB23400A7628F /* StatusItem.m in Sources */,
 				87DD37FA1F9200020006C289 /* UIImage+Size.m in Sources */,
 				8793B2CF1F95811D006DDC24 /* VideoVC.m in Sources */,
 				873B0D4C1FA6A5350088DFD0 /* MyTabBarController.m in Sources */,
 				87085DCE1F7F1A17009065C8 /* SUItem.m in Sources */,
 				875539901FAA965A00A7628F /* MyMusicViewStaticCell.m in Sources */,
+				875539C01FADB7B600A7628F /* StatusView.m in Sources */,
 				875C2F961F99756A00145E57 /* HotCell.m in Sources */,
+				875539B41FACC0D100A7628F /* MyMusicHeaderView.m in Sources */,
 				87A1918D1FA0134C00D7DC3B /* SUPlayerViewController.m in Sources */,
 				875C2F901F9797DA00145E57 /* SetViewModel.m in Sources */,
 				8755398D1FAA946700A7628F /* MyMusicVC.m in Sources */,
@@ -1513,11 +1553,13 @@
 				874CE30A1F9C59530075722A /* RecommandSong.m in Sources */,
 				873B0D7E1FA7FBEC0088DFD0 /* FooterView.m in Sources */,
 				87A191811FA00BBD00D7DC3B /* PlayerView.m in Sources */,
+				875539C31FADF3B000A7628F /* FriendVC.m in Sources */,
 				873B0D0D1FA4BD300088DFD0 /* SURange.m in Sources */,
 				874CE3041F9C53490075722A /* RecommandSongViewCell.m in Sources */,
 				87085DE41F85DC8B009065C8 /* SUImageManager.m in Sources */,
 				875C2F931F9822AE00145E57 /* SongSetItem.m in Sources */,
 				875539AE1FABF0F000A7628F /* MyMusicItem.m in Sources */,
+				875539B11FACC02500A7628F /* MyMusicHeader.m in Sources */,
 				875C2F871F97808200145E57 /* UIView+Layout.m in Sources */,
 				875C2F8A1F97858000145E57 /* ReuseCollectionViewCell.m in Sources */,
 				87085DD11F7F1AA7009065C8 /* SUGoHorseLampView.m in Sources */,

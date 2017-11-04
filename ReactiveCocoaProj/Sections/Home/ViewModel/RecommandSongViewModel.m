@@ -110,6 +110,7 @@ didReceiveResponse:(NSURLResponse *)response
         cell.coverImageView.image = x;
     }];
     cell.titleLabel.text = recommandSong.title;
+    cell.subTitleLabel.text = nil;
     return cell;
 }
 #pragma mark - UICollectionViewDelegate

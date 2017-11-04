@@ -57,7 +57,6 @@ typedef NS_ENUM(NSUInteger, PlayListOrder){
     [self bindData];
     [self addPlayerObserver];
     [self.view addSubview:self.playerView];
-    self.hidesBottomBarWhenPushed = YES;
 
     //    [self startPlayList];
 }
