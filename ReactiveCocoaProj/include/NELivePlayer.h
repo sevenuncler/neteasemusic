@@ -30,7 +30,7 @@ typedef enum NELPBufferStrategy{
  * @brief 显示模式
  */
 typedef enum NELPMovieScalingMode {
-    NELPMovieScalingModeNone,       //!< 无缩放
+    NELPMovieScalingModeNone,       //!< void缩放
     NELPMovieScalingModeAspectFit,  //!< 等比例缩放，某一边会有黑边填充
     NELPMovieScalingModeAspectFill, //!< 等比例缩放，某一边可能会被裁减
     NELPMovieScalingModeFill        //!< 全屏显示，画面宽高比可能与视频原始宽高比不一致
@@ -128,7 +128,7 @@ typedef enum NELPKeyCheckResult {
  * @brief 切片清晰度
  */
 typedef enum NELPMultiMediaType {
-    NELP_MEDIA_INVALID = -1, // 无效的
+    NELP_MEDIA_INVALID = -1, // void效的
     NELP_MEDIA_SD      = 0,  // 低清
     NELP_MEDIA_MD      = 1,  // 标清
     NELP_MEDIA_HD      = 2,  // 高清
@@ -163,42 +163,41 @@ typedef struct NELPSwitchStreamResult {
 /**
  * @brief  设置缓冲策略，在播放器初始化后，prepareToPlay之前调用
  *
- * @discussion 缓冲策略有直播低延时模式、直播流畅模式以及点播抗抖动模式，如果是直播，建议采用低延时模式或流畅模式，如果是点播或本地视频，建议采用抗抖动模式
+ *  缓冲策略有直播低延时模式、直播流畅模式以及点播抗抖动模式，如果是直播，建议采用低延时模式或流畅模式，如果是点播或本地视频，建议采用抗抖动模式
  *
- * @return 无
  */
 - (void)setBufferStrategy:(NELPBufferStrategy)bufferStrategy;
 
 /**
  *	@brief	设置数据源，初始化视频文件为播放做准备，在播放前调用
  *
- *  @discussion 当prepareToPlay完成时,若shouldAutoplay 为YES，则会自动调用play进行播放，若shouldAutoplay为 NO，则需手动调用play进行播放
+ *   当prepareToPlay完成时,若shouldAutoplay 为YES，则会自动调用play进行播放，若shouldAutoplay为 NO，则需手动调用play进行播放
  *
- *	@return	无
+ *
  */
 - (void)prepareToPlay;
 
 /**
  *	@brief	开始播放
  *
- *  @discussion
- *  如果当前正在播放，则调用该方法将无效果\\\n
+ *
+ *  如果当前正在播放，则调用该方法将void效果\\\n
  *  此时播放器状态为: NELPMoviePlaybackStatePlaying
  *
- *	@return	无
+ *
  */
 - (void)play;
 
 /**
  *	@brief	暂停播放
  *
- *  @discussion
- *  调用play方法继续播放。如果当前播放已经暂停，则调用该方法将无效果。\\\n
+ *
+ *  调用play方法继续播放。如果当前播放已经暂停，则调用该方法将void效果。\\\n
  *  此时播放器状态为: NELPMoviePlaybackStatePaused
  *
  *  @warning 该接口只针对点播地址有效。
  *
- *	@return	无
+ *
  */
 - (void)pause;
 
@@ -211,66 +210,66 @@ typedef struct NELPSwitchStreamResult {
 /**
  *	@brief	停止播放，并释放播放器相关资源
  *
- *  @discussion
+ *
  *  在播放器退出时，需要调用该方法用于释放资源。\\\n
  *  若在播放过程中需要切换URL，首先需要调用该方法停止播放，然后调用removeFromSuperview 将view移除，并将player置为nil，再初始化，prepareToPlay，最后调用play方法。
  *
- *	@return	无
+ *
  */
 - (void)shutdown;
 
 /**
  *	@brief	设置播放器切入后台后的播放状态
  *
- *  @discussion
+ *
  *  若设置后台暂停，则在切入后台后播放器处于暂停状态，回到前台需要手动播放\\\n
  *  若设置后台继续播放，则在切入后台后音频继续播放，回到前台后音视频正常播放\\\n
  *
  *  注意：仅播放点播流时支持后台暂停；对于直播流，若在切入后台时不需要继续播放，则需要在切入后台的过程中将播放器关闭并释放相关资源，切回前台再重新开始播放。
  *
- *	@param 	pause 	YES：后台暂停 NO：继续播放
+ *	 	pause 	YES：后台暂停 NO：继续播放
  *
- *	@return	无
+ *
  */
 - (void)setPauseInBackground:(BOOL)pause;
 
 /**
  *	@brief	设置显示模式.
  *
- *  @param  aScalingMode 显示模式.
+ *    aScalingMode 显示模式.
  *
- *  @discussion 共有以下4种显示模式，详见 NELPMovieScalingMode \\\n
- *  NELPMovieScalingModeNone,       //!< 无缩放  \\\n
+ *   共有以下4种显示模式，详见 NELPMovieScalingMode \\\n
+ *  NELPMovieScalingModeNone,       //!< void缩放  \\\n
  *  NELPMovieScalingModeAspectFit,  //!< 等比例缩放，某一边会有黑边填充  \\\n
  *  NELPMovieScalingModeAspectFill, //!< 等比例缩放，某一边可能会被裁减  \\\n
  *  NELPMovieScalingModeFill        //!< 全屏显示，画面宽高比可能与视频原始宽高比不一致
  *
- *	@return	无.
+ *	.
  */
 - (void)setScalingMode: (NELPMovieScalingMode) aScalingMode;
 
 /**
  *	@brief	静音功能
  *
- *	@param 	isMute 	YES：开启静音 NO：关闭静音
+ *	 	isMute 	YES：开启静音 NO：关闭静音
  *
- *	@return	无
+ *
  */
 - (void)setMute: (BOOL)isMute;
 
 /**
  *	@brief	设置是否开启硬件解码，仅IOS 8.0以上支持，默认不开启
  *
- *  @param 	isOpen 	YES：硬件解码 NO：软件解码
+ *   	isOpen 	YES：硬件解码 NO：软件解码
  *
- *	@return	无
+ *
  */
 - (void)setHardwareDecoder :(BOOL)isOpen;
 
 /**
  *	@brief	截图
  *
- *  @discussion
+ *
  *  调用prepareToPlay方法，播放器发出NELivePlayerDidPreparedToPlayNotification通知后，才能调用该方法。
  *
  *	@return	截图结果，以UIImage格式保存
@@ -280,82 +279,75 @@ typedef struct NELPSwitchStreamResult {
 /**
  *	@brief	获取视频信息
  *
- *	@param 	videoInfo 	保存视频信息
+ *	 	videoInfo 	保存视频信息
  *
- *  @discussion
+ *
  *  调用prepareToPlay方法，播放器发出NELivePlayerDidPreparedToPlayNotification通知后，调用该方法才能获取到有效的视频信息。
  *  注意：其中帧率和码率都是从视频头中读取，若头中没有该信息，则返回0.
  *
- *	@return	无
  */
 - (void)getVideoInfo :(NELPVideoInfo *)videoInfo;
 
 /**
  *	@brief	获取音频信息
  *
- *	@param 	audioInfo 	保存音频信息
+ *	 	audioInfo 	保存音频信息
  *
- *  @discussion
+ *
  *  调用prepareToPlay方法，播放器发出NELivePlayerDidPreparedToPlayNotification通知后，调用该方法才能获取到有效的音频信息。
  *
- *	@return	无
  */
 - (void)getAudioInfo :(NELPAudioInfo *)audioInfo;
 
 /**
  * @brief	设置播放速度，仅适用于点播
  *
- * @param	speed 	播放速度(范围 0.5 ~ 2.0)
+ * 	speed 	播放速度(范围 0.5 ~ 2.0)
  *
- * @return	无
  */
 - (void)setPlaybackSpeed:(float)playbackSpeed;
 
 /**
  * @brief 设置播放音量
  *
- * @param volume  音量大小(范围 0.0 ~ 1.0，0.0为最小，1.0为最大)
+ *  volume  音量大小(范围 0.0 ~ 1.0，0.0为最小，1.0为最大)
  *
- * @return	无
  */
 - (void)setVolume:(float)volume;
 
 /**
  * @brief 设置拉流超时时间，在prepareToPlay之前调用
  *
- * @param timeout 超时时间 (单位: 毫秒 ms 范围:0 ~ 30000ms)
+ *  timeout 超时时间 (单位: 毫秒 ms 范围:0 ~ 30000ms)
  *
- * @return 无
  */
 - (void)setPlaybackTimeout:(long)timeout;
 
 /**
  * @brief 解密模块初始化，并校验密钥是否正确
  *
- * @param transferToken 获取密钥的令牌
- * @param accid 视频云用户创建的其子用户id
- * @param appKey 开发者平台分配的AppKey
- * @param token 视频云用户子用户的token
+ *  transferToken 获取密钥的令牌
+ *  accid 视频云用户创建的其子用户id
+ *  appKey 开发者平台分配的AppKey
+ *  token 视频云用户子用户的token
  *
- * @discussion 该接口不可与setDecryptionKey同时使用
+ *  该接口不可与setDecryptionKey同时使用
  *
- * @return ret 返回密钥检测的状态
  */
 - (void)initDecryption:(NSString *)transferToken :(NSString *)accid :(NSString *)appKey :(NSString *)token :(void(^)(NELPKeyCheckResult ret))completionBlock;
 
 /**
  * @brief 设置flv加密视频解密所需的密钥,在已知密钥的情况下可以调用该接口进行解密
- * @param key 密钥
- * @param length 密钥的长度
- * @discussion 该接口不可与initDecryption接口同时使用, 在prepareToPlay前调用
- * @return  ret 返回密钥检测的状态,只有密钥检测正确或没有加密的情况下才能prepareToPlay进行拉流解码，否则会解密失败
+ *  key 密钥
+ *  length 密钥的长度
+ *  该接口不可与initDecryption接口同时使用, 在prepareToPlay前调用
  */
 - (void)setDecryptionKey:(Byte *)key andKeyLength:(int)length :(void(^)(NELPKeyCheckResult ret))completionBlock;
 
 /**
  * @brief 播放过程中切换播放地址
  *
- * @param aUrl 待切换的播放地址
+ *  aUrl 待切换的播放地址
  *
  * @return >= 0 切换成功， < 0 切换失败
  */
@@ -364,15 +356,15 @@ typedef struct NELPSwitchStreamResult {
 /**
  * @brief 视频数据的回调
  *
- * @param 回调的视频信息
+ *  回调的视频信息
  */
 typedef void(^NELPVideoRawDataCB)(NELPVideoRawData *frame);
 
 /**
  * @brief 注册获取视频帧数据的回调(只支持软件解码)，用户需要实现回调函数cb来接收视频帧
  *
- * @param mFormat         回调的视频数据格式
- * @param videoRawDataCB  获取视频数据的回调函数
+ *  mFormat         回调的视频数据格式
+ *  videoRawDataCB  获取视频数据的回调函数
  *
  * @return < 0 获取失败
  */
@@ -381,14 +373,14 @@ typedef void(^NELPVideoRawDataCB)(NELPVideoRawData *frame);
 /**
  * @brief 音频数据的回调
  *
- * @param 回调的音频信息
+ *  回调的音频信息
  */
 typedef void(^NELPAudioRawDataCB)(NELPAudioRawData *frame);
 
 /**
  * @brief 注册获取音频帧数据的回调，用户需要实现回调函数cb来接收音频帧
  *
- * @param audioRawDataCB  获取音频数据的回调函数
+ *  audioRawDataCB  获取音频数据的回调函数
  *
  * @return < 0 获取失败
  */
@@ -397,30 +389,30 @@ typedef void(^NELPAudioRawDataCB)(NELPAudioRawData *frame);
 /**
  * @brief 清晰度切换的结果回调
  *
- * @param result 回调的切换结果
+ *  result 回调的切换结果
  */
 typedef void (^NELPSwitchStreamResultCB)(NELPSwitchStreamResult result);
 
 /**
  *	@brief	用于点播切换分辨率
  *
- *  @discussion 只针对于点播，直播调用该接口无效
+ *   只针对于点播，直播调用该接口void效
  */
 - (void)switchMultiMedia:(NELPMultiMediaType)mediaType :(void(^)(NELPSwitchStreamResult ret))completionBlock;
 
 /**
  *	@brief	用于显示的view (只读)
  *
- *  @discussion 该view中不包含播放控制组件，只用于显示视频图像
+ *   该view中不包含播放控制组件，只用于显示视频图像
  */
 @property(nonatomic, readonly)  UIView *view;
 
 /**
  *	@brief	设置当前播放时间点(用于seek操作)以及获取当前播放的时间点
  *
- *	@param 	currentPlaybackTime 	当前要播放的时间点(单位：秒)
+ *	 	currentPlaybackTime 	当前要播放的时间点(单位：秒)
  *
- *  @discussion
+ *
  *  需要在播放器发送NELivePlayerDidPreparedToPlayNotification通知后，才能调用该set方法设置到某一时间点播放，\\\n
  *  此时isPreparedToPlay的值为 YES
  *
@@ -433,7 +425,7 @@ typedef void (^NELPSwitchStreamResultCB)(NELPSwitchStreamResult result);
 /**
  *	@brief	获取多媒体文件总时长(单位: 秒) (只读)
  *
- *  @discussion
+ *
  *  调用prepareToPlay方法后，不能立即获得duration值。只有在播放器发送NELivePlayerDidPreparedToPlayNotification通知后，获取的duration值才有效，\\\n
  *  这也意味着isPreparedToPlay值为YES时，duration值才有效。\\\n
  *
@@ -448,7 +440,7 @@ typedef void (^NELPSwitchStreamResultCB)(NELPSwitchStreamResult result);
 /**
  *	@brief	获取当前可播放的视频时长(单位：秒) (只读)
  *
- *  @discussion 当播放网络视频时，该值表示已经缓冲的视频的最大时长，若此时网络端开，则只能播放到该时刻为止。
+ *   当播放网络视频时，该值表示已经缓冲的视频的最大时长，若此时网络端开，则只能播放到该时刻为止。
  *
  *	@return	当前缓冲时长(单位：秒)
  */
@@ -457,7 +449,7 @@ typedef void (^NELPSwitchStreamResultCB)(NELPSwitchStreamResult result);
 /**
  * @brief 当前视频文件是否完成初始化（只读）
  *
- * @discussion
+ *
  *
  * 调用prepareToPlay方法后，如果播放器完成视频文件的初始化，会发送NELivePlayerDidPreparedToPlayNotification通知，并将isPreparedToPlay置为YES。
  *
@@ -468,7 +460,7 @@ typedef void (^NELPSwitchStreamResultCB)(NELPSwitchStreamResult result);
 /**
  *	@brief	获取当前播放状态 (只读)
  *
- *  @discussion 共有以下4种状态，详见 NELPMoviePlaybackState。
+ *   共有以下4种状态，详见 NELPMoviePlaybackState。
  *
  *  NELPMoviePlaybackStateStopped, // 停止状态 \\\n
  *  NELPMoviePlaybackStatePlaying, // 播放状态 \\\n
@@ -489,7 +481,7 @@ typedef void (^NELPSwitchStreamResultCB)(NELPSwitchStreamResult result);
 /**
  *	@brief	获取当前加载状态 (只读)
  *
- *  @discussion 共有以下3种加载状态，详见 NELPMovieLoadState
+ *   共有以下3种加载状态，详见 NELPMovieLoadState
  *
  *  NELPMovieLoadStatePlayable       = 1 << 0, // 在该状态下，播放器初始化完成，可以播放，若shouldAutoplay 设置成YES，播放器初始化完成后会自动播放 \\\n
  *  NELPMovieLoadStatePlaythroughOK  = 1 << 1, // 在该状态下，在网络不好的情况下缓冲完成，可以播放 \\\n
@@ -507,11 +499,11 @@ typedef void (^NELPSwitchStreamResultCB)(NELPSwitchStreamResult result);
 /**
  *	@brief	设置播放器初始化视频文件完成后是否自动播放，默认自动播放
  *
- *  @param 	shouldAutoplay 	YES：自动播放 NO：手动播放
+ *   	shouldAutoplay 	YES：自动播放 NO：手动播放
  *
- *  @discussion 当设置为YES后，则在调用prepareToPlay初始化视频文件完成后会自动调用play方法进行播放
+ *   当设置为YES后，则在调用prepareToPlay初始化视频文件完成后会自动调用play方法进行播放
  *
- *	@return	无
+ *
  */
 @property(nonatomic) BOOL shouldAutoplay;
 

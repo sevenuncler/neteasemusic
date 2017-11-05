@@ -18,10 +18,7 @@
 @property (nonatomic, copy)     NSString *repeatCount;
 @end
 
-@interface SigleSongStatusItem : StatusItem
-@property (nonatomic, strong) SUItem *song;
-@property (nonatomic, strong) NSMutableArray *pics;
-@end
+
 
 @interface VideoStatusItem : StatusItem
 @property (nonatomic, strong) SUItem *video;

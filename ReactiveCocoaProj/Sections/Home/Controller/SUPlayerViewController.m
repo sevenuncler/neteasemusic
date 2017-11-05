@@ -12,7 +12,7 @@
 #import "Macros.h"
 #import <AVKit/AVKit.h>
 #import <ReactiveCocoa/ReactiveCocoa.h>
-        #import "NSObject+RACPropertySubscribing.h"
+#import "NSObject+RACPropertySubscribing.h"
 #import "SUAdvancePlayer.h"
 #import "NELivePlayer.h"
 #import "NELivePlayerController.h"

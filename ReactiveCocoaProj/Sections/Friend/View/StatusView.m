@@ -67,6 +67,7 @@
 @synthesize contentView  = _contentView;
 @synthesize optionButton = _optionButton;
 
+
 - (instancetype)init {
     self = [self initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WIDTH)];
     return self;
@@ -100,7 +101,7 @@
     self.dateLabel.top  = self.nameLabel.botton + PADDING;
     
     CGSize size = [self.contentLabel sizeThatFits:CGSizeMake(self.size.width - self.nameLabel.left - PADDING, CGFLOAT_MAX)];
-    self.contentLabel.size = size;
+    self.contentLabel.size = CGSizeMake(self.size.width - self.nameLabel.left - PADDING, size.height);
     self.contentLabel.left = self.nameLabel.left;
     self.contentLabel.top  = self.dateLabel.botton + 2*PADDING;
     
@@ -248,7 +249,7 @@
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if(self = [super initWithFrame:frame]) {
-        self.backgroundColor = RGB(arc4random()%255, arc4random()%255, arc4random()%255);;
+        self.backgroundColor = RGB(245, 245, 245);;
         [self addSubview:self.leftButton];
         [self addSubview:self.titleLabel];
         [self addSubview:self.subTitleLabel];
@@ -306,10 +307,12 @@
 @end
 
 @implementation SongStatusView
+
 - (instancetype)init {
     self = [self initWithFrame:CGRectZero];
     return self;
 }
+
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if(self) {
@@ -320,7 +323,6 @@
 
 - (void)layoutSubviews {
     __weak typeof(self) weakSelf = self;
-    
     self.containerView.size = CGSizeMake(self.containerView.size.width, 0);
     [self.imageViews enumerateObjectsUsingBlock:^(FLAnimatedImageView *obj, NSUInteger idx, BOOL * _Nonnull stop) {
         obj.hidden = YES;

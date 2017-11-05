@@ -10,7 +10,6 @@
 		0F7B868F777525EC68D76B4C /* Pods_ReactiveCocoaProj.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0704B9D92418B737A4BFEA8 /* Pods_ReactiveCocoaProj.framework */; };
 		87085DA61F7DC61B009065C8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 87085DA51F7DC61B009065C8 /* main.m */; };
 		87085DA91F7DC61B009065C8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 87085DA81F7DC61B009065C8 /* AppDelegate.m */; };
-		87085DAC1F7DC61B009065C8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87085DAB1F7DC61B009065C8 /* ViewController.m */; };
 		87085DAF1F7DC61B009065C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87085DAD1F7DC61B009065C8 /* Main.storyboard */; };
 		87085DB11F7DC61B009065C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87085DB01F7DC61B009065C8 /* Assets.xcassets */; };
 		87085DB41F7DC61B009065C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87085DB21F7DC61B009065C8 /* LaunchScreen.storyboard */; };
@@ -59,6 +58,9 @@
 		871979A01FA411D00068B1F3 /* cm2_icn_one_prs@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8719799A1FA411CF0068B1F3 /* cm2_icn_one_prs@3x.png */; };
 		871979A11FA411D00068B1F3 /* cm2_icn_shuffle_prs@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8719799B1FA411D00068B1F3 /* cm2_icn_shuffle_prs@2x.png */; };
 		871979A21FA411D00068B1F3 /* cm2_icn_one_prs.png in Resources */ = {isa = PBXBuildFile; fileRef = 8719799C1FA411D00068B1F3 /* cm2_icn_one_prs.png */; };
+		872793451FAF45790095852E /* AccountVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 872793441FAF45790095852E /* AccountVC.m */; };
+		872793481FAF48400095852E /* StatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 872793471FAF48400095852E /* StatusCell.m */; };
+		8727934C1FAF5A440095852E /* SongStatusItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8727934B1FAF5A440095852E /* SongStatusItem.m */; };
 		872D10D31F925BA300A293FA /* TransitionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 872D10D21F925BA300A293FA /* TransitionManager.m */; };
 		872D10D61F9261D600A293FA /* Animator.m in Sources */ = {isa = PBXBuildFile; fileRef = 872D10D51F9261D600A293FA /* Animator.m */; };
 		872D10D81F94D7C600A293FA /* cover.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 872D10D71F94D7C600A293FA /* cover.jpg */; };
@@ -264,8 +266,6 @@
 		87085DA51F7DC61B009065C8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		87085DA71F7DC61B009065C8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		87085DA81F7DC61B009065C8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		87085DAA1F7DC61B009065C8 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		87085DAB1F7DC61B009065C8 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		87085DAE1F7DC61B009065C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		87085DB01F7DC61B009065C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		87085DB31F7DC61B009065C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -327,6 +327,12 @@
 		8719799A1FA411CF0068B1F3 /* cm2_icn_one_prs@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cm2_icn_one_prs@3x.png"; sourceTree = "<group>"; };
 		8719799B1FA411D00068B1F3 /* cm2_icn_shuffle_prs@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cm2_icn_shuffle_prs@2x.png"; sourceTree = "<group>"; };
 		8719799C1FA411D00068B1F3 /* cm2_icn_one_prs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cm2_icn_one_prs.png; sourceTree = "<group>"; };
+		872793431FAF45790095852E /* AccountVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccountVC.h; sourceTree = "<group>"; };
+		872793441FAF45790095852E /* AccountVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccountVC.m; sourceTree = "<group>"; };
+		872793461FAF48400095852E /* StatusCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StatusCell.h; sourceTree = "<group>"; };
+		872793471FAF48400095852E /* StatusCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StatusCell.m; sourceTree = "<group>"; };
+		8727934A1FAF5A440095852E /* SongStatusItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SongStatusItem.h; sourceTree = "<group>"; };
+		8727934B1FAF5A440095852E /* SongStatusItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SongStatusItem.m; sourceTree = "<group>"; };
 		872D10D11F925BA300A293FA /* TransitionManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TransitionManager.h; sourceTree = "<group>"; };
 		872D10D21F925BA300A293FA /* TransitionManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TransitionManager.m; sourceTree = "<group>"; };
 		872D10D41F9261D600A293FA /* Animator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Animator.h; sourceTree = "<group>"; };
@@ -676,8 +682,6 @@
 				87085DBD1F7DC79D009065C8 /* Sections */,
 				87085DA71F7DC61B009065C8 /* AppDelegate.h */,
 				87085DA81F7DC61B009065C8 /* AppDelegate.m */,
-				87085DAA1F7DC61B009065C8 /* ViewController.h */,
-				87085DAB1F7DC61B009065C8 /* ViewController.m */,
 				87085DAD1F7DC61B009065C8 /* Main.storyboard */,
 				87085DB21F7DC61B009065C8 /* LaunchScreen.storyboard */,
 				87085DB51F7DC61B009065C8 /* Info.plist */,
@@ -925,6 +929,8 @@
 		8755397D1FAA93B500A7628F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				872793431FAF45790095852E /* AccountVC.h */,
+				872793441FAF45790095852E /* AccountVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1026,6 +1032,8 @@
 			children = (
 				875539BB1FADB23400A7628F /* StatusItem.h */,
 				875539BC1FADB23400A7628F /* StatusItem.m */,
+				8727934A1FAF5A440095852E /* SongStatusItem.h */,
+				8727934B1FAF5A440095852E /* SongStatusItem.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1035,6 +1043,8 @@
 			children = (
 				875539BE1FADB7B600A7628F /* StatusView.h */,
 				875539BF1FADB7B600A7628F /* StatusView.m */,
+				872793461FAF48400095852E /* StatusCell.h */,
+				872793471FAF48400095852E /* StatusCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1514,6 +1524,7 @@
 				873B0D751FA7F4DA0088DFD0 /* HeaderView.m in Sources */,
 				872D10D61F9261D600A293FA /* Animator.m in Sources */,
 				87085DD71F7F1D91009065C8 /* SUTableViewCell.m in Sources */,
+				872793451FAF45790095852E /* AccountVC.m in Sources */,
 				87A1917E1F9EBA1B00D7DC3B /* CatagoryView.m in Sources */,
 				8793B2D51F95820E006DDC24 /* SUCollectionViewCell.m in Sources */,
 				875C2F8D1F97897000145E57 /* GeneralModel.m in Sources */,
@@ -1526,6 +1537,7 @@
 				875539901FAA965A00A7628F /* MyMusicViewStaticCell.m in Sources */,
 				875539C01FADB7B600A7628F /* StatusView.m in Sources */,
 				875C2F961F99756A00145E57 /* HotCell.m in Sources */,
+				8727934C1FAF5A440095852E /* SongStatusItem.m in Sources */,
 				875539B41FACC0D100A7628F /* MyMusicHeaderView.m in Sources */,
 				87A1918D1FA0134C00D7DC3B /* SUPlayerViewController.m in Sources */,
 				875C2F901F9797DA00145E57 /* SetViewModel.m in Sources */,
@@ -1533,10 +1545,10 @@
 				874CE3131F9C9D9A0075722A /* AlbumsItem.m in Sources */,
 				872D10D31F925BA300A293FA /* TransitionManager.m in Sources */,
 				875C2F841F977F1800145E57 /* SongSetView.m in Sources */,
-				87085DAC1F7DC61B009065C8 /* ViewController.m in Sources */,
 				87085DE01F85DC02009065C8 /* SUGoodsItem.m in Sources */,
 				874CE3071F9C59300075722A /* Song.m in Sources */,
 				873B0D0B1FA4BD300088DFD0 /* SUAdvancePlayer.m in Sources */,
+				872793481FAF48400095852E /* StatusCell.m in Sources */,
 				87085DDD1F85C7CE009065C8 /* SUCommodityItem.m in Sources */,
 				87085DC81F7F1981009065C8 /* NavigationController.m in Sources */,
 				873B0D0E1FA4BD300088DFD0 /* SUURLAssetSourceLoader.m in Sources */,
@@ -1715,6 +1727,13 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/ReactiveCocoaProj/libs",
 				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"FLAnimatedImage\"",
+					"-framework",
+					"\"ReactiveCocoa\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.netease.NIM.demo.vcloudfh2048;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1741,6 +1760,13 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ReactiveCocoaProj/libs",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"FLAnimatedImage\"",
+					"-framework",
+					"\"ReactiveCocoa\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.netease.NIM.demo.vcloudfh2048;
 				PRODUCT_NAME = "$(TARGET_NAME)";

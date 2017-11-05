@@ -10,7 +10,6 @@
 #import "SUHomeVC.h"
 #import "Macros.h"
 #import "UIImage+Size.h"
-#import "ViewController.h"
 #import "AdVC.h"
 #import "MusicVC.h"
 #import "SUPlayerViewController.h"

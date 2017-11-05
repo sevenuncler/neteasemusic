@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "StatusItem.h"
 
-@interface FriendVC : UIViewController
-
+@interface FriendVC : UITableViewController
+@property(nonatomic, strong) NSMutableArray<StatusItem *> *items;
 @end

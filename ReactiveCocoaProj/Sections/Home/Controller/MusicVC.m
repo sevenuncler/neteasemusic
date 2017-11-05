@@ -375,7 +375,7 @@ static NSString * const reuseID = @"reuseID";
 }
 
 - (void)setUpRecommandSongView {
-    CGFloat itemWidth  = SCREEN_WIDTH / 3 - 10;
+//    CGFloat itemWidth  = SCREEN_WIDTH / 3 - 10;
     CGFloat itemHeight = SCREEN_WIDTH / 3 + 25;
     GeneralModel *generalModel = [GeneralModel new];
 

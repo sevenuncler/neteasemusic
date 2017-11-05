@@ -12,7 +12,6 @@
 #import "SUGoHorseLampViewModel.h"
 #import "SUTableViewCell.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
-#import "ViewController.h"
 #import "TransitionManager.h"
 #import "Animator.h"
 #import "Macros.h"

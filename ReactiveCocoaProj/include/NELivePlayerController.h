@@ -117,7 +117,6 @@ typedef NS_ENUM(NSInteger, NELPPLayerErrorCode) {
  *
  *	@param 	logLevel 	log级别
  *
- *	@return	无
  */
 + (void)setLogLevel:(NELPLogLevel)logLevel;
 

@@ -10,10 +10,11 @@
 #import "SUHomeVC.h"
 #import "Macros.h"
 #import "UIImage+Size.h"
-#import "ViewController.h"
 #import "SUPlayerViewController.h"
 #import "MyTabBarController.h"
 #import "MyMusicVC.h"
+#import "FriendVC.h"
+#import "AccountVC.h"
 
 @interface AdVC ()
 
@@ -55,7 +56,7 @@
         [controllers addObject:navigationController];
     }
     {
-        UIViewController *vc = [ViewController new];
+        UIViewController *vc = [FriendVC new];
         UITabBarItem *tabBarItem = [[UITabBarItem alloc] init];
         
         tabBarItem.image  = [[UIImage imageNamed:@"cm2_btm_icn_friend"] imageWithSize:CGSizeMake(25, 25)];
@@ -66,7 +67,7 @@
         [controllers addObject:navigationController];
     }
     {
-        UIViewController *vc = [ViewController new];
+        UIViewController *vc = [AccountVC new];
         UITabBarItem *tabBarItem = [[UITabBarItem alloc] init];
         
         tabBarItem.image  = [[UIImage imageNamed:@"cm2_btm_icn_account"] imageWithSize:CGSizeMake(25, 25)];
