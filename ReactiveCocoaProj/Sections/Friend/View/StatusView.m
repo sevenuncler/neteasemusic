@@ -348,6 +348,7 @@
             iv.image = x;
         }];
     }];
+
     if(self.images.count>0) {
         FLAnimatedImageView *iv = [self.imageViews objectAtIndex:self.images.count-1];
         self.containerView.size   = CGSizeMake(self.containerView.size.width, iv.botton + PADDING);
@@ -363,12 +364,6 @@
 - (NSMutableArray *)images {
     if(!_images) {
         _images = [NSMutableArray arrayWithCapacity:9];
-        {
-            [_images addObject:@"https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=756514221,687352746&fm=27&gp=0.jpg"];
-        }
-        {
-            [_images addObject:@"https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=756514221,687352746&fm=27&gp=0.jpg"];
-        }
         {
             [_images addObject:@"https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=756514221,687352746&fm=27&gp=0.jpg"];
         }
