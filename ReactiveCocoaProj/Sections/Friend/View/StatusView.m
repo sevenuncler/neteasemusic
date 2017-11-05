@@ -8,7 +8,7 @@
 
 #import "StatusView.h"
 #import "UIView+Layout.h"
-#import "Macros.h"
+#import "SUImageManager.h"
 
 @implementation MenuView
 
@@ -237,9 +237,187 @@
 - (UIView *)videoView {
     if(!_videoView) {
         _videoView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH-100, SCREEN_WIDTH - 200)];
-        _videoView.backgroundColor = RGB(10, 50, 100);
+        _videoView.backgroundColor = RGB(arc4random()%255, arc4random()%255, arc4random()%255);
     }
     return _videoView;
 }
+
+@end
+
+@implementation SongView
+
+- (instancetype)initWithFrame:(CGRect)frame {
+    if(self = [super initWithFrame:frame]) {
+        self.backgroundColor = RGB(arc4random()%255, arc4random()%255, arc4random()%255);;
+        [self addSubview:self.leftButton];
+        [self addSubview:self.titleLabel];
+        [self addSubview:self.subTitleLabel];
+    }
+    return self;
+}
+
+- (void)layoutSubviews {
+    [self.titleLabel sizeToFit];
+    
+    self.leftButton.left     = PADDING;
+    self.leftButton.centerY  = self.size.height/2;
+    
+    self.titleLabel.top  = PADDING;
+    self.titleLabel.left = self.leftButton.right + PADDING;
+    
+    [self.subTitleLabel sizeToFit];
+    self.subTitleLabel.left = self.titleLabel.left;
+    self.subTitleLabel.top  = self.titleLabel.botton + PADDING;
+}
+
+- (UIButton *)leftButton {
+    if(!_leftButton) {
+        _leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        _leftButton.size = CGSizeMake(LEFT_WIDTH, LEFT_WIDTH);
+//        [_leftButton setImage:[UIImage imageNamed:@"image"] forState:UIControlStateNormal];
+        [_leftButton setBackgroundImage:[UIImage imageNamed:@"image"] forState:UIControlStateNormal];
+    }
+    return _leftButton;
+}
+
+- (UILabel *)titleLabel {
+    if(!_titleLabel) {
+        _titleLabel = [UILabel new];
+        _titleLabel.font = [UIFont systemFontOfSize:TITLE_FONT];
+        _titleLabel.text = @"终身美丽（电影《瘦身男女》主题曲）";
+    }
+    return _titleLabel;
+}
+
+- (UILabel *)subTitleLabel {
+    if(!_subTitleLabel) {
+        _subTitleLabel = [UILabel new];
+        _subTitleLabel.font = [UIFont systemFontOfSize:SUB_TITLE_FONT];
+        _subTitleLabel.text = @"郑秀文";
+    }
+    return _subTitleLabel;
+}
+
+@end
+
+@interface SongStatusView()
+@property(nonatomic, strong) UIView *containerView;
+@property(nonatomic, strong) NSMutableArray *imageViews;
+@end
+
+@implementation SongStatusView
+- (instancetype)init {
+    self = [self initWithFrame:CGRectZero];
+    return self;
+}
+- (instancetype)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    if(self) {
+        self.contentView = self.containerView;
+    }
+    return self;
+}
+
+- (void)layoutSubviews {
+    __weak typeof(self) weakSelf = self;
+    
+    self.containerView.size = CGSizeMake(self.containerView.size.width, 0);
+    [self.imageViews enumerateObjectsUsingBlock:^(FLAnimatedImageView *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        obj.hidden = YES;
+        obj.size   = CGSizeZero;
+    }];
+
+    [self.images enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if(idx >= weakSelf.imageViews.count) {
+            FLAnimatedImageView *imageView = [[FLAnimatedImageView alloc] init];
+            [self.imageViews addObject:imageView];
+            imageView.image = [UIImage imageNamed:@"image"];
+            [weakSelf.containerView addSubview:imageView];
+        }
+        FLAnimatedImageView *iv = [self.imageViews objectAtIndex:idx];
+        iv.size = CGSizeMake(IMAGE_WIDTH, IMAGE_WIDTH);
+        NSUInteger row = idx / IMAGE_ITEM_PER_LINE;
+        NSUInteger col = idx % IMAGE_ITEM_PER_LINE;
+        iv.left = col * (IMAGE_WIDTH + IMAGE_SPACE);
+        iv.top  = row * (IMAGE_WIDTH + IMAGE_SPACE);
+        iv.hidden = NO;
+        SUImageManager *imageManager = [SUImageManager defaultImageManager];
+        @weakify(iv);
+        [[imageManager imageWithUrl:obj] subscribeNext:^(UIImage *x) {
+            @strongify(iv);
+            iv.image = x;
+        }];
+    }];
+    if(self.images.count>0) {
+        FLAnimatedImageView *iv = [self.imageViews objectAtIndex:self.images.count-1];
+        self.containerView.size   = CGSizeMake(self.containerView.size.width, iv.botton + PADDING);
+    }
+    if(!self.songView.hidden) {
+        self.songView.left = 0;
+        self.songView.top  = self.containerView.size.height;
+        self.containerView.size = CGSizeMake(self.containerView.size.width, self.songView.botton + PADDING);
+    }
+    [super layoutSubviews];
+}
+
+- (NSMutableArray *)images {
+    if(!_images) {
+        _images = [NSMutableArray arrayWithCapacity:9];
+        {
+            [_images addObject:@"https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=756514221,687352746&fm=27&gp=0.jpg"];
+        }
+        {
+            [_images addObject:@"https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=756514221,687352746&fm=27&gp=0.jpg"];
+        }
+        {
+            [_images addObject:@"https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=756514221,687352746&fm=27&gp=0.jpg"];
+        }
+        {
+            [_images addObject:@"https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=756514221,687352746&fm=27&gp=0.jpg"];
+        }
+        {
+            [_images addObject:@"https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=756514221,687352746&fm=27&gp=0.jpg"];
+        }
+        {
+            [_images addObject:@"https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=756514221,687352746&fm=27&gp=0.jpg"];
+        }
+        {
+            [_images addObject:@"https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=756514221,687352746&fm=27&gp=0.jpg"];
+        }
+        {
+            [_images addObject:@"https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=756514221,687352746&fm=27&gp=0.jpg"];
+        }
+        {
+            [_images addObject:@"https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=756514221,687352746&fm=27&gp=0.jpg"];
+        }
+    }
+    return _images;
+}
+
+- (UIView *)containerView {
+    if(!_containerView) {
+        _containerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 0)];
+    }
+    return _containerView;
+}
+
+- (NSMutableArray *)imageViews {
+    if(!_imageViews) {
+        _imageViews = [NSMutableArray arrayWithCapacity:9];
+        
+    }
+    return _imageViews;
+}
+
+- (SongView *)songView {
+    if(!_songView) {
+        _songView = [[SongView alloc] initWithFrame:CGRectMake(0, 0, IMAGE_ITEM_PER_LINE*IMAGE_WIDTH + IMAGE_SPACE*(IMAGE_ITEM_PER_LINE-1), LEFT_WIDTH+2*PADDING)];
+        [self.containerView addSubview:_songView];
+    }
+    return _songView;
+}
+
+
+
 
 @end

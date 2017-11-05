@@ -17,7 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    StatusView *statusView = [[VideoStatusView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 0)];
+    StatusView *statusView = [[SongStatusView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 0)];
     [self.view addSubview:statusView];
 }
 

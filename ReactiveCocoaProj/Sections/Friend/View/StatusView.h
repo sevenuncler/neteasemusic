@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Macros.h"
+#import <FLAnimatedImage/FLAnimatedImage.h>
 
 #define AVATOR_WIDTH 40
 #define PADDING      10
@@ -46,10 +48,26 @@
 @property(nonatomic, strong) UIView *videoView;
 @end
 
+
+
 //单曲分享视图
+#define LEFT_WIDTH 40
+#define TITLE_FONT 10.f
+#define SUB_TITLE_FONT 7.f
+
+@interface SongView : UIView
+@property(nonatomic, strong) UIButton *leftButton;
+@property(nonatomic, strong) UILabel  *titleLabel;
+@property(nonatomic, strong) UILabel  *subTitleLabel;
+@end
+
+#define IMAGE_SPACE 5
+#define IMAGE_ITEM_PER_LINE 3
+#define IMAGE_WIDTH ((SCREEN_WIDTH) - (AVATOR_WIDTH) - (3*PADDING) - ((IMAGE_ITEM_PER_LINE-1)*IMAGE_SPACE)) / (IMAGE_ITEM_PER_LINE)
+
 @interface SongStatusView : StatusView
 @property(nonatomic, strong) NSMutableArray *images;
-@property(nonatomic, strong) UIView         *song;
+@property(nonatomic, strong) SongView       *songView;
 @end
 
 
