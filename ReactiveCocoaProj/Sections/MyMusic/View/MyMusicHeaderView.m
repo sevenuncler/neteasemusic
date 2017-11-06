@@ -21,7 +21,7 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    self.leftButton.size = CGSizeMake(self.size.height, self.size.height);
+    self.leftButton.size = CGSizeMake(self.size.height-15, self.size.height-15);
     self.leftButton.left = 5;
     self.leftButton.centerY = self.size.height/2;
     

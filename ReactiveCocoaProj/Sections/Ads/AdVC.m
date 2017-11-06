@@ -36,8 +36,8 @@
     {
         UIViewController *vc = [[SUHomeVC alloc] init];
         UITabBarItem *tabBarItem = [[UITabBarItem alloc] init];
-        tabBarItem.image = [[UIImage imageNamed:@"cm2_btm_icn_discovery"] imageWithSize:CGSizeMake(40, 40)];
-        tabBarItem.selectedImage = [[UIImage imageNamed:@"cm2_btm_icn_discovery"] imageWithSize:CGSizeMake(30, 30)];
+        tabBarItem.image = [UIImage imageNamed:@"cm2_btm_icn_discovery"];
+        tabBarItem.selectedImage = [UIImage imageNamed:@"cm2_btm_icn_discovery"];
         tabBarItem.title = @"发现音乐";
         vc.tabBarItem = tabBarItem;
         UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:vc];
@@ -48,8 +48,8 @@
         UIViewController *vc = [MyMusicVC new];
         UITabBarItem *tabBarItem = [[UITabBarItem alloc] init];
         
-        tabBarItem.image  = [[UIImage imageNamed:@"cm2_btm_icn_music"] imageWithSize:CGSizeMake(25, 25)];
-        tabBarItem.selectedImage =   [[UIImage imageNamed:@"cm2_btm_icn_music"] imageWithSize:CGSizeMake(25, 25)];
+        tabBarItem.image  = [UIImage imageNamed:@"cm2_btm_icn_music"];
+        tabBarItem.selectedImage =   [UIImage imageNamed:@"cm2_btm_icn_music"];
         tabBarItem.title = @"我的音乐";
         vc.tabBarItem = tabBarItem;
         UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
@@ -59,8 +59,8 @@
         UIViewController *vc = [FriendVC new];
         UITabBarItem *tabBarItem = [[UITabBarItem alloc] init];
         
-        tabBarItem.image  = [[UIImage imageNamed:@"cm2_btm_icn_friend"] imageWithSize:CGSizeMake(25, 25)];
-        tabBarItem.selectedImage =   [[UIImage imageNamed:@"cm2_btm_icn_friend"] imageWithSize:CGSizeMake(25, 25)];
+        tabBarItem.image  = [UIImage imageNamed:@"cm2_btm_icn_friend"];
+        tabBarItem.selectedImage =   [UIImage imageNamed:@"cm2_btm_icn_friend"];
         tabBarItem.title = @"朋友";
         vc.tabBarItem = tabBarItem;
         UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
@@ -70,8 +70,8 @@
         UIViewController *vc = [AccountVC new];
         UITabBarItem *tabBarItem = [[UITabBarItem alloc] init];
         
-        tabBarItem.image  = [[UIImage imageNamed:@"cm2_btm_icn_account"] imageWithSize:CGSizeMake(25, 25)];
-        tabBarItem.selectedImage =   [[UIImage imageNamed:@"cm2_btm_icn_account"] imageWithSize:CGSizeMake(25, 25)];
+        tabBarItem.image  = [UIImage imageNamed:@"cm2_btm_icn_account"];
+        tabBarItem.selectedImage =   [UIImage imageNamed:@"cm2_btm_icn_account@3x"];
         tabBarItem.title = @"账号";
         vc.tabBarItem = tabBarItem;
         UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:vc];

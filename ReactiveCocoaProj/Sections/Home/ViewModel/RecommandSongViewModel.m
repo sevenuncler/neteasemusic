@@ -60,7 +60,7 @@ didReceiveResponse:(NSURLResponse *)response
     NSMutableDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
     CGFloat itemWidth  = SCREEN_WIDTH / 3 - 10;
     CGFloat itemHeight = SCREEN_WIDTH / 3 + 25;
-    NSLog(@"%@", dict);
+    NSLog(@"请求返回%@", dict);
     {
         RecommandSong *recommandSong = [RecommandSong new];
         recommandSong.coverPath = dict[@"image"];
@@ -70,30 +70,27 @@ didReceiveResponse:(NSURLResponse *)response
         layout.frame   = CGRectMake(0, 0, itemWidth, itemHeight);
         recommandSong.layout = layout;
         [self.items addObject:recommandSong];
-    }
-    if(self.collection) {
-        @synchronized(self) {
+        @synchronized (self) {
             [self.collection reloadData];
+
         }
     }
 }
 -(void)URLSession:(NSURLSession *)session didBecomeInvalidWithError:(NSError *)error{
-    NSLog(@"%@",error);
+    NSLog(@"请求数据错误:%@",error);
 }
 
 #pragma mark - UICollectionViewDataSource
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.items.count <= 2?1:2;
+    if((section == self.items.count/2) && (self.items.count%2==1)) {
+        return 1;
+    }
+    return 2;
 }
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     self.collection = collectionView;
-//    if(self.items.count == 0){
-//        return 0;
-//    }else if(self.items.count == 2) {
-//        return 2;
-//    }
-    return self.items.count / 2;
+    return self.items.count / 2 + self.items.count%2;
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
 //    static dispatch_once_t onceToken;
@@ -104,10 +101,15 @@ didReceiveResponse:(NSURLResponse *)response
     RecommandSongViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[RecommandSongViewCell description] forIndexPath:indexPath];
     
     RecommandSong *recommandSong = [self.items objectAtIndex:indexPath.section*2 +  indexPath.item];
+//    NSLog(@">>>> %@", recommandSong.coverPath);
     @weakify(cell);
+    @weakify(collectionView);
     [[[SUImageManager defaultImageManager] imageWithUrl:recommandSong.coverPath] subscribeNext:^(id x) {
+//        NSLog(@">>>> %p %@",collectionView, x);
         @strongify(cell);
+        @strongify(collectionView);
         cell.coverImageView.image = x;
+        [collectionView reloadItemsAtIndexPaths:@[indexPath]];
     }];
     cell.titleLabel.text = recommandSong.title;
     cell.subTitleLabel.text = nil;

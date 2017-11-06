@@ -50,7 +50,7 @@
 
 - (VideoStatusView *)videoStatusView {
     if(!_videoStatusView) {
-        _videoStatusView = [VideoStatusView new];
+        _videoStatusView = [[VideoStatusView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 0)];
     }
     return _videoStatusView;
 }

@@ -61,6 +61,7 @@
 		872793451FAF45790095852E /* AccountVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 872793441FAF45790095852E /* AccountVC.m */; };
 		872793481FAF48400095852E /* StatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 872793471FAF48400095852E /* StatusCell.m */; };
 		8727934C1FAF5A440095852E /* SongStatusItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8727934B1FAF5A440095852E /* SongStatusItem.m */; };
+		8727934F1FAFDF100095852E /* VideoStatusItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8727934E1FAFDF100095852E /* VideoStatusItem.m */; };
 		872D10D31F925BA300A293FA /* TransitionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 872D10D21F925BA300A293FA /* TransitionManager.m */; };
 		872D10D61F9261D600A293FA /* Animator.m in Sources */ = {isa = PBXBuildFile; fileRef = 872D10D51F9261D600A293FA /* Animator.m */; };
 		872D10D81F94D7C600A293FA /* cover.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 872D10D71F94D7C600A293FA /* cover.jpg */; };
@@ -333,6 +334,8 @@
 		872793471FAF48400095852E /* StatusCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StatusCell.m; sourceTree = "<group>"; };
 		8727934A1FAF5A440095852E /* SongStatusItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SongStatusItem.h; sourceTree = "<group>"; };
 		8727934B1FAF5A440095852E /* SongStatusItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SongStatusItem.m; sourceTree = "<group>"; };
+		8727934D1FAFDF100095852E /* VideoStatusItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoStatusItem.h; sourceTree = "<group>"; };
+		8727934E1FAFDF100095852E /* VideoStatusItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoStatusItem.m; sourceTree = "<group>"; };
 		872D10D11F925BA300A293FA /* TransitionManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TransitionManager.h; sourceTree = "<group>"; };
 		872D10D21F925BA300A293FA /* TransitionManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TransitionManager.m; sourceTree = "<group>"; };
 		872D10D41F9261D600A293FA /* Animator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Animator.h; sourceTree = "<group>"; };
@@ -1034,6 +1037,8 @@
 				875539BC1FADB23400A7628F /* StatusItem.m */,
 				8727934A1FAF5A440095852E /* SongStatusItem.h */,
 				8727934B1FAF5A440095852E /* SongStatusItem.m */,
+				8727934D1FAFDF100095852E /* VideoStatusItem.h */,
+				8727934E1FAFDF100095852E /* VideoStatusItem.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1264,7 +1269,7 @@
 				TargetAttributes = {
 					87085DA01F7DC61B009065C8 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = ZA43ZW39F3;
+						DevelopmentTeam = 569GNZ5392;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -1530,6 +1535,7 @@
 				875C2F8D1F97897000145E57 /* GeneralModel.m in Sources */,
 				87085DD41F7F1B45009065C8 /* SUGoHorseLampViewModel.m in Sources */,
 				875539BD1FADB23400A7628F /* StatusItem.m in Sources */,
+				8727934F1FAFDF100095852E /* VideoStatusItem.m in Sources */,
 				87DD37FA1F9200020006C289 /* UIImage+Size.m in Sources */,
 				8793B2CF1F95811D006DDC24 /* VideoVC.m in Sources */,
 				873B0D4C1FA6A5350088DFD0 /* MyTabBarController.m in Sources */,
@@ -1715,7 +1721,7 @@
 				CLANG_WARN_STRICT_PROTOTYPES = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ZA43ZW39F3;
+				DEVELOPMENT_TEAM = 569GNZ5392;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos/ReactiveCocoa",
@@ -1734,7 +1740,7 @@
 					"-framework",
 					"\"ReactiveCocoa\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.netease.NIM.demo.vcloudfh2048;
+				PRODUCT_BUNDLE_IDENTIFIER = com.netease.NIM.demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
@@ -1749,7 +1755,7 @@
 				CLANG_WARN_STRICT_PROTOTYPES = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ZA43ZW39F3;
+				DEVELOPMENT_TEAM = 569GNZ5392;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos/ReactiveCocoa",
@@ -1768,7 +1774,7 @@
 					"-framework",
 					"\"ReactiveCocoa\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.netease.NIM.demo.vcloudfh2048;
+				PRODUCT_BUNDLE_IDENTIFIER = com.netease.NIM.demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 			};

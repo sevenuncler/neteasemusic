@@ -60,14 +60,27 @@
         if([self objectForKey:url]) {
             [subscriber sendNext:[self objectForKey:url]];
         }else {
-            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-                UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:url]]];
+            @weakify(self);
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+            NSURL *URL = [NSURL URLWithString:url];
+            NSURLSession *session = [NSURLSession sharedSession];
+            NSURLSessionDataTask *dataTask = [session dataTaskWithURL:URL completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+                @strongify(self);
+                NSLog(@"SUImageManager error %@", error);
+                if(error) {
+                    return;
+                }
+                UIImage *image = [UIImage imageWithData:data];
                 if(image) {
                     [self setObject:image forKey:url];
                 }
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [subscriber sendNext:image];
                 });
+            }];
+            [dataTask resume];
+
+            
             });
             
         }

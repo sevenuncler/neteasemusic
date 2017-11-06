@@ -18,8 +18,3 @@
 @property (nonatomic, copy)     NSString *repeatCount;
 @end
 
-
-
-@interface VideoStatusItem : StatusItem
-@property (nonatomic, strong) SUItem *video;
-@end

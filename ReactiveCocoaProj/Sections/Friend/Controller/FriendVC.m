@@ -12,6 +12,7 @@
 #import "StatusCell.h"
 #import "UIView+Layout.h"
 #import "SongStatusItem.h"
+#import "VideoStatusItem.h"
 
 static NSString * const reuseSongID     = @"reuseSongID";
 static NSString * const reuseVideoID    = @"reuseVideoID";
@@ -37,8 +38,9 @@ static NSString * const reuseVideoID    = @"reuseVideoID";
 
 - (UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     StatusItem *statusItem = [self.items objectAtIndex:indexPath.row];
-    if([statusItem isMemberOfClass:[SongStatusView class]] || true) {
+    if([statusItem isMemberOfClass:[SongStatusItem class]]) {
         SongViewCell *songViewCell = [tableView dequeueReusableCellWithIdentifier:reuseSongID forIndexPath:indexPath];
+        songViewCell.selectionStyle = UITableViewCellSelectionStyleNone;
         SongStatusItem *songStatusItem = (SongStatusItem *)statusItem;
         songViewCell.songStatusView.nameLabel.text = @"德维恩韦德";
         songViewCell.songStatusView.dateLabel.text = @"昨天 22:47";
@@ -47,10 +49,16 @@ static NSString * const reuseVideoID    = @"reuseVideoID";
         [songViewCell.songStatusView setNeedsLayout];
         return songViewCell;
     }
-//    if([statusItem isMemberOfClass:[VideoStatusView class]]) {
-//        VideoViewCell *videoViewCell = [tableView dequeueReusableCellWithIdentifier:reuseVideoID forIndexPath:indexPath];
-//        return videoViewCell;
-//    }
+    if([statusItem isMemberOfClass:[VideoStatusItem class]]) {
+        VideoViewCell *videoViewCell = [tableView dequeueReusableCellWithIdentifier:reuseVideoID forIndexPath:indexPath];
+        videoViewCell.selectionStyle = UITableViewCellSelectionStyleNone;
+        VideoStatusItem *videoStatusItem = (VideoStatusItem *)statusItem;
+        videoViewCell.videoStatusView.nameLabel.text = @"凯里欧文";
+        videoViewCell.videoStatusView.contentLabel.text = videoStatusItem.publishText;
+        videoViewCell.videoStatusView.dateLabel.text = @"今天 07:53";
+        [videoViewCell.videoStatusView setNeedsLayout];
+        return videoViewCell;
+    }
     return nil;
 }
 
@@ -73,6 +81,13 @@ static NSString * const reuseVideoID    = @"reuseVideoID";
         item.publishText = @"大地出征，寸草不生";
         item.pics        = @[@"https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=756514221,687352746&fm=27&gp=0.jpg",@"https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2661383408,1630377023&fm=27&gp=0.jpg",@"https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1229347310,2063563433&fm=200&gp=0.jpg",@"https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2235648554,347432175&fm=11&gp=0.jpg"].mutableCopy;
         CGFloat itemHeight = [self viewHeightForSongItem:item];
+        item.layout.frame = CGRectMake(0, 0, 0, itemHeight);
+        [self.items addObject:item];
+    }
+    {
+        VideoStatusItem *item = [[VideoStatusItem alloc] init];
+        item.publishText = @"德鲁大叔，shame god，曼巴精神";
+        CGFloat itemHeight = [self viewHeightForVideoItem:item];
         item.layout.frame = CGRectMake(0, 0, 0, itemHeight);
         [self.items addObject:item];
     }
@@ -108,6 +123,16 @@ static NSString * const reuseVideoID    = @"reuseVideoID";
         item.layout.frame = CGRectMake(0, 0, 0, itemHeight);
         [self.items addObject:item];
     }
+    {
+        VideoStatusItem *item = [[VideoStatusItem alloc] init];
+        item.publishText = @"德鲁大叔，shame god，曼巴精神";
+        CGFloat itemHeight = [self viewHeightForVideoItem:item];
+        item.layout.frame = CGRectMake(0, 0, 0, itemHeight);
+        [self.items addObject:item];
+    }
+    [self.items addObjectsFromArray:self.items];
+    [self.items addObjectsFromArray:self.items];
+    [self.items addObjectsFromArray:self.items];
 }
 
 - (CGFloat)viewHeightForSongItem:(SongStatusItem *)item {
@@ -123,6 +148,20 @@ static NSString * const reuseVideoID    = @"reuseVideoID";
     [songStatusView setNeedsLayout];
     [songStatusView layoutIfNeeded];
     return songStatusView.size.height;
+}
+
+- (CGFloat)viewHeightForVideoItem:(VideoStatusItem *)item {
+    static VideoStatusView *videoStatusView;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        videoStatusView = [[VideoStatusView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 0)];
+    });
+    videoStatusView.nameLabel.text = @"凯里欧文";
+    videoStatusView.dateLabel.text = @"今天 07:47";
+    videoStatusView.contentLabel.text = item.publishText;
+    [videoStatusView setNeedsLayout];
+    [videoStatusView layoutIfNeeded];
+    return videoStatusView.size.height;
 }
 
 
