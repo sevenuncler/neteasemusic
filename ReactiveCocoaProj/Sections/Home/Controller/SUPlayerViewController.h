@@ -11,5 +11,6 @@
 
 @interface SUPlayerViewController : UIViewController
 @property (nonatomic, strong) NSMutableArray *songs;
+@property (nonatomic, weak)   UITabBarController *tabBarController;
 + (instancetype)sharedInstance;
 @end

@@ -15,6 +15,7 @@
 #import "SUPlayerViewController.h"
 #import "MyMusicVC.h"
 #import "FriendVC.h"
+#import "AccountVC.h"
 
 @interface AppDelegate ()
 

@@ -66,8 +66,8 @@
             NSURLSession *session = [NSURLSession sharedSession];
             NSURLSessionDataTask *dataTask = [session dataTaskWithURL:URL completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
                 @strongify(self);
-                NSLog(@"SUImageManager error %@", error);
                 if(error) {
+                    NSLog(@"SUImageManager error %@", error);
                     return;
                 }
                 UIImage *image = [UIImage imageWithData:data];

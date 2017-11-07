@@ -53,10 +53,8 @@ static NSString * const reuseID = @"reuseID";
     [self setUpNewestView];
     [self setUpMVView];
     [self setUpExclusizeView];
-    
-    
-    
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

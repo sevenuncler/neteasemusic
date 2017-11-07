@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "SUGeneralItem.h"
 @interface AccountVC : UITableViewController
-@property(nonatomic, strong) NSMutableArray *items;
+@property(nonatomic, strong) NSMutableArray<SUGeneralItem *> *items;
 @end

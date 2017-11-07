@@ -9,5 +9,10 @@
 #import "SUGeneralItem.h"
 
 @implementation SUGeneralItem
-
+- (NSMutableArray<SUItem *> *)contentItems {
+    if(!_contentItems) {
+        _contentItems = [NSMutableArray array];
+    }
+    return _contentItems;
+}
 @end

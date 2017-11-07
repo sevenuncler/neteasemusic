@@ -57,9 +57,13 @@ typedef NS_ENUM(NSUInteger, PlayListOrder){
     [self bindData];
     [self addPlayerObserver];
     [self.view addSubview:self.playerView];
-
-    //    [self startPlayList];
 }
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.tabBarController.tabBar.hidden = YES;
+}
+
 #pragma mark - Private
 
 - (void)startPlayList {

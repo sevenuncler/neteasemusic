@@ -57,7 +57,10 @@ static NSString * const reuseID = @"reuseID";
     [self.navigationController setNavigationBarHidden:NO animated:YES];
 
 }
-
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.tabBarController.tabBar.hidden = NO;
+}
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     self.firstView.segmentedControl.selectedSegmentIndex = 0;
@@ -89,7 +92,9 @@ static NSString * const reuseID = @"reuseID";
 
 - (void)onPlayerAction:(id)sender {
     self.playerVC.modalTransitionStyle = UIModalTransitionStylePartialCurl;
-    [self presentViewController:self.playerVC animated:YES completion:nil];
+    self.playerVC.tabBarController = self.tabBarController;
+    [self.navigationController pushViewController:self.playerVC animated:YES];
+//    [self presentViewController:self.playerVC animated:YES completion:nil];
 }
 
 

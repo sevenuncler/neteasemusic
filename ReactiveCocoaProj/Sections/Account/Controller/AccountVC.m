@@ -7,21 +7,24 @@
 //
 
 #import "AccountVC.h"
+#import "SUSettingItem.h"
 
 @interface AccountVC ()
-
 @end
-
+static NSString * const reuseCell = @"reuseAccoutCell";
+static NSString * const reuseCell2= @"reuseAccountCell2";
 @implementation AccountVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self loadData];
     
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:reuseCell];
     // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+     self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+     self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -29,25 +32,240 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Priavte
+
+- (void)loadData {
+    {
+        SUGeneralItem *generalItem = [SUGeneralItem new];
+        //header
+        //items
+        {
+            {
+            SUSettingItem *settingItem = [SUSettingItem new];
+            settingItem.leftImage = @"image";
+            settingItem.title     = @"七大爷";
+            settingItem.subTitle = @"等级 999";
+            settingItem.style     = UITableViewCellStyleSubtitle;
+                settingItem.layout.frame = CGRectMake(0, 0, 0, 88);
+            [generalItem.contentItems addObject:settingItem];
+            }
+        }
+        [self.items addObject:generalItem];
+    }
+    {
+        SUGeneralItem *generalItem = [SUGeneralItem new];
+        //header
+        SUItem *header      = [SUItem new];
+        header.layout.frame = CGRectMake(0, 0, 0, 10);
+        generalItem.header  = header;
+        //items
+        {
+            {
+                SUSettingItem *settingItem = [SUSettingItem new];
+                settingItem.leftImage = @"image";
+                settingItem.title     = @"我的消息";
+                settingItem.style     = 1;
+                settingItem.layout.frame = CGRectMake(0, 0, 0, 40);
+                [generalItem.contentItems addObject:settingItem];
+            }
+        }
+        [self.items addObject:generalItem];
+    }
+    {
+        SUGeneralItem *generalItem = [SUGeneralItem new];
+        //header
+        SUItem *header      = [SUItem new];
+        header.layout.frame = CGRectMake(0, 0, 0, 10);
+        generalItem.header  = header;
+        //items
+        {
+            {
+                SUSettingItem *settingItem = [SUSettingItem new];
+                settingItem.leftImage = @"image";
+                settingItem.title     = @"会员中心";
+                settingItem.style     = 1;
+                settingItem.layout.frame = CGRectMake(0, 0, 0, 40);
+                [generalItem.contentItems addObject:settingItem];
+            }
+            {
+                SUSettingItem *settingItem = [SUSettingItem new];
+                settingItem.leftImage = @"image";
+                settingItem.title     = @"商城";
+                settingItem.style     = 1;
+                settingItem.layout.frame = CGRectMake(0, 0, 0, 40);
+                [generalItem.contentItems addObject:settingItem];
+            }
+            {
+                SUSettingItem *settingItem = [SUSettingItem new];
+                settingItem.leftImage = @"image";
+                settingItem.title     = @"在线听歌免流量";
+                settingItem.style     = 1;
+                settingItem.layout.frame = CGRectMake(0, 0, 0, 40);
+                [generalItem.contentItems addObject:settingItem];
+            }
+        }
+        [self.items addObject:generalItem];
+    }
+    {
+        SUGeneralItem *generalItem = [SUGeneralItem new];
+        //header
+        SUItem *header      = [SUItem new];
+        header.layout.frame = CGRectMake(0, 0, 0, 10);
+        generalItem.header  = header;
+        //items
+        {
+            {
+                SUSettingItem *settingItem = [SUSettingItem new];
+                settingItem.leftImage = @"image";
+                settingItem.title     = @"设置";
+                settingItem.style     = 1;
+                settingItem.layout.frame = CGRectMake(0, 0, 0, 40);
+                [generalItem.contentItems addObject:settingItem];
+            }
+            {
+                SUSettingItem *settingItem = [SUSettingItem new];
+                settingItem.leftImage = @"image";
+                settingItem.title     = @"扫一扫";
+                settingItem.style     = 1;
+                settingItem.layout.frame = CGRectMake(0, 0, 0, 40);
+                [generalItem.contentItems addObject:settingItem];
+            }
+            {
+                SUSettingItem *settingItem = [SUSettingItem new];
+                settingItem.leftImage = @"image";
+                settingItem.title     = @"个性换肤";
+                settingItem.style     = 1;
+                settingItem.layout.frame = CGRectMake(0, 0, 0, 40);
+                [generalItem.contentItems addObject:settingItem];
+            }
+            {
+                SUSettingItem *settingItem = [SUSettingItem new];
+                settingItem.leftImage = @"image";
+                settingItem.title     = @"夜间模式";
+                settingItem.style     = 1;
+                settingItem.layout.frame = CGRectMake(0, 0, 0, 40);
+                [generalItem.contentItems addObject:settingItem];
+            }
+            {
+                SUSettingItem *settingItem = [SUSettingItem new];
+                settingItem.leftImage = @"image";
+                settingItem.title     = @"定时关闭";
+                settingItem.style     = 1;
+                settingItem.layout.frame = CGRectMake(0, 0, 0, 40);
+                [generalItem.contentItems addObject:settingItem];
+            }
+            {
+                SUSettingItem *settingItem = [SUSettingItem new];
+                settingItem.leftImage = @"image";
+                settingItem.title     = @"音乐闹钟";
+                settingItem.style     = 1;
+                settingItem.layout.frame = CGRectMake(0, 0, 0, 40);
+                [generalItem.contentItems addObject:settingItem];
+            }
+            {
+                SUSettingItem *settingItem = [SUSettingItem new];
+                settingItem.leftImage = @"image";
+                settingItem.title     = @"驾驶模式";
+                settingItem.style     = 1;
+                settingItem.layout.frame = CGRectMake(0, 0, 0, 40);
+                [generalItem.contentItems addObject:settingItem];
+            }
+        }
+        [self.items addObject:generalItem];
+    }
+    {
+        SUGeneralItem *generalItem = [SUGeneralItem new];
+        //header
+        SUItem *header      = [SUItem new];
+        header.layout.frame = CGRectMake(0, 0, 0, 10);
+        generalItem.header  = header;
+        //items
+        {
+            {
+                SUSettingItem *settingItem = [SUSettingItem new];
+                settingItem.leftImage = @"image";
+                settingItem.title     = @"分享网易云音乐";
+                settingItem.style     = 1;
+                settingItem.layout.frame = CGRectMake(0, 0, 0, 40);
+                [generalItem.contentItems addObject:settingItem];
+            }
+            {
+                SUSettingItem *settingItem = [SUSettingItem new];
+                settingItem.leftImage = @"image";
+                settingItem.title     = @"关于";
+                settingItem.style     = 1;
+                settingItem.layout.frame = CGRectMake(0, 0, 0, 40);
+                [generalItem.contentItems addObject:settingItem];
+            }
+        }
+        [self.items addObject:generalItem];
+    }
+    {
+        SUGeneralItem *generalItem = [SUGeneralItem new];
+        //header
+        SUItem *header      = [SUItem new];
+        header.layout.frame = CGRectMake(0, 0, 0, 10);
+        generalItem.header  = header;
+        //items
+        {
+            {
+                SUSettingItem *settingItem = [SUSettingItem new];
+                settingItem.title     = @"退出";
+                settingItem.layout.frame = CGRectMake(0, 0, 0, 40);
+                [generalItem.contentItems addObject:settingItem];
+            }
+        }
+        [self.items addObject:generalItem];
+    }
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 0;
+    return self.items.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0;
+    SUGeneralItem *generalItem = [self.items objectAtIndex:section];
+    return generalItem.contentItems.count;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
+    SUGeneralItem *generalItem = [self.items objectAtIndex:indexPath.section];
+    SUSettingItem *settingItem = (SUSettingItem *)[generalItem.contentItems objectAtIndex:indexPath.row];
+    UITableViewCell *cell = nil;
+    if(settingItem.style == UITableViewCellStyleSubtitle) {
+        cell = [tableView dequeueReusableCellWithIdentifier:reuseCell2];
+        if(!cell) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:reuseCell2];
+        }
+        cell.detailTextLabel.text = settingItem.subTitle;
+    }else {
+        cell = [tableView dequeueReusableCellWithIdentifier:reuseCell forIndexPath:indexPath];
+    }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.imageView.image = [UIImage imageNamed:settingItem.leftImage];
+    cell.textLabel.text  = settingItem.title;
     return cell;
 }
-*/
+
+#pragma mark - UITableViewDelegate
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    SUGeneralItem *generalItem = [self.items objectAtIndex:indexPath.section];
+    SUSettingItem *settingItem = (SUSettingItem *)[generalItem.contentItems objectAtIndex:indexPath.row];
+    return settingItem.layout.frame.size.height;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    SUGeneralItem *generalItem = [self.items objectAtIndex:section];
+    return generalItem.header.layout.frame.size.height;
+}
+
+- (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    return nil;
+}
 
 /*
 // Override to support conditional editing of the table view.
@@ -92,5 +310,12 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (NSMutableArray<SUGeneralItem *> *)items {
+    if(!_items) {
+        _items = [NSMutableArray array];
+    }
+    return _items;
+}
 
 @end
