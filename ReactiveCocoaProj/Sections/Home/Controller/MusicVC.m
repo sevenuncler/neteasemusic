@@ -34,6 +34,7 @@
 @property (nonatomic, strong) UICollectionViewFlowLayout *flowLayout;
 @property (nonatomic, strong) NSMutableArray             *items;
 @property (nonatomic, strong) SUGoHorseLampViewModel     *goHorseLampVM;
+@property (nonatomic, strong) UILabel *backgroundText;
 
 @end
 
@@ -43,8 +44,9 @@ static NSString * const reuseID = @"reuseID";
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
-    self.view.backgroundColor = [UIColor yellowColor];
+    self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.collectionView];
+    [self.view insertSubview:self.backgroundText belowSubview:self.collectionView];
 
     [self setUpGoHorseView];
     [self setUpSetView];
@@ -537,7 +539,7 @@ static NSString * const reuseID = @"reuseID";
 - (UICollectionView *)collectionView {
     if(!_collectionView) {
         _collectionView = [[UICollectionView alloc] initWithFrame:self.view.frame collectionViewLayout:self.flowLayout];
-        _collectionView.backgroundColor = [UIColor whiteColor];
+        _collectionView.backgroundColor = [UIColor clearColor];
         _collectionView.dataSource     = self;
         _collectionView.delegate       = self;
         [_collectionView registerClass:[SUCollectionViewCell class] forCellWithReuseIdentifier:reuseID];
@@ -563,6 +565,17 @@ static NSString * const reuseID = @"reuseID";
         _items = [NSMutableArray array];
     }
     return _items;
+}
+
+- (UILabel *)backgroundText {
+    if(!_backgroundText) {
+        _backgroundText = [[UILabel alloc] initWithFrame:CGRectMake(0, 15, SCREEN_WIDTH, 30)];
+        _backgroundText.text = @"首页根据你口味生成";
+        _backgroundText.centerX = SCREEN_WIDTH/2;
+        _backgroundText.textAlignment = NSTextAlignmentCenter;
+        _backgroundText.font = [UIFont systemFontOfSize:12];
+    }
+    return _backgroundText;
 }
 
 @end

@@ -710,6 +710,7 @@
 		87085DBD1F7DC79D009065C8 /* Sections */ = {
 			isa = PBXGroup;
 			children = (
+				872793531FB1EB8D0095852E /* Common */,
 				8755397C1FAA93B500A7628F /* Account */,
 				875539861FAA93B500A7628F /* Friend */,
 				875539811FAA93B500A7628F /* MyMusic */,
@@ -874,6 +875,45 @@
 				872D10D51F9261D600A293FA /* Animator.m */,
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		872793531FB1EB8D0095852E /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				872793541FB1EB8D0095852E /* Controller */,
+				872793551FB1EB8D0095852E /* Model */,
+				872793561FB1EB8D0095852E /* View */,
+				872793571FB1EB8D0095852E /* ViewModel */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		872793541FB1EB8D0095852E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		872793551FB1EB8D0095852E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		872793561FB1EB8D0095852E /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		872793571FB1EB8D0095852E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		873B0D011FA4BD300088DFD0 /* Player */ = {

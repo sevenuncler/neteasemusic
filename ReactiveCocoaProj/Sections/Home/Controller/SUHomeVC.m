@@ -35,7 +35,6 @@
 @property (nonatomic, strong) CatagoryView *firstView;
 @property (nonatomic, strong) SUPlayerViewController *playerVC;
 
-
 @end
 
 static NSString * const reuseID = @"reuseID";
@@ -46,10 +45,11 @@ static NSString * const reuseID = @"reuseID";
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.view.backgroundColor = [UIColor whiteColor];
     
+    
     [self.items addObject:[MusicVC new]];
     [self.items addObject:[RadioVC new]];
     [self.items addObject:[VideoVC new]];
-    
+
     [self.view addSubview:self.firstView];
     [self.view addSubview:self.collecctionView];
     
@@ -142,6 +142,10 @@ static NSString * const reuseID = @"reuseID";
         _collecctionView.pagingEnabled  = YES;
         _collecctionView.backgroundColor = [UIColor orangeColor];
         [_collecctionView registerClass:[SUCollectionViewCell class] forCellWithReuseIdentifier:reuseID];
+        _collecctionView.showsVerticalScrollIndicator = YES;
+        
+        _collecctionView.backgroundColor = [UIColor clearColor];
+
     }
     return _collecctionView;
 }
@@ -169,5 +173,6 @@ static NSString * const reuseID = @"reuseID";
     }
     return _playerVC;
 }
+
 
 @end

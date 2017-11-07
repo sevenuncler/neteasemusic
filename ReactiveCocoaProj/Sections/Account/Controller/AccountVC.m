@@ -8,6 +8,7 @@
 
 #import "AccountVC.h"
 #import "SUSettingItem.h"
+#import "UIImage+Size.h"
 
 @interface AccountVC ()
 @end
@@ -42,7 +43,7 @@ static NSString * const reuseCell2= @"reuseAccountCell2";
         {
             {
             SUSettingItem *settingItem = [SUSettingItem new];
-            settingItem.leftImage = @"image";
+            settingItem.leftImage = @"drew";
             settingItem.title     = @"七大爷";
             settingItem.subTitle = @"等级 999";
             settingItem.style     = UITableViewCellStyleSubtitle;
@@ -62,7 +63,7 @@ static NSString * const reuseCell2= @"reuseAccountCell2";
         {
             {
                 SUSettingItem *settingItem = [SUSettingItem new];
-                settingItem.leftImage = @"image";
+                settingItem.leftImage = @"cm2_set_icn_mail";
                 settingItem.title     = @"我的消息";
                 settingItem.style     = 1;
                 settingItem.layout.frame = CGRectMake(0, 0, 0, 40);
@@ -81,7 +82,7 @@ static NSString * const reuseCell2= @"reuseAccountCell2";
         {
             {
                 SUSettingItem *settingItem = [SUSettingItem new];
-                settingItem.leftImage = @"image";
+                settingItem.leftImage = @"cm2_set_icn_vip";
                 settingItem.title     = @"会员中心";
                 settingItem.style     = 1;
                 settingItem.layout.frame = CGRectMake(0, 0, 0, 40);
@@ -89,7 +90,7 @@ static NSString * const reuseCell2= @"reuseAccountCell2";
             }
             {
                 SUSettingItem *settingItem = [SUSettingItem new];
-                settingItem.leftImage = @"image";
+                settingItem.leftImage = @"cm2_set_icn_store";
                 settingItem.title     = @"商城";
                 settingItem.style     = 1;
                 settingItem.layout.frame = CGRectMake(0, 0, 0, 40);
@@ -97,7 +98,7 @@ static NSString * const reuseCell2= @"reuseAccountCell2";
             }
             {
                 SUSettingItem *settingItem = [SUSettingItem new];
-                settingItem.leftImage = @"image";
+                settingItem.leftImage = @"cm2_set_icn_combo";
                 settingItem.title     = @"在线听歌免流量";
                 settingItem.style     = 1;
                 settingItem.layout.frame = CGRectMake(0, 0, 0, 40);
@@ -116,7 +117,7 @@ static NSString * const reuseCell2= @"reuseAccountCell2";
         {
             {
                 SUSettingItem *settingItem = [SUSettingItem new];
-                settingItem.leftImage = @"image";
+                settingItem.leftImage = @"cm2_set_icn_set";
                 settingItem.title     = @"设置";
                 settingItem.style     = 1;
                 settingItem.layout.frame = CGRectMake(0, 0, 0, 40);
@@ -124,7 +125,7 @@ static NSString * const reuseCell2= @"reuseAccountCell2";
             }
             {
                 SUSettingItem *settingItem = [SUSettingItem new];
-                settingItem.leftImage = @"image";
+                settingItem.leftImage = @"cm2_set_icn_scan";
                 settingItem.title     = @"扫一扫";
                 settingItem.style     = 1;
                 settingItem.layout.frame = CGRectMake(0, 0, 0, 40);
@@ -132,7 +133,7 @@ static NSString * const reuseCell2= @"reuseAccountCell2";
             }
             {
                 SUSettingItem *settingItem = [SUSettingItem new];
-                settingItem.leftImage = @"image";
+                settingItem.leftImage = @"cm2_set_icn_skin";
                 settingItem.title     = @"个性换肤";
                 settingItem.style     = 1;
                 settingItem.layout.frame = CGRectMake(0, 0, 0, 40);
@@ -140,7 +141,7 @@ static NSString * const reuseCell2= @"reuseAccountCell2";
             }
             {
                 SUSettingItem *settingItem = [SUSettingItem new];
-                settingItem.leftImage = @"image";
+                settingItem.leftImage = @"cm2_set_icn_night";
                 settingItem.title     = @"夜间模式";
                 settingItem.style     = 1;
                 settingItem.layout.frame = CGRectMake(0, 0, 0, 40);
@@ -148,7 +149,7 @@ static NSString * const reuseCell2= @"reuseAccountCell2";
             }
             {
                 SUSettingItem *settingItem = [SUSettingItem new];
-                settingItem.leftImage = @"image";
+                settingItem.leftImage = @"cm2_set_icn_time";
                 settingItem.title     = @"定时关闭";
                 settingItem.style     = 1;
                 settingItem.layout.frame = CGRectMake(0, 0, 0, 40);
@@ -156,7 +157,7 @@ static NSString * const reuseCell2= @"reuseAccountCell2";
             }
             {
                 SUSettingItem *settingItem = [SUSettingItem new];
-                settingItem.leftImage = @"image";
+                settingItem.leftImage = @"cm2_set_icn_alamclock";
                 settingItem.title     = @"音乐闹钟";
                 settingItem.style     = 1;
                 settingItem.layout.frame = CGRectMake(0, 0, 0, 40);
@@ -164,7 +165,7 @@ static NSString * const reuseCell2= @"reuseAccountCell2";
             }
             {
                 SUSettingItem *settingItem = [SUSettingItem new];
-                settingItem.leftImage = @"image";
+                settingItem.leftImage = @"cm2_set_icn_vehicle";
                 settingItem.title     = @"驾驶模式";
                 settingItem.style     = 1;
                 settingItem.layout.frame = CGRectMake(0, 0, 0, 40);
@@ -183,7 +184,7 @@ static NSString * const reuseCell2= @"reuseAccountCell2";
         {
             {
                 SUSettingItem *settingItem = [SUSettingItem new];
-                settingItem.leftImage = @"image";
+                settingItem.leftImage = @"cm2_set_icn_share";
                 settingItem.title     = @"分享网易云音乐";
                 settingItem.style     = 1;
                 settingItem.layout.frame = CGRectMake(0, 0, 0, 40);
@@ -191,7 +192,7 @@ static NSString * const reuseCell2= @"reuseAccountCell2";
             }
             {
                 SUSettingItem *settingItem = [SUSettingItem new];
-                settingItem.leftImage = @"image";
+                settingItem.leftImage = @"cm2_set_icn_about";
                 settingItem.title     = @"关于";
                 settingItem.style     = 1;
                 settingItem.layout.frame = CGRectMake(0, 0, 0, 40);
@@ -210,7 +211,7 @@ static NSString * const reuseCell2= @"reuseAccountCell2";
         {
             {
                 SUSettingItem *settingItem = [SUSettingItem new];
-                settingItem.title     = @"退出";
+                settingItem.title     = @"退出登录";
                 settingItem.layout.frame = CGRectMake(0, 0, 0, 40);
                 [generalItem.contentItems addObject:settingItem];
             }
@@ -235,18 +236,30 @@ static NSString * const reuseCell2= @"reuseAccountCell2";
     SUGeneralItem *generalItem = [self.items objectAtIndex:indexPath.section];
     SUSettingItem *settingItem = (SUSettingItem *)[generalItem.contentItems objectAtIndex:indexPath.row];
     UITableViewCell *cell = nil;
+    UIImage *image;
     if(settingItem.style == UITableViewCellStyleSubtitle) {
         cell = [tableView dequeueReusableCellWithIdentifier:reuseCell2];
         if(!cell) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:reuseCell2];
         }
         cell.detailTextLabel.text = settingItem.subTitle;
+        image = [UIImage imageNamed:settingItem.leftImage].round(CGSizeMake(60, 60), 30);
     }else {
         cell = [tableView dequeueReusableCellWithIdentifier:reuseCell forIndexPath:indexPath];
+        image = [UIImage imageNamed:settingItem.leftImage];
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.imageView.image = [UIImage imageNamed:settingItem.leftImage];
+    cell.imageView.image = image;
     cell.textLabel.text  = settingItem.title;
+    if(indexPath.section == self.items.count-1) {
+        cell.textLabel.textAlignment =  NSTextAlignmentCenter;
+        cell.textLabel.textColor = [UIColor redColor];
+        cell.textLabel.font = [UIFont systemFontOfSize:14];
+    }else {
+        cell.textLabel.textAlignment =  NSTextAlignmentLeft;
+        cell.textLabel.textColor = [UIColor blackColor];
+        cell.textLabel.font = [UIFont systemFontOfSize:12];
+    }
     return cell;
 }
 
