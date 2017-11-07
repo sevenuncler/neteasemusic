@@ -28,7 +28,7 @@
         [self.customeAccessoryView addSubview:self.arrowView];
         self.accessoryView = self.customeAccessoryView;
         
-        self.textLabel.font = [UIFont systemFontOfSize:14];
+        self.textLabel.font = [UIFont systemFontOfSize:16];
     }
     return self;
 }

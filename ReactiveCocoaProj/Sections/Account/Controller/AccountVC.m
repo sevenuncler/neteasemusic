@@ -254,11 +254,11 @@ static NSString * const reuseCell2= @"reuseAccountCell2";
     if(indexPath.section == self.items.count-1) {
         cell.textLabel.textAlignment =  NSTextAlignmentCenter;
         cell.textLabel.textColor = [UIColor redColor];
-        cell.textLabel.font = [UIFont systemFontOfSize:14];
+        cell.textLabel.font = [UIFont systemFontOfSize:16];
     }else {
         cell.textLabel.textAlignment =  NSTextAlignmentLeft;
         cell.textLabel.textColor = [UIColor blackColor];
-        cell.textLabel.font = [UIFont systemFontOfSize:12];
+        cell.textLabel.font = [UIFont systemFontOfSize:14];
     }
     return cell;
 }
