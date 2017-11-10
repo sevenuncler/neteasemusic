@@ -63,6 +63,7 @@
 		8727934C1FAF5A440095852E /* SongStatusItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8727934B1FAF5A440095852E /* SongStatusItem.m */; };
 		8727934F1FAFDF100095852E /* VideoStatusItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8727934E1FAFDF100095852E /* VideoStatusItem.m */; };
 		872793521FB131DC0095852E /* SUSettingItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 872793511FB131DC0095852E /* SUSettingItem.m */; };
+		872793A31FB34CC80095852E /* GoHorseCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 872793A21FB34CC80095852E /* GoHorseCollectionViewCell.m */; };
 		872D10D31F925BA300A293FA /* TransitionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 872D10D21F925BA300A293FA /* TransitionManager.m */; };
 		872D10D61F9261D600A293FA /* Animator.m in Sources */ = {isa = PBXBuildFile; fileRef = 872D10D51F9261D600A293FA /* Animator.m */; };
 		872D10D81F94D7C600A293FA /* cover.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 872D10D71F94D7C600A293FA /* cover.jpg */; };
@@ -339,6 +340,8 @@
 		8727934E1FAFDF100095852E /* VideoStatusItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoStatusItem.m; sourceTree = "<group>"; };
 		872793501FB131DC0095852E /* SUSettingItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SUSettingItem.h; sourceTree = "<group>"; };
 		872793511FB131DC0095852E /* SUSettingItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SUSettingItem.m; sourceTree = "<group>"; };
+		872793A11FB34CC80095852E /* GoHorseCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoHorseCollectionViewCell.h; sourceTree = "<group>"; };
+		872793A21FB34CC80095852E /* GoHorseCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoHorseCollectionViewCell.m; sourceTree = "<group>"; };
 		872D10D11F925BA300A293FA /* TransitionManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TransitionManager.h; sourceTree = "<group>"; };
 		872D10D21F925BA300A293FA /* TransitionManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TransitionManager.m; sourceTree = "<group>"; };
 		872D10D41F9261D600A293FA /* Animator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Animator.h; sourceTree = "<group>"; };
@@ -804,6 +807,8 @@
 				873B0D741FA7F4DA0088DFD0 /* HeaderView.m */,
 				873B0D7C1FA7FBEC0088DFD0 /* FooterView.h */,
 				873B0D7D1FA7FBEC0088DFD0 /* FooterView.m */,
+				872793A11FB34CC80095852E /* GoHorseCollectionViewCell.h */,
+				872793A21FB34CC80095852E /* GoHorseCollectionViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1578,6 +1583,7 @@
 				872793451FAF45790095852E /* AccountVC.m in Sources */,
 				87A1917E1F9EBA1B00D7DC3B /* CatagoryView.m in Sources */,
 				8793B2D51F95820E006DDC24 /* SUCollectionViewCell.m in Sources */,
+				872793A31FB34CC80095852E /* GoHorseCollectionViewCell.m in Sources */,
 				875C2F8D1F97897000145E57 /* GeneralModel.m in Sources */,
 				87085DD41F7F1B45009065C8 /* SUGoHorseLampViewModel.m in Sources */,
 				875539BD1FADB23400A7628F /* StatusItem.m in Sources */,

@@ -40,9 +40,9 @@
         tabBarItem.selectedImage = [UIImage imageNamed:@"cm2_btm_icn_discovery"];
         tabBarItem.title = @"发现音乐";
         vc.tabBarItem = tabBarItem;
-        UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:vc];
-        [controllers addObject:navi];
-        
+        UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
+        [controllers addObject:navigationController];
+
     }
     {
         UIViewController *vc = [MyMusicVC new];
@@ -83,7 +83,6 @@
     tabBarController.view.tintColor = [UIColor colorWithRed:0.8 green:0 blue:0 alpha:1];
     tabBarController.viewControllers = controllers.copy;
     tabBarController.hidesBottomBarWhenPushed = YES;
-//    UINavigationController *mainNaviController = [[UINavigationController alloc] initWithRootViewController:tabBarController];
     tabBarController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
     [self presentViewController:tabBarController animated:YES completion:nil];
 }

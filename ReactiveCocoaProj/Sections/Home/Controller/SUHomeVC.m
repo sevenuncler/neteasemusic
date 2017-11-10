@@ -53,9 +53,8 @@ static NSString * const reuseID = @"reuseID";
     [self.view addSubview:self.firstView];
     [self.view addSubview:self.collecctionView];
     
-    [self setUp];
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
-
+    [self setUpNavi];
+    [self setUpDataBind];
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -71,12 +70,14 @@ static NSString * const reuseID = @"reuseID";
     // Dispose of any resources that can be recreated.
 }
 
-- (void)setUp {
+- (void)setUpNavi {
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"cm2_topbar_icn_playing_prs"] style:UIBarButtonItemStylePlain target:self action:@selector(onPlayerAction:)];
     self.navigationItem.leftBarButtonItem  = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"cm2_topbar_icn_mic_prs"] style:UIBarButtonItemStylePlain target:self action:@selector(onSongRecoginzeAction:)];
     self.navigationItem.rightBarButtonItem.tintColor = [UIColor blackColor];
     self.navigationItem.leftBarButtonItem.tintColor = [UIColor blackColor];
+}
 
+- (void)setUpDataBind {
     @weakify(self);
     [[self.firstView selectedIndexSignal] subscribeNext:^(NSNumber *x) {
         @strongify(self);

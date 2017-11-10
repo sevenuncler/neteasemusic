@@ -26,6 +26,7 @@
 #import "UIView+Layout.h"
 #import "HeaderView.h"
 #import "FooterView.h"
+#import "GoHorseCollectionViewCell.h"
 
 
 @interface MusicVC ()<UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
@@ -39,6 +40,8 @@
 @end
 
 static NSString * const reuseID = @"reuseID";
+static NSString * const reuseID2 = @"reuseID2";
+static BOOL stopFlag = YES;
 @implementation MusicVC
 
 - (void)viewDidLoad {
@@ -93,10 +96,31 @@ static NSString * const reuseID = @"reuseID";
     ReuseCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:generalModel.reuseID forIndexPath:indexPath];
     cell.collectionView.dataSource = generalModel.viewModel;
     cell.collectionView.delegate   = generalModel.viewModel;
+    
     if([generalModel.viewModel isKindOfClass:[SUGoHorseLampViewModel class]]) {
         [cell.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:5000 inSection:0]atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
+        SUGoHorseLampViewModel *vm = (SUGoHorseLampViewModel *)generalModel.viewModel;
+        
+        GoHorseCollectionViewCell *goHorseCell = (GoHorseCollectionViewCell *)cell;
+        goHorseCell.pageControl.numberOfPages = vm.items.count;
+        goHorseCell.pageControl.currentPage   = 5000 % vm.items.count;
+        [vm.disposes enumerateObjectsUsingBlock:^(RACDisposable * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            [vm.disposes removeObject:obj];
+            [obj dispose];
+        }];
+        
+        __weak typeof(GoHorseCollectionViewCell) *weakGoHorseCell = goHorseCell;
+        RACDisposable *disposable = [vm.timerSignal subscribeNext:^(NSIndexPath *x) {
+            [cell.collectionView scrollToItemAtIndexPath:x atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
+        }];
+        vm.indexHandler = ^(NSIndexPath *idx) {
+            __strong typeof(GoHorseCollectionViewCell) *strongGoHorseCell = weakGoHorseCell;
+            strongGoHorseCell.pageControl.currentPage = idx.item % strongGoHorseCell.pageControl.numberOfPages;
+            
+        };
+        [vm.disposes addObject:disposable];
     }
-    
+
     return cell;
 }
 
@@ -114,6 +138,34 @@ static NSString * const reuseID = @"reuseID";
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section {
     GeneralModel *generalModel = [self.items objectAtIndex:section];
     return generalModel.footerSize;
+}
+- (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
+    if(indexPath.section == 0) {
+        GeneralModel *gModel = [self.items objectAtIndex:0];
+        SUGoHorseLampViewModel *vm = (SUGoHorseLampViewModel *)(gModel.viewModel);
+        if([vm isMemberOfClass:[SUGoHorseLampViewModel class]]) {
+            [vm startTimer];
+        }
+        stopFlag = YES;
+    }
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didEndDisplayingCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if(!stopFlag) {
+        return;
+    }
+    CGPoint contentOffset = scrollView.contentOffset;
+    GeneralModel *generalModel = [self.items objectAtIndex:0];
+
+    if(contentOffset.y>generalModel.layout.frame.size.height) {
+        SUGoHorseLampViewModel *vm = (SUGoHorseLampViewModel *)generalModel.viewModel;
+        [vm pauseTimer];
+        stopFlag = NO;
+    }
 }
 
 #pragma mark - Internal
@@ -476,7 +528,7 @@ static NSString * const reuseID = @"reuseID";
     Layout *layout = [Layout new];
     layout.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WIDTH*0.382);;
     oneGeneralModel.layout = layout;
-    oneGeneralModel.reuseID = [ReuseCollectionViewCell reuseID];
+    oneGeneralModel.reuseID = [GoHorseCollectionViewCell reuseID];
     [self.items addObject:oneGeneralModel];
 }
 
@@ -544,6 +596,8 @@ static NSString * const reuseID = @"reuseID";
         _collectionView.delegate       = self;
         [_collectionView registerClass:[SUCollectionViewCell class] forCellWithReuseIdentifier:reuseID];
         [_collectionView registerClass:[ReuseCollectionViewCell class] forCellWithReuseIdentifier:[ReuseCollectionViewCell reuseID]];
+        [_collectionView registerClass:[GoHorseCollectionViewCell class] forCellWithReuseIdentifier:[GoHorseCollectionViewCell reuseID]];
+
         [_collectionView registerClass:[HeaderView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"reuseHeader"];
         [_collectionView registerClass:[FooterView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"reuseFooter"];
     }

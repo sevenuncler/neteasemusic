@@ -10,12 +10,16 @@
 #import <UIKit/UIKit.h>
 #import <ReactiveCocoa/ReactiveCocoa.h>
 
+typedef void(^ScrollViewIndexHandler)(NSIndexPath *idx);
 @interface SUGoHorseLampViewModel : NSObject <UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (nonatomic, strong) NSMutableArray    *items;
 @property (nonatomic, strong) dispatch_source_t timer;
 @property (nonatomic, strong) RACSubject        *timerSignal;
 @property (nonatomic, assign) Class             *registerClz;
+@property (nonatomic, strong) NSMutableArray<RACDisposable *> *disposes;
+@property (nonatomic, assign) NSInteger currentIndex;
+@property (nonatomic, copy)   ScrollViewIndexHandler indexHandler;
 
 + (NSString *)reuseID;
 - (void)startTimer;
