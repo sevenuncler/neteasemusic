@@ -15,9 +15,12 @@
 @interface SUGoHorseLampViewModel ()
 {
     NSInteger _count;
+    NSInteger _countOfTimer;
 }
 @property (nonatomic, assign) BOOL      isUsed;
-
+@property (nonatomic, assign) BOOL      isCanceled;
+@property (nonatomic, strong) dispatch_queue_t     timerQueue;
+@property (nonatomic, strong) NSTimer   *timerA;
 @end
 
 @implementation SUGoHorseLampViewModel
@@ -29,20 +32,20 @@
 - (instancetype)init {
     if(self = [super init]) {
         _count = 10000;
+        _countOfTimer = 0;
+        _currentIndex = _count / 2;
+        _isCanceled   = NO;
     }
     return self;
 }
 
 - (void)startTimer {
-    @synchronized (self) {
-            dispatch_resume(self.timer);
-    }
+    [[NSRunLoop currentRunLoop] addTimer:self.timerA forMode:NSDefaultRunLoopMode];
 }
 
 - (void)pauseTimer {
-    @synchronized (self) {
-        dispatch_suspend(self.timer);
-    }
+    [self.timerA invalidate];
+    self.timerA = nil;
 }
 
 
@@ -53,6 +56,7 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+
     static NSString * const reuseID = @"goHorseCell";
     self.isUsed = YES;
     collectionView.scrollEnabled = YES;
@@ -67,18 +71,25 @@
     [[imageManager imageWithUrl:self.items[idx]] subscribeNext:^(id x) {
         [cell.myImageView setImage:x];
     }];
-    
+    NSLog(@"cellFor%@ %p", indexPath, cell);
+
     return cell;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     return CGSizeMake(SCREEN_WIDTH, SCREEN_WIDTH*0.382);
 }
+- (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"will display%@ %p", indexPath, cell);
+    
+}
 
 - (void)collectionView:(UICollectionView *)collectionView didEndDisplayingCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"did end%@ %p", indexPath, cell);
     if( [cell isMemberOfClass:[SUGoHorseLampCell class]]) {
         if(self.indexHandler) {
-            self.indexHandler(indexPath);
+            NSIndexPath *idx = [NSIndexPath indexPathForItem:self.currentIndex inSection:0];
+            self.indexHandler(idx);
         }
     }
 }
@@ -87,17 +98,18 @@
     [self pauseTimer];
 }
 
-- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
-}
-- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self startTimer];
-    });
-}
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-//    [self startTimer];
-
+    CGPoint contentOffset = scrollView.contentOffset;
+    CGFloat width = scrollView.frame.size.width;
+    NSInteger idx = contentOffset.x / width;
+    self.currentIndex = idx;
+        if(self.indexHandler) {
+            NSIndexPath *idx = [NSIndexPath indexPathForItem:self.currentIndex inSection:0];
+            self.indexHandler(idx);
+        }
+    [self startTimer];
 }
+
 #pragma mark - Getter & Setter
 
 - (NSMutableArray *)items {
@@ -109,12 +121,12 @@
 
 - (dispatch_source_t )timer {
     if(!_timer) {
-        _timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());
-        dispatch_source_set_timer(_timer, DISPATCH_TIME_NOW, 3 * NSEC_PER_SEC, 0 * NSEC_PER_SEC);
+        _timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, self.timerQueue);
+        dispatch_source_set_timer(_timer, DISPATCH_TIME_NOW, 5 * NSEC_PER_SEC, 0 * NSEC_PER_SEC);
         @weakify(self);
         dispatch_source_set_event_handler(_timer, ^{
             @strongify(self);
-            NSIndexPath *idx = [NSIndexPath indexPathForItem:(++ self.currentIndex) % _count inSection:0];
+            NSIndexPath *idx = [NSIndexPath indexPathForItem:(++self.currentIndex) % _count inSection:0];
             [self.timerSignal sendNext:idx];
         });
         dispatch_source_set_cancel_handler(_timer, ^{
@@ -136,6 +148,25 @@
         _disposes = [NSMutableArray array];
     }
     return _disposes;
+}
+
+- (dispatch_queue_t)timerQueue {
+    if(_timerQueue == NULL) {
+        _timerQueue = dispatch_queue_create("com.sevenuncle.timer.gohorse", DISPATCH_QUEUE_SERIAL);
+    }
+    return _timerQueue;
+}
+
+- (NSTimer *)timerA {
+    if(!_timerA) {
+        @weakify(self);
+        _timerA = [NSTimer timerWithTimeInterval:5 repeats:YES block:^(NSTimer * _Nonnull timer) {
+            @strongify(self);
+            NSIndexPath *idx = [NSIndexPath indexPathForItem:(++self.currentIndex) % _count inSection:0];
+            [self.timerSignal sendNext:idx];
+        }];
+    }
+    return _timerA;
 }
 
 @end

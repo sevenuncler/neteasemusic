@@ -111,7 +111,9 @@ static BOOL stopFlag = YES;
         
         __weak typeof(GoHorseCollectionViewCell) *weakGoHorseCell = goHorseCell;
         RACDisposable *disposable = [vm.timerSignal subscribeNext:^(NSIndexPath *x) {
-            [cell.collectionView scrollToItemAtIndexPath:x atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
+            dispatch_async(dispatch_get_main_queue(), ^{
+              [cell.collectionView scrollToItemAtIndexPath:x atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
+            });
         }];
         vm.indexHandler = ^(NSIndexPath *idx) {
             __strong typeof(GoHorseCollectionViewCell) *strongGoHorseCell = weakGoHorseCell;

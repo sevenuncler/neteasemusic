@@ -179,6 +179,7 @@
 		875C2F901F9797DA00145E57 /* SetViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 875C2F8F1F9797DA00145E57 /* SetViewModel.m */; };
 		875C2F931F9822AE00145E57 /* SongSetItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 875C2F921F9822AE00145E57 /* SongSetItem.m */; };
 		875C2F961F99756A00145E57 /* HotCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 875C2F951F99756900145E57 /* HotCell.m */; };
+		8777DFA11FB6DEC70049892C /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8777DFA01FB6DEC70049892C /* CollectionViewController.m */; };
 		8793B2C51F94EE14006DDC24 /* AdVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8793B2C41F94EE14006DDC24 /* AdVC.m */; };
 		8793B2C71F94F234006DDC24 /* LaunchImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 8793B2C61F94F234006DDC24 /* LaunchImage.png */; };
 		8793B2C91F94F438006DDC24 /* jhht.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8793B2C81F94F438006DDC24 /* jhht.jpg */; };
@@ -491,6 +492,8 @@
 		875C2F921F9822AE00145E57 /* SongSetItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SongSetItem.m; sourceTree = "<group>"; };
 		875C2F941F99756900145E57 /* HotCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HotCell.h; sourceTree = "<group>"; };
 		875C2F951F99756900145E57 /* HotCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HotCell.m; sourceTree = "<group>"; };
+		8777DF9F1FB6DEC70049892C /* CollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionViewController.h; sourceTree = "<group>"; };
+		8777DFA01FB6DEC70049892C /* CollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionViewController.m; sourceTree = "<group>"; };
 		8793B2C31F94EE14006DDC24 /* AdVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AdVC.h; sourceTree = "<group>"; };
 		8793B2C41F94EE14006DDC24 /* AdVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AdVC.m; sourceTree = "<group>"; };
 		8793B2C61F94F234006DDC24 /* LaunchImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchImage.png; sourceTree = "<group>"; };
@@ -749,6 +752,8 @@
 				8793B2D11F95812F006DDC24 /* RadioVC.m */,
 				87A1918B1FA0134C00D7DC3B /* SUPlayerViewController.h */,
 				87A1918C1FA0134C00D7DC3B /* SUPlayerViewController.m */,
+				8777DF9F1FB6DEC70049892C /* CollectionViewController.h */,
+				8777DFA01FB6DEC70049892C /* CollectionViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1596,6 +1601,7 @@
 				875539C01FADB7B600A7628F /* StatusView.m in Sources */,
 				875C2F961F99756A00145E57 /* HotCell.m in Sources */,
 				8727934C1FAF5A440095852E /* SongStatusItem.m in Sources */,
+				8777DFA11FB6DEC70049892C /* CollectionViewController.m in Sources */,
 				875539B41FACC0D100A7628F /* MyMusicHeaderView.m in Sources */,
 				87A1918D1FA0134C00D7DC3B /* SUPlayerViewController.m in Sources */,
 				875C2F901F9797DA00145E57 /* SetViewModel.m in Sources */,
