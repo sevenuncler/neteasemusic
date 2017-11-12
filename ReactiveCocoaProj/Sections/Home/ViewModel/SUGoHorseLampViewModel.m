@@ -160,7 +160,7 @@
 - (NSTimer *)timerA {
     if(!_timerA) {
         @weakify(self);
-        _timerA = [NSTimer timerWithTimeInterval:5 repeats:YES block:^(NSTimer * _Nonnull timer) {
+        _timerA = [NSTimer timerWithTimeInterval:4 repeats:YES block:^(NSTimer * _Nonnull timer) {
             @strongify(self);
             NSIndexPath *idx = [NSIndexPath indexPathForItem:(++self.currentIndex) % _count inSection:0];
             [self.timerSignal sendNext:idx];

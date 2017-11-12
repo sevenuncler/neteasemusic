@@ -16,19 +16,21 @@
 #import "FriendVC.h"
 #import "AccountVC.h"
 
-@interface AdVC ()
-
+@interface AdVC ()<UIWebViewDelegate>
+@property (nonatomic, strong) UIWebView *webView;
 @end
 
 @implementation AdVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     UIImageView *imageView = [UIImageView new];
     imageView.frame = self.view.bounds;
     imageView.image = [UIImage imageNamed:@"jhht.jpg"];
     [self.view addSubview:imageView];
-    [self performSelector:@selector(transiteMainVC:) withObject:nil afterDelay:0];
+//    [self performSelector:@selector(transiteMainVC:) withObject:nil afterDelay:0];
+    [self loadNetworkData];
 }
 
 - (void)transiteMainVC:(id)sender {
@@ -87,6 +89,45 @@
     [self presentViewController:tabBarController animated:YES completion:nil];
 }
 
+
+- (void)loadNetworkData {
+    UIWebView *webView = [[UIWebView alloc] initWithFrame:self.view.frame];
+    webView.delegate = self;
+    [self.view addSubview:webView];
+    NSMutableURLRequest *mutableRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://api.weibo.com/oauth2/authorize?client_id=293640916&response_type=code&redirect_uri=https://www.baidu.com"] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:3];
+    NSURLSession *session = [NSURLSession sharedSession];
+    
+    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:mutableRequest completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        NSString *string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+
+        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves|NSJSONReadingMutableContainers error:nil];
+        NSLog(@"授权结果 :%@\n :%@\n :%@\n :%@",response, dict, error, string);
+//        NSMutableString *urlString = [NSMutableString stringWithString:string];
+//        string = [urlString  stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [webView loadHTMLString:string baseURL:nil];
+        });
+    }];
+    [dataTask resume];
+//    webView load
+    //https://api.weibo.com/oauth2/authorize?client_id=293640916&response_type=code&redirect_uri=https://open.weibo.cn/oauth2/authorize
+    //https://api.weibo.com/oauth2/access_token?client_id=YOUR_CLIENT_ID&client_secret=YOUR_CLIENT_SECRET&grant_type=authorization_code&redirect_uri=YOUR_REGISTERED_REDIRECT_URI&code=CODE
+//    [webView loadRequest:mutableRequest];
+
+    
+}
+
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
+{
+    NSURL * url = [request URL];
+    NSLog(@"WebViewDelegate %@ %@", request, url);
+
+    if([url.scheme isEqualToString:@"about"]) {
+        return NO;
+    }
+    return YES;
+}
 
 /*
 #pragma mark - Navigation
