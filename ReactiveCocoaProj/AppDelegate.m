@@ -16,8 +16,9 @@
 #import "MyMusicVC.h"
 #import "FriendVC.h"
 #import "AccountVC.h"
+#import "WeiboSDK.h"
 
-@interface AppDelegate ()
+@interface AppDelegate () <WeiboSDKDelegate>
 
 @end
 
@@ -58,6 +59,29 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (void)didReceiveWeiboRequest:(WBBaseRequest *)request {
+    
+}
+
+/**
+ 收到一个来自微博客户端程序的响应
+ 
+ 收到微博的响应后，第三方应用可以通过响应类型、响应的数据和 WBBaseResponse.userInfo 中的数据完成自己的功能
+ @param response 具体的响应对象
+ */
+- (void)didReceiveWeiboResponse:(WBBaseResponse *)response {
+    
+}
+
+-(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    return [WeiboSDK handleOpenURL:url delegate:self];
+}
+-(BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
+{
+    return [WeiboSDK handleOpenURL:url delegate:self];
 }
 
 

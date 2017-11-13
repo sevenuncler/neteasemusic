@@ -44,5 +44,12 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>sinaweibo</string>
+		<string>weibosdk</string>
+		<string>sinaweibohd</string>
+		<string>weibosdk2.5</string>
+	</array>
 </dict>
 </plist>

@@ -23,6 +23,11 @@
 		87085DE01F85DC02009065C8 /* SUGoodsItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 87085DDF1F85DC02009065C8 /* SUGoodsItem.m */; };
 		87085DE41F85DC8B009065C8 /* SUImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 87085DE31F85DC8B009065C8 /* SUImageManager.m */; };
 		87085DEA1F866E99009065C8 /* SUGoHorseLampCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87085DE91F866E99009065C8 /* SUGoHorseLampCell.m */; };
+		8713CD5A1FB84C5D004B658F /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8713CD581FB84C5D004B658F /* WeiboSDK.bundle */; };
+		8713CD5F1FB84FF5004B658F /* libresolv.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8713CD5E1FB84FF5004B658F /* libresolv.9.tbd */; };
+		8713CD611FB85013004B658F /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8713CD601FB85013004B658F /* libWeiboSDK.a */; };
+		8713CD661FB85093004B658F /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8713CD621FB8502C004B658F /* Photos.framework */; };
+		8713CD671FB850A6004B658F /* PhotosUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8713CD631FB85039004B658F /* PhotosUI.framework */; };
 		871979621FA2BC330068B1F3 /* cm2_play_needle_play@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8719795D1FA2BC320068B1F3 /* cm2_play_needle_play@2x.png */; };
 		871979631FA2BC330068B1F3 /* cm2_play_needle_play@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8719795E1FA2BC330068B1F3 /* cm2_play_needle_play@3x.png */; };
 		871979641FA2BC330068B1F3 /* cm2_play_needle_play-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8719795F1FA2BC330068B1F3 /* cm2_play_needle_play-568h@2x.png */; };
@@ -296,6 +301,14 @@
 		87085DE81F866E99009065C8 /* SUGoHorseLampCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUGoHorseLampCell.h; sourceTree = "<group>"; };
 		87085DE91F866E99009065C8 /* SUGoHorseLampCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUGoHorseLampCell.m; sourceTree = "<group>"; };
 		87085DEB1F867862009065C8 /* Macros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Macros.h; sourceTree = "<group>"; };
+		8713CD581FB84C5D004B658F /* WeiboSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = WeiboSDK.bundle; path = libWeiboSDK/WeiboSDK.bundle; sourceTree = "<group>"; };
+		8713CD5C1FB84C67004B658F /* WBHttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBHttpRequest.h; sourceTree = "<group>"; };
+		8713CD5D1FB84C67004B658F /* WeiboSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboSDK.h; sourceTree = "<group>"; };
+		8713CD5E1FB84FF5004B658F /* libresolv.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.9.tbd; path = usr/lib/libresolv.9.tbd; sourceTree = SDKROOT; };
+		8713CD601FB85013004B658F /* libWeiboSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libWeiboSDK.a; path = libWeiboSDK/libWeiboSDK.a; sourceTree = "<group>"; };
+		8713CD621FB8502C004B658F /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
+		8713CD631FB85039004B658F /* PhotosUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhotosUI.framework; path = System/Library/Frameworks/PhotosUI.framework; sourceTree = SDKROOT; };
+		8713CD651FB85069004B658F /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		8719795D1FA2BC320068B1F3 /* cm2_play_needle_play@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cm2_play_needle_play@2x.png"; sourceTree = "<group>"; };
 		8719795E1FA2BC330068B1F3 /* cm2_play_needle_play@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cm2_play_needle_play@3x.png"; sourceTree = "<group>"; };
 		8719795F1FA2BC330068B1F3 /* cm2_play_needle_play-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cm2_play_needle_play-568h@2x.png"; sourceTree = "<group>"; };
@@ -599,6 +612,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8713CD671FB850A6004B658F /* PhotosUI.framework in Frameworks */,
+				8713CD661FB85093004B658F /* Photos.framework in Frameworks */,
 				873B0D431FA603A80088DFD0 /* libz.tbd in Frameworks */,
 				873B0D411FA603730088DFD0 /* UIKit.framework in Frameworks */,
 				873B0D3F1FA603670088DFD0 /* AudioToolbox.framework in Frameworks */,
@@ -612,7 +627,9 @@
 				873B0D2F1FA6031A0088DFD0 /* OpenGLES.framework in Frameworks */,
 				873B0D2D1FA6030D0088DFD0 /* Foundation.framework in Frameworks */,
 				873B0D2B1FA603040088DFD0 /* CFNetwork.framework in Frameworks */,
+				8713CD611FB85013004B658F /* libWeiboSDK.a in Frameworks */,
 				873B0D291FA602FA0088DFD0 /* CoreTelephony.framework in Frameworks */,
+				8713CD5F1FB84FF5004B658F /* libresolv.9.tbd in Frameworks */,
 				873B0D271FA602F30088DFD0 /* SystemConfiguration.framework in Frameworks */,
 				873B0D251FA602EA0088DFD0 /* libiconv.tbd in Frameworks */,
 				873B0D231FA602E00088DFD0 /* libstdc++.tbd in Frameworks */,
@@ -633,6 +650,10 @@
 		2998BED500EC765D687D82C9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8713CD651FB85069004B658F /* AssetsLibrary.framework */,
+				8713CD631FB85039004B658F /* PhotosUI.framework */,
+				8713CD621FB8502C004B658F /* Photos.framework */,
+				8713CD5E1FB84FF5004B658F /* libresolv.9.tbd */,
 				873B0D421FA603A80088DFD0 /* libz.tbd */,
 				873B0D401FA603730088DFD0 /* UIKit.framework */,
 				873B0D3E1FA603660088DFD0 /* AudioToolbox.framework */,
@@ -953,6 +974,8 @@
 		873B0D121FA600B50088DFD0 /* libs */ = {
 			isa = PBXGroup;
 			children = (
+				8713CD601FB85013004B658F /* libWeiboSDK.a */,
+				8713CD581FB84C5D004B658F /* WeiboSDK.bundle */,
 				873B0D131FA600B50088DFD0 /* libcrypto.a */,
 				873B0D141FA600B50088DFD0 /* libNELivePlayer.a */,
 				873B0D151FA600B50088DFD0 /* libNMCBasicModule.a */,
@@ -965,6 +988,8 @@
 		873B0D181FA600B50088DFD0 /* include */ = {
 			isa = PBXGroup;
 			children = (
+				8713CD5C1FB84C67004B658F /* WBHttpRequest.h */,
+				8713CD5D1FB84C67004B658F /* WeiboSDK.h */,
 				873B0D191FA600B50088DFD0 /* NELivePlayer.h */,
 				873B0D1A1FA600B50088DFD0 /* NELivePlayerController.h */,
 			);
@@ -1429,6 +1454,7 @@
 				873B0D491FA69D330088DFD0 /* cm2_topbar_icn_playing_prs@3x.png in Resources */,
 				871979641FA2BC330068B1F3 /* cm2_play_needle_play-568h@2x.png in Resources */,
 				87A192021FA0CB2500D7DC3B /* cm2_runfm_btn_pause@3x.png in Resources */,
+				8713CD5A1FB84C5D004B658F /* WeiboSDK.bundle in Resources */,
 				87A191E81FA0C96700D7DC3B /* cm2_play_icn_loved@2x.png in Resources */,
 				87A192071FA0CB5A00D7DC3B /* cm2_runfm_btn_play_prs.png in Resources */,
 				87A191F21FA0C96700D7DC3B /* cm2_play_btn_pause@3x.png in Resources */,
@@ -1790,6 +1816,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ReactiveCocoaProj/libs",
+					"$(PROJECT_DIR)/ReactiveCocoaProj/libs/libWeiboSDK",
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1797,6 +1824,7 @@
 					"\"FLAnimatedImage\"",
 					"-framework",
 					"\"ReactiveCocoa\"",
+					"-all_load",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.netease.NIM.demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1824,6 +1852,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ReactiveCocoaProj/libs",
+					"$(PROJECT_DIR)/ReactiveCocoaProj/libs/libWeiboSDK",
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
