@@ -17,6 +17,7 @@
 #import "FriendVC.h"
 #import "AccountVC.h"
 #import "WeiboSDK.h"
+#import "NetowrkVC.h"
 
 @interface AppDelegate () <WeiboSDKDelegate>
 
@@ -28,7 +29,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 //    [NSThread sleepForTimeInterval:1];
     self.window = [[UIWindow alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
-    UIViewController *vc = [AdVC new];
+    UIViewController *vc = [NetowrkVC new];
     self.window.rootViewController = vc;
     [self.window makeKeyAndVisible];
     return YES;
