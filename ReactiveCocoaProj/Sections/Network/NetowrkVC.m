@@ -8,7 +8,9 @@
 
 #import "NetowrkVC.h"
 #import "WeiboSDK.h"
+#import "NetEaseMusicApi.h"
 
+NSURLSession *session;
 
 @interface NetowrkVC ()<WeiboSDKDelegate, UIWebViewDelegate>
 @property (nonatomic, strong) UIWebView *webView;
@@ -21,15 +23,29 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self setUpNeteaseMusicApi];
+    [NetEaseMusicApi artistAlbumWithArtistId:12000103 limit:10 completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        if(error) {
+            NSLog(@"请求出错 %@", error);
+        }
+        NSString *string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        NSLog(@"返回结果1:%@", string);
+        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+        NSLog(@"返回结果2: \n%@", dict);
+    }];
+}
+
+- (void)getAList {
+    
 }
 
 - (void)setUpNeteaseMusicApi {
     NSString *urlString = @"http://s.music.163.com/search/get/?s=周杰伦&limit=10&type=1";
     //获取歌单
-    urlString = @"http://music.163.com/api/playlist/detail?id=387699584";
+//    urlString = @"http://music.163.com/api/playlist/detail?id=387699584";
     //私人FM
-    urlString = @"http://music.163.com/api/radio/get";
-    urlString = @"http://music.163.com/discover/toplist?id=3779629";
+//    urlString = @"http://music.163.com/api/radio/get";
+//    urlString = @"http://music.163.com/discover/toplist?id=3779629";
+//    urlString = @"http://music.163.com/api/song/lyric/";
     NSString *utf8String = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:utf8String] cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:5];
@@ -61,8 +77,10 @@
         if(error) {
             NSLog(@"请求出错 %@", error);
         }
+        NSString *string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        NSLog(@"返回结果1:%@", string);
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-        NSLog(@"返回结果: \n%@", dict);
+        NSLog(@"返回结果2: \n%@", dict);
     }];
     [dataTask resume];
 }
