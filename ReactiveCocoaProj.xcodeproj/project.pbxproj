@@ -30,6 +30,9 @@
 		8713CD671FB850A6004B658F /* PhotosUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8713CD631FB85039004B658F /* PhotosUI.framework */; };
 		8713CD721FB9C876004B658F /* NetowrkVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8713CD711FB9C876004B658F /* NetowrkVC.m */; };
 		8713CD751FBBBF97004B658F /* NetEaseMusicApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 8713CD741FBBBF97004B658F /* NetEaseMusicApi.m */; };
+		8713CD781FBC86FE004B658F /* SUListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8713CD771FBC86FE004B658F /* SUListVC.m */; };
+		8713CD7B1FBC8766004B658F /* SongList.m in Sources */ = {isa = PBXBuildFile; fileRef = 8713CD7A1FBC8766004B658F /* SongList.m */; };
+		8713CD7E1FBD0FAD004B658F /* SUSongListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8713CD7D1FBD0FAD004B658F /* SUSongListCell.m */; };
 		871979621FA2BC330068B1F3 /* cm2_play_needle_play@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8719795D1FA2BC320068B1F3 /* cm2_play_needle_play@2x.png */; };
 		871979631FA2BC330068B1F3 /* cm2_play_needle_play@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8719795E1FA2BC330068B1F3 /* cm2_play_needle_play@3x.png */; };
 		871979641FA2BC330068B1F3 /* cm2_play_needle_play-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8719795F1FA2BC330068B1F3 /* cm2_play_needle_play-568h@2x.png */; };
@@ -315,6 +318,12 @@
 		8713CD711FB9C876004B658F /* NetowrkVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetowrkVC.m; sourceTree = "<group>"; };
 		8713CD731FBBBF97004B658F /* NetEaseMusicApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetEaseMusicApi.h; sourceTree = "<group>"; };
 		8713CD741FBBBF97004B658F /* NetEaseMusicApi.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetEaseMusicApi.m; sourceTree = "<group>"; };
+		8713CD761FBC86FE004B658F /* SUListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SUListVC.h; sourceTree = "<group>"; };
+		8713CD771FBC86FE004B658F /* SUListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SUListVC.m; sourceTree = "<group>"; };
+		8713CD791FBC8766004B658F /* SongList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SongList.h; sourceTree = "<group>"; };
+		8713CD7A1FBC8766004B658F /* SongList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SongList.m; sourceTree = "<group>"; };
+		8713CD7C1FBD0FAD004B658F /* SUSongListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SUSongListCell.h; sourceTree = "<group>"; };
+		8713CD7D1FBD0FAD004B658F /* SUSongListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SUSongListCell.m; sourceTree = "<group>"; };
 		8719795D1FA2BC320068B1F3 /* cm2_play_needle_play@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cm2_play_needle_play@2x.png"; sourceTree = "<group>"; };
 		8719795E1FA2BC330068B1F3 /* cm2_play_needle_play@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cm2_play_needle_play@3x.png"; sourceTree = "<group>"; };
 		8719795F1FA2BC330068B1F3 /* cm2_play_needle_play-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cm2_play_needle_play-568h@2x.png"; sourceTree = "<group>"; };
@@ -778,8 +787,6 @@
 				8793B2CE1F95811D006DDC24 /* VideoVC.m */,
 				8793B2D01F95812F006DDC24 /* RadioVC.h */,
 				8793B2D11F95812F006DDC24 /* RadioVC.m */,
-				87A1918B1FA0134C00D7DC3B /* SUPlayerViewController.h */,
-				87A1918C1FA0134C00D7DC3B /* SUPlayerViewController.m */,
 				8777DF9F1FB6DEC70049892C /* CollectionViewController.h */,
 				8777DFA01FB6DEC70049892C /* CollectionViewController.m */,
 			);
@@ -940,6 +947,10 @@
 		872793541FB1EB8D0095852E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				8713CD761FBC86FE004B658F /* SUListVC.h */,
+				8713CD771FBC86FE004B658F /* SUListVC.m */,
+				87A1918B1FA0134C00D7DC3B /* SUPlayerViewController.h */,
+				87A1918C1FA0134C00D7DC3B /* SUPlayerViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -947,6 +958,8 @@
 		872793551FB1EB8D0095852E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8713CD791FBC8766004B658F /* SongList.h */,
+				8713CD7A1FBC8766004B658F /* SongList.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -954,6 +967,8 @@
 		872793561FB1EB8D0095852E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8713CD7C1FBD0FAD004B658F /* SUSongListCell.h */,
+				8713CD7D1FBD0FAD004B658F /* SUSongListCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1626,6 +1641,7 @@
 			files = (
 				872793521FB131DC0095852E /* SUSettingItem.m in Sources */,
 				8793B2CC1F95810C006DDC24 /* MusicVC.m in Sources */,
+				8713CD781FBC86FE004B658F /* SUListVC.m in Sources */,
 				873B0D751FA7F4DA0088DFD0 /* HeaderView.m in Sources */,
 				872D10D61F9261D600A293FA /* Animator.m in Sources */,
 				87085DD71F7F1D91009065C8 /* SUTableViewCell.m in Sources */,
@@ -1655,6 +1671,7 @@
 				875C2F841F977F1800145E57 /* SongSetView.m in Sources */,
 				87085DE01F85DC02009065C8 /* SUGoodsItem.m in Sources */,
 				874CE3071F9C59300075722A /* Song.m in Sources */,
+				8713CD7E1FBD0FAD004B658F /* SUSongListCell.m in Sources */,
 				873B0D0B1FA4BD300088DFD0 /* SUAdvancePlayer.m in Sources */,
 				872793481FAF48400095852E /* StatusCell.m in Sources */,
 				8713CD721FB9C876004B658F /* NetowrkVC.m in Sources */,
@@ -1667,6 +1684,7 @@
 				87085DCB1F7F19B6009065C8 /* SUHomeVC.m in Sources */,
 				87EF34CC1F96D26900B913F1 /* Layout.m in Sources */,
 				875539931FAA9CA900A7628F /* SUGeneralItem.m in Sources */,
+				8713CD7B1FBC8766004B658F /* SongList.m in Sources */,
 				874CE30D1F9C5A000075722A /* RecommandSongViewModel.m in Sources */,
 				874CE3101F9C98AB0075722A /* AlbumsViewCell.m in Sources */,
 				87085DEA1F866E99009065C8 /* SUGoHorseLampCell.m in Sources */,

@@ -27,6 +27,8 @@
 #import "HeaderView.h"
 #import "FooterView.h"
 #import "GoHorseCollectionViewCell.h"
+#import "NetEaseMusicApi.h"
+#import "SongList.h"
 
 
 @interface MusicVC ()<UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
@@ -352,16 +354,36 @@ static BOOL stopFlag = YES;
     [self.items addObject:generalModel];
 }
 - (void)setUpAnchorView {
+    __block NSDictionary *result = nil;
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+    [NetEaseMusicApi playlistInfoWithPlaylistId:387699584 completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        if(error) {
+            NSLog(@"请求歌单出错 %@", error);
+            return;
+        }
+        NSError *errorJson = nil;
+        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&errorJson];
+        if(!errorJson && json) {
+            result = json[@"result"];
+        }
+        dispatch_semaphore_signal(semaphore);
+    }];
+    if(dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER) != 0) {
+        return;
+    }
     CGFloat itemWidth  = SCREEN_WIDTH / 3 - 10;
     CGFloat itemHeight = SCREEN_WIDTH / 3 + 25;
     GeneralModel *generalModel = [GeneralModel new];
     
+    SongList *songList = [SongList new];
+    [songList setValuesForKeysWithDictionary:result];
+    
     RecommandSongViewModel *recommandSongVM = [RecommandSongViewModel new];
     {
         RecommandSong *recommandSong = [RecommandSong new];
-        recommandSong.coverPath = @"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2876169151,2235209253&fm=27&gp=0.jpg";
-        recommandSong.title     = @"如何把一份外卖吃出仪式感";
-        recommandSong.listenedCount = @"999万";
+        recommandSong.coverPath = result[@"coverImgUrl"];
+        recommandSong.title     = result[@"name"];
+        recommandSong.listenedCount = [NSString stringWithFormat:@"%@", result[@"playCount"]];
         Layout *layout = [Layout new];
         layout.frame   = CGRectMake(0, 0, itemWidth, itemHeight);
         recommandSong.layout = layout;
@@ -369,9 +391,9 @@ static BOOL stopFlag = YES;
     }
     {
         RecommandSong *recommandSong = [RecommandSong new];
-        recommandSong.coverPath = @"https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3372103345,2665413911&fm=27&gp=0.jpg";
-        recommandSong.title     = @"如何把一份外卖吃出仪式感";
-        recommandSong.listenedCount = @"999万";
+        recommandSong.coverPath = result[@"coverImgUrl"];
+        recommandSong.title     = result[@"name"];
+        recommandSong.listenedCount = [NSString stringWithFormat:@"%@", result[@"playCount"]];
         Layout *layout = [Layout new];
         layout.frame   = CGRectMake(0, 0, itemWidth, itemHeight);
         recommandSong.layout = layout;

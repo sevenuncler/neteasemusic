@@ -51,7 +51,7 @@
 - (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask
 didReceiveResponse:(NSURLResponse *)response
  completionHandler:(void (^)(NSURLSessionResponseDisposition disposition))completionHandler {
-    NSLog(@"%@", response);
+//    NSLog(@"%@", response);
     //允许服务器回传数据
     completionHandler(NSURLSessionResponseAllow);
 }
@@ -60,7 +60,7 @@ didReceiveResponse:(NSURLResponse *)response
     NSMutableDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
     CGFloat itemWidth  = SCREEN_WIDTH / 3 - 10;
     CGFloat itemHeight = SCREEN_WIDTH / 3 + 25;
-    NSLog(@"请求返回%@", dict);
+//    NSLog(@"请求返回%@", dict);
     {
         RecommandSong *recommandSong = [RecommandSong new];
         recommandSong.coverPath = dict[@"image"];
@@ -115,7 +115,13 @@ didReceiveResponse:(NSURLResponse *)response
     cell.subTitleLabel.text = nil;
     return cell;
 }
+
 #pragma mark - UICollectionViewDelegate
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    RecommandSongViewCell *cell = (RecommandSongViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    
+}
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     SUItem *item = [self.items objectAtIndex:indexPath.section*2 +  indexPath.item];

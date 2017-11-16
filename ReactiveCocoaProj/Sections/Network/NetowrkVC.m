@@ -22,8 +22,38 @@ NSURLSession *session;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self setUpNeteaseMusicApi];
-    [NetEaseMusicApi artistAlbumWithArtistId:12000103 limit:10 completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+//    [self setUpNeteaseMusicApi];
+//    return ;
+    [NetEaseMusicApi playlistInfoWithPlaylistId:387699584 completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        if(error) {
+            NSLog(@"请求出错 %@", error);
+        }
+        NSString *string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        NSLog(@"返回结果1:%@", string);
+        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+        NSLog(@"返回结果2: \n%@", dict);
+    }];
+    return ;
+    [NetEaseMusicApi searchWithQuery:@"告白气球" type:1 offset:0 limit:1 completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        if(error) {
+            NSLog(@"请求出错 %@", error);
+        }
+        NSString *string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        NSLog(@"返回结果1:%@", string);
+        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+        NSLog(@"返回结果2: \n%@", dict);
+    }];
+    [NetEaseMusicApi artistAlbumWithArtistId:6452 limit:1 completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        if(error) {
+            NSLog(@"请求出错 %@", error);
+        }
+        NSString *string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        NSLog(@"返回结果1:%@", string);
+        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+        NSLog(@"返回结果2: \n%@", dict);
+    }];
+    
+    [NetEaseMusicApi musicInfoWithId:18875 completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         if(error) {
             NSLog(@"请求出错 %@", error);
         }
@@ -39,9 +69,9 @@ NSURLSession *session;
 }
 
 - (void)setUpNeteaseMusicApi {
-    NSString *urlString = @"http://s.music.163.com/search/get/?s=周杰伦&limit=10&type=1";
+    NSString *urlString = @"http://s.music.163.com/search/get/?s=告白气球&limit=10&type=1";
     //获取歌单
-//    urlString = @"http://music.163.com/api/playlist/detail?id=387699584";
+    urlString = @"http://music.163.com/api/playlist/detail?id=387699584";
     //私人FM
 //    urlString = @"http://music.163.com/api/radio/get";
 //    urlString = @"http://music.163.com/discover/toplist?id=3779629";
@@ -64,12 +94,12 @@ NSURLSession *session;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:@{
                                                                  @"s":@"a",
                                                                  @"sub":@"false",
-                                                                 @"offset":@"1",
-                                                                 @"limit":@"5",
+                                                                 @"offset":@"0",
+                                                                 @"limit":@"1",
                                                                  @"total":@"true",
                                                                  @"type":@"1"} options:NSJSONWritingPrettyPrinted error:nil];
     request.HTTPBody    = jsonData;
-    request.HTTPMethod = @"GET";
+    request.HTTPMethod = @"POST";
     
     
     NSURLSession *session = [NSURLSession sharedSession];

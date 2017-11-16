@@ -71,8 +71,6 @@
     [[imageManager imageWithUrl:self.items[idx]] subscribeNext:^(id x) {
         [cell.myImageView setImage:x];
     }];
-    NSLog(@"cellFor%@ %p", indexPath, cell);
-
     return cell;
 }
 
@@ -80,12 +78,10 @@
     return CGSizeMake(SCREEN_WIDTH, SCREEN_WIDTH*0.382);
 }
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"will display%@ %p", indexPath, cell);
     
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didEndDisplayingCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"did end%@ %p", indexPath, cell);
     if( [cell isMemberOfClass:[SUGoHorseLampCell class]]) {
         if(self.indexHandler) {
             NSIndexPath *idx = [NSIndexPath indexPathForItem:self.currentIndex inSection:0];
