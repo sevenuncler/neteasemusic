@@ -8,6 +8,8 @@
 
 #import "SUListVC.h"
 #import "SUSongListCell.h"
+#import "NetEaseMusicApi.h"
+#import "SongList.h"
 
 @interface SUListVC ()
 
@@ -18,6 +20,7 @@ static NSString * const reuseIdentifier = @"reuseSongListCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.tableView registerClass:[SUSongListCell class] forCellReuseIdentifier:reuseIdentifier];
+    [self songListItem];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -32,14 +35,12 @@ static NSString * const reuseIdentifier = @"reuseSongListCell";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 5;
+    return self.songListItem.tracks.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier forIndexPath:indexPath];
-    
-    // Configure the cell...
     
     return cell;
 }
@@ -88,5 +89,34 @@ static NSString * const reuseIdentifier = @"reuseSongListCell";
     // Pass the selected object to the new view controller.
 }
 */
+
+- (SongList *)songListItem {
+    if(!_songListItem) {
+        _songListItem = [SongList new];
+        dispatch_semaphore_t semphore = dispatch_semaphore_create(0);
+        __block NSDictionary *dataDict;
+        
+        [NetEaseMusicApi playlistInfoWithPlaylistId:387699584 completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+            if(error) {
+                NSLog(@"请求出错 %@", error);
+                dispatch_semaphore_signal(semphore);
+                return;
+            }
+            NSString *string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            NSLog(@"返回结果1:%@", string);
+            NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+            NSLog(@"返回结果2: \n%@", dict);
+            NSDictionary *result = dict[@"result"];
+            [_songListItem setValuesForKeysWithDictionary:result];
+            dispatch_semaphore_signal(semphore);
+        }];
+        if(dispatch_semaphore_wait(semphore, DISPATCH_TIME_FOREVER) == 0) {
+            [self.tableView reloadData];
+        }
+        
+        
+    }
+    return _songListItem;
+}
 
 @end

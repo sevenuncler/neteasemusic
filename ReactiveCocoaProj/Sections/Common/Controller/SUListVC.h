@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class SongList;
 @interface SUListVC : UITableViewController
-
+@property(nonatomic, strong) SongList *songListItem;
 @end

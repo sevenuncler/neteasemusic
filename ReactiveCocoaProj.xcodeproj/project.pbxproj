@@ -33,6 +33,10 @@
 		8713CD781FBC86FE004B658F /* SUListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8713CD771FBC86FE004B658F /* SUListVC.m */; };
 		8713CD7B1FBC8766004B658F /* SongList.m in Sources */ = {isa = PBXBuildFile; fileRef = 8713CD7A1FBC8766004B658F /* SongList.m */; };
 		8713CD7E1FBD0FAD004B658F /* SUSongListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8713CD7D1FBD0FAD004B658F /* SUSongListCell.m */; };
+		8713CD811FBE6349004B658F /* SUAlbumItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8713CD801FBE6349004B658F /* SUAlbumItem.m */; };
+		8713CD841FBE637E004B658F /* SUArtistsItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8713CD831FBE637E004B658F /* SUArtistsItem.m */; };
+		8713CD871FBE6394004B658F /* SUMusicItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8713CD861FBE6394004B658F /* SUMusicItem.m */; };
+		8713CD8D1FBE67F0004B658F /* SUTrackItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8713CD8C1FBE67F0004B658F /* SUTrackItem.m */; };
 		871979621FA2BC330068B1F3 /* cm2_play_needle_play@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8719795D1FA2BC320068B1F3 /* cm2_play_needle_play@2x.png */; };
 		871979631FA2BC330068B1F3 /* cm2_play_needle_play@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8719795E1FA2BC330068B1F3 /* cm2_play_needle_play@3x.png */; };
 		871979641FA2BC330068B1F3 /* cm2_play_needle_play-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8719795F1FA2BC330068B1F3 /* cm2_play_needle_play-568h@2x.png */; };
@@ -324,6 +328,14 @@
 		8713CD7A1FBC8766004B658F /* SongList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SongList.m; sourceTree = "<group>"; };
 		8713CD7C1FBD0FAD004B658F /* SUSongListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SUSongListCell.h; sourceTree = "<group>"; };
 		8713CD7D1FBD0FAD004B658F /* SUSongListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SUSongListCell.m; sourceTree = "<group>"; };
+		8713CD7F1FBE6349004B658F /* SUAlbumItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SUAlbumItem.h; sourceTree = "<group>"; };
+		8713CD801FBE6349004B658F /* SUAlbumItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SUAlbumItem.m; sourceTree = "<group>"; };
+		8713CD821FBE637E004B658F /* SUArtistsItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SUArtistsItem.h; sourceTree = "<group>"; };
+		8713CD831FBE637E004B658F /* SUArtistsItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SUArtistsItem.m; sourceTree = "<group>"; };
+		8713CD851FBE6394004B658F /* SUMusicItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SUMusicItem.h; sourceTree = "<group>"; };
+		8713CD861FBE6394004B658F /* SUMusicItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SUMusicItem.m; sourceTree = "<group>"; };
+		8713CD8B1FBE67F0004B658F /* SUTrackItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SUTrackItem.h; sourceTree = "<group>"; };
+		8713CD8C1FBE67F0004B658F /* SUTrackItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SUTrackItem.m; sourceTree = "<group>"; };
 		8719795D1FA2BC320068B1F3 /* cm2_play_needle_play@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cm2_play_needle_play@2x.png"; sourceTree = "<group>"; };
 		8719795E1FA2BC330068B1F3 /* cm2_play_needle_play@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cm2_play_needle_play@3x.png"; sourceTree = "<group>"; };
 		8719795F1FA2BC330068B1F3 /* cm2_play_needle_play-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cm2_play_needle_play-568h@2x.png"; sourceTree = "<group>"; };
@@ -960,6 +972,14 @@
 			children = (
 				8713CD791FBC8766004B658F /* SongList.h */,
 				8713CD7A1FBC8766004B658F /* SongList.m */,
+				8713CD8B1FBE67F0004B658F /* SUTrackItem.h */,
+				8713CD8C1FBE67F0004B658F /* SUTrackItem.m */,
+				8713CD7F1FBE6349004B658F /* SUAlbumItem.h */,
+				8713CD801FBE6349004B658F /* SUAlbumItem.m */,
+				8713CD821FBE637E004B658F /* SUArtistsItem.h */,
+				8713CD831FBE637E004B658F /* SUArtistsItem.m */,
+				8713CD851FBE6394004B658F /* SUMusicItem.h */,
+				8713CD861FBE6394004B658F /* SUMusicItem.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1639,6 +1659,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8713CD8D1FBE67F0004B658F /* SUTrackItem.m in Sources */,
 				872793521FB131DC0095852E /* SUSettingItem.m in Sources */,
 				8793B2CC1F95810C006DDC24 /* MusicVC.m in Sources */,
 				8713CD781FBC86FE004B658F /* SUListVC.m in Sources */,
@@ -1652,6 +1673,7 @@
 				875C2F8D1F97897000145E57 /* GeneralModel.m in Sources */,
 				87085DD41F7F1B45009065C8 /* SUGoHorseLampViewModel.m in Sources */,
 				875539BD1FADB23400A7628F /* StatusItem.m in Sources */,
+				8713CD871FBE6394004B658F /* SUMusicItem.m in Sources */,
 				8727934F1FAFDF100095852E /* VideoStatusItem.m in Sources */,
 				87DD37FA1F9200020006C289 /* UIImage+Size.m in Sources */,
 				8793B2CF1F95811D006DDC24 /* VideoVC.m in Sources */,
@@ -1666,6 +1688,7 @@
 				87A1918D1FA0134C00D7DC3B /* SUPlayerViewController.m in Sources */,
 				875C2F901F9797DA00145E57 /* SetViewModel.m in Sources */,
 				8755398D1FAA946700A7628F /* MyMusicVC.m in Sources */,
+				8713CD811FBE6349004B658F /* SUAlbumItem.m in Sources */,
 				874CE3131F9C9D9A0075722A /* AlbumsItem.m in Sources */,
 				872D10D31F925BA300A293FA /* TransitionManager.m in Sources */,
 				875C2F841F977F1800145E57 /* SongSetView.m in Sources */,
@@ -1689,6 +1712,7 @@
 				874CE3101F9C98AB0075722A /* AlbumsViewCell.m in Sources */,
 				87085DEA1F866E99009065C8 /* SUGoHorseLampCell.m in Sources */,
 				873B0D0C1FA4BD300088DFD0 /* SUDownloadTask.m in Sources */,
+				8713CD841FBE637E004B658F /* SUArtistsItem.m in Sources */,
 				87085DA91F7DC61B009065C8 /* AppDelegate.m in Sources */,
 				874CE30A1F9C59530075722A /* RecommandSong.m in Sources */,
 				873B0D7E1FA7FBEC0088DFD0 /* FooterView.m in Sources */,

@@ -7,11 +7,13 @@
 //
 
 #import "SUItem.h"
-
+@class SUAlbumItem;
+@class SUTrackItem;
 @interface SongList : SUItem
 @property(nonatomic, copy) NSString *coverImgUrl;
 @property(nonatomic, assign) long createTime;
 @property(nonatomic, copy) NSString *desc;
 @property(nonatomic, copy) NSString *name;
 @property(nonatomic, assign) NSInteger playCount;
+@property(nonatomic, copy) NSArray<SUTrackItem *>  *tracks;
 @end
