@@ -37,6 +37,8 @@
 		8713CD841FBE637E004B658F /* SUArtistsItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8713CD831FBE637E004B658F /* SUArtistsItem.m */; };
 		8713CD871FBE6394004B658F /* SUMusicItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8713CD861FBE6394004B658F /* SUMusicItem.m */; };
 		8713CD8D1FBE67F0004B658F /* SUTrackItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8713CD8C1FBE67F0004B658F /* SUTrackItem.m */; };
+		8713CD901FBF2352004B658F /* SUSongListTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8713CD8F1FBF2352004B658F /* SUSongListTopView.m */; };
+		8713CD931FBFDD37004B658F /* NSString+Encrypt.m in Sources */ = {isa = PBXBuildFile; fileRef = 8713CD921FBFDD37004B658F /* NSString+Encrypt.m */; };
 		871979621FA2BC330068B1F3 /* cm2_play_needle_play@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8719795D1FA2BC320068B1F3 /* cm2_play_needle_play@2x.png */; };
 		871979631FA2BC330068B1F3 /* cm2_play_needle_play@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8719795E1FA2BC330068B1F3 /* cm2_play_needle_play@3x.png */; };
 		871979641FA2BC330068B1F3 /* cm2_play_needle_play-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8719795F1FA2BC330068B1F3 /* cm2_play_needle_play-568h@2x.png */; };
@@ -336,6 +338,10 @@
 		8713CD861FBE6394004B658F /* SUMusicItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SUMusicItem.m; sourceTree = "<group>"; };
 		8713CD8B1FBE67F0004B658F /* SUTrackItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SUTrackItem.h; sourceTree = "<group>"; };
 		8713CD8C1FBE67F0004B658F /* SUTrackItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SUTrackItem.m; sourceTree = "<group>"; };
+		8713CD8E1FBF2352004B658F /* SUSongListTopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SUSongListTopView.h; sourceTree = "<group>"; };
+		8713CD8F1FBF2352004B658F /* SUSongListTopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SUSongListTopView.m; sourceTree = "<group>"; };
+		8713CD911FBFDD37004B658F /* NSString+Encrypt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Encrypt.h"; sourceTree = "<group>"; };
+		8713CD921FBFDD37004B658F /* NSString+Encrypt.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Encrypt.m"; sourceTree = "<group>"; };
 		8719795D1FA2BC320068B1F3 /* cm2_play_needle_play@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cm2_play_needle_play@2x.png"; sourceTree = "<group>"; };
 		8719795E1FA2BC330068B1F3 /* cm2_play_needle_play@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cm2_play_needle_play@3x.png"; sourceTree = "<group>"; };
 		8719795F1FA2BC330068B1F3 /* cm2_play_needle_play-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cm2_play_needle_play-568h@2x.png"; sourceTree = "<group>"; };
@@ -930,6 +936,8 @@
 				872D10D21F925BA300A293FA /* TransitionManager.m */,
 				872D10D41F9261D600A293FA /* Animator.h */,
 				872D10D51F9261D600A293FA /* Animator.m */,
+				8713CD911FBFDD37004B658F /* NSString+Encrypt.h */,
+				8713CD921FBFDD37004B658F /* NSString+Encrypt.m */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -989,6 +997,8 @@
 			children = (
 				8713CD7C1FBD0FAD004B658F /* SUSongListCell.h */,
 				8713CD7D1FBD0FAD004B658F /* SUSongListCell.m */,
+				8713CD8E1FBF2352004B658F /* SUSongListTopView.h */,
+				8713CD8F1FBF2352004B658F /* SUSongListTopView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1661,6 +1671,7 @@
 			files = (
 				8713CD8D1FBE67F0004B658F /* SUTrackItem.m in Sources */,
 				872793521FB131DC0095852E /* SUSettingItem.m in Sources */,
+				8713CD931FBFDD37004B658F /* NSString+Encrypt.m in Sources */,
 				8793B2CC1F95810C006DDC24 /* MusicVC.m in Sources */,
 				8713CD781FBC86FE004B658F /* SUListVC.m in Sources */,
 				873B0D751FA7F4DA0088DFD0 /* HeaderView.m in Sources */,
@@ -1716,6 +1727,7 @@
 				87085DA91F7DC61B009065C8 /* AppDelegate.m in Sources */,
 				874CE30A1F9C59530075722A /* RecommandSong.m in Sources */,
 				873B0D7E1FA7FBEC0088DFD0 /* FooterView.m in Sources */,
+				8713CD901FBF2352004B658F /* SUSongListTopView.m in Sources */,
 				87A191811FA00BBD00D7DC3B /* PlayerView.m in Sources */,
 				875539C31FADF3B000A7628F /* FriendVC.m in Sources */,
 				873B0D0D1FA4BD300088DFD0 /* SURange.m in Sources */,

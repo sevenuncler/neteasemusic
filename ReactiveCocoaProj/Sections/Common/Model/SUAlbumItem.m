@@ -9,6 +9,18 @@
 #import "SUAlbumItem.h"
 
 @implementation SUAlbumItem
+
++ (NSDictionary *)replacedKeyFromPropertyName{
+    return @{
+             @"desc" : @"desciption"
+             };
+}
+
+- (id)copyWithZone:(nullable NSZone *)zone {
+    SUAlbumItem *albumItem = [SUAlbumItem allocWithZone:zone];
+    return albumItem;
+}
+
 - (void)setValue:(id)value forUndefinedKey:(NSString *)key {
 
 }

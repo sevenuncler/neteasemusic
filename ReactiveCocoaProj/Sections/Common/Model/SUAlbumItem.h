@@ -8,6 +8,6 @@
 
 #import "SUItem.h"
 
-@interface SUAlbumItem : SUItem
+@interface SUAlbumItem : SUItem <NSCopying>
 
 @end

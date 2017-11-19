@@ -10,6 +10,18 @@
 
 @implementation SongList
 
++ (NSDictionary *)objectClassInArray{
+    return @{
+             @"tracks" : @"SUTrackItem"
+             };
+}
+
++ (NSDictionary *)replacedKeyFromPropertyName{
+    return @{
+             @"desc" : @"desciption"
+             };
+}
+
 -(void)setValue:(id)value forUndefinedKey:(NSString *)key {
     if([key isEqualToString:@"description"]) {
         self.desc = value;

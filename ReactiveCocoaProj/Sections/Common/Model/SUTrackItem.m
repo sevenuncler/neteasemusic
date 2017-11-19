@@ -7,8 +7,26 @@
 //
 
 #import "SUTrackItem.h"
+#import "SUArtistsItem.h"
+#import "SUMusicItem.h"
+#import "SUAlbumItem.h"
 
 @implementation SUTrackItem
+
++ (NSDictionary *)objectClassInArray{
+    return @{
+             @"artists" : @"SUArtistsItem"
+             };
+}
+
++ (NSDictionary *)replacedKeyFromPropertyName{
+    return @{
+             @"desc" : @"desciption",
+             @"tid"  : @"id"
+             };
+}
+
+
 - (void)setValue:(id)value forUndefinedKey:(NSString *)key {
     if([key isEqualToString:@"id"]) {
         self.tid = value;

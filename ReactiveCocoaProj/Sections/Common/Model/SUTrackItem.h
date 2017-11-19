@@ -7,9 +7,11 @@
 //
 
 #import "SUItem.h"
-@class SUAlbumItem;
-@class SUArtistsItem;
-@class SUMusicItem;
+#import "SUArtistsItem.h"
+#import "SUMusicItem.h"
+#import "SUAlbumItem.h"
+
+
 @interface SUTrackItem : SUItem
 @property(nonatomic, copy) SUAlbumItem *album;
 @property(nonatomic, copy) NSArray     *alias;

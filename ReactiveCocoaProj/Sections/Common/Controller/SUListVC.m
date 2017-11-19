@@ -10,6 +10,10 @@
 #import "SUSongListCell.h"
 #import "NetEaseMusicApi.h"
 #import "SongList.h"
+#import "SUTrackItem.h"
+#import <MJExtension/MJExtension.h>
+#import "SUSongListTopView.h"
+#import "UIView+Layout.h"
 
 @interface SUListVC ()
 
@@ -19,8 +23,34 @@ static NSString * const reuseIdentifier = @"reuseSongListCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+//    [NetEaseMusicApi newRecommandSongWithCompletionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+//        if(error) {
+//            NSLog(@"请求出错 %@", error);
+//            return;
+//        }
+//        NSString *string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+//        NSLog(@"返回结果1:%@", string);
+//        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+//        NSLog(@"返回结果2: \n%@", dict);
+//    }];
+//    return;
+    
+    [NetEaseMusicApi loginWithUsername:@"18758232738" password:@"hunter23" completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        if(error) {
+            NSLog(@"请求出错 %@", error);
+            return;
+        }
+        NSString *string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        NSLog(@"返回结果1:%@", string);
+        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+        NSLog(@"返回结果2: \n%@", dict);
+    }];
+    return;
     [self.tableView registerClass:[SUSongListCell class] forCellReuseIdentifier:reuseIdentifier];
     [self songListItem];
+    
+    SUSongListTopView *topView = [[SUSongListTopView alloc] initWithFrame:CGRectMake(0, 0, self.view.size.width , 300)];
+    [self.view addSubview:topView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -35,13 +65,17 @@ static NSString * const reuseIdentifier = @"reuseSongListCell";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 0;
     return self.songListItem.tracks.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier forIndexPath:indexPath];
-    
+    SUSongListCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier forIndexPath:indexPath];
+    SUTrackItem *trackItem = self.songListItem.tracks[indexPath.row];
+    cell.indexLabel.text   = [NSString stringWithFormat:@"%ld", indexPath.row];
+    cell.textLabel.text    = trackItem.name;
+    cell.detailTextLabel.text = trackItem.artists[0].name;
     return cell;
 }
 
@@ -107,7 +141,9 @@ static NSString * const reuseIdentifier = @"reuseSongListCell";
             NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
             NSLog(@"返回结果2: \n%@", dict);
             NSDictionary *result = dict[@"result"];
-            [_songListItem setValuesForKeysWithDictionary:result];
+            _songListItem = [SongList mj_objectWithKeyValues:result];
+            SUTrackItem *trackItem = _songListItem.tracks[0];
+            SUArtistsItem *artistItem = trackItem.artists[0];
             dispatch_semaphore_signal(semphore);
         }];
         if(dispatch_semaphore_wait(semphore, DISPATCH_TIME_FOREVER) == 0) {

@@ -1,5 +1,6 @@
 PODS:
   - FLAnimatedImage (1.0.12)
+  - MJExtension (3.0.13)
   - ReactiveCocoa (2.5):
     - ReactiveCocoa/UI (= 2.5)
   - ReactiveCocoa/Core (2.5):
@@ -10,12 +11,14 @@ PODS:
 
 DEPENDENCIES:
   - FLAnimatedImage (~> 1.0)
+  - MJExtension (~> 3.0.13)
   - ReactiveCocoa (~> 2.5)
 
 SPEC CHECKSUMS:
   FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
+  MJExtension: 5932755f451458eefa24239358817f8d291240c7
   ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
 
-PODFILE CHECKSUM: 7f37d4688e75d17474516056016f877ddeaff475
+PODFILE CHECKSUM: 24c731ac025954b5e5a58774bda8335bfcbc3269
 
 COCOAPODS: 1.2.1

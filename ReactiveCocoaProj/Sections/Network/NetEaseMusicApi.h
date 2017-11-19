@@ -33,6 +33,8 @@ typedef NS_ENUM(NSInteger, NMSearchType) {
     NMSearch(Radio, 1009),
 };
 @interface NetEaseMusicApi : NSObject
+
++ (void)loginWithUsername:(NSString *)username password:(NSString *)password completionHandler:(NeteaseMusicAPICompletionHandler)completionHandler;
 /**
  搜索
  @param query             <#query description#>
@@ -99,6 +101,7 @@ typedef NS_ENUM(NSInteger, NMSearchType) {
  */
 + (void)programInfoWithProgramId:(NSInteger)programId completionHandler:(NeteaseMusicAPICompletionHandler)completionHandler;
 
++ (void)newRecommandSongWithCompletionHandler:(NeteaseMusicAPICompletionHandler)completionHandler;
 
 
 @end
