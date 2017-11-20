@@ -12,6 +12,7 @@
 @implementation HeaderView
 - (instancetype)initWithFrame:(CGRect)frame {
     if(self = [super initWithFrame:frame]) {
+        self.backgroundColor = [UIColor whiteColor];
         [self addSubview:self.leftView];
         [self addSubview:self.titleLable];
         [self addSubview:self.moreButton];

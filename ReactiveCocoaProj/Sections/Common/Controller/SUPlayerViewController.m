@@ -16,6 +16,7 @@
 #import "SUAdvancePlayer.h"
 #import "NELivePlayer.h"
 #import "NELivePlayerController.h"
+#import "NetEaseMusic.h"
 
 extern void _objc_autoreleasePoolPrint();
 
@@ -39,6 +40,8 @@ typedef NS_ENUM(NSUInteger, PlayListOrder){
 @end
 
 @implementation SUPlayerViewController
+@synthesize songs       = _songs;
+@synthesize playList    = _playList;
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
 }
@@ -64,6 +67,12 @@ typedef NS_ENUM(NSUInteger, PlayListOrder){
     self.tabBarController.tabBar.hidden = YES;
 }
 
+#pragma mark - Public
+
+- (void)playAtIndex:(NSIndexPath *)indexPath {
+    
+}
+
 #pragma mark - Private
 
 - (void)startPlayList {
@@ -73,9 +82,11 @@ typedef NS_ENUM(NSUInteger, PlayListOrder){
 
 - (void)playSong:(NSString *)urlString {
     [self.playerView stopPlay];
-    @weakify(self);
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
-        @strongify(self);
+    if(!urlString) {
+        [self.liveplayer pause];
+        return;
+    }
+    dispatch_async(dispatch_get_main_queue(), ^{
         [self.liveplayer switchContentUrl:[NSURL URLWithString:urlString]];
     });
 
@@ -84,21 +95,46 @@ typedef NS_ENUM(NSUInteger, PlayListOrder){
 - (NSString *)nextSong {
     switch (_playListOrder) {
         case PlayListOrderLoopOrder:
-            _currentIdx = (_currentIdx+1)%self.songs.count;
+            _currentIdx = (_currentIdx+1)%self.playList.tracks.count;
             break;
         case PlayListOrderOne:
             break;
         case PlayListOrderShuffle:
-            _currentIdx = arc4random()%self.songs.count;
+            _currentIdx = arc4random()%self.playList.tracks.count;
             break;
         default:
             break;
     }
-    return [self.songs objectAtIndex:_currentIdx];
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+    __block NSString *urlString;
+    [NetEaseMusic songURLWithID:self.playList.tracks[_currentIdx].tid complection:^(NSData *data, NSURLResponse *response, NSError *error) {
+        if(error) {
+            NSLog(@"请求歌曲地址错误 %@",error);
+            dispatch_semaphore_signal(semaphore);
+            return ;
+        }
+        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+        if(dict) {
+            dict = dict[@"data"][0];
+            if(![dict[@"url"] isMemberOfClass:[NSNull class]]) {
+                urlString = (NSString *)dict[@"url"];
+            }else {
+                urlString = nil;
+            }
+        }
+        dispatch_semaphore_signal(semaphore);
+
+    }];
+    if(dispatch_semaphore_wait(semaphore,DISPATCH_TIME_FOREVER) == 0) {
+        NSLog(@"歌曲地址请求成功:%@", urlString);
+    }else {
+        NSLog(@"歌曲地址请求成失败");
+    }
+    return urlString;
 }
 
 - (NSString *)preSong {
-    _currentIdx = (_currentIdx+1)%self.songs.count;
+    _currentIdx = (_currentIdx+1)%self.playList.tracks.count;
     return [self.songs objectAtIndex:_currentIdx];
 }
 
@@ -248,9 +284,43 @@ typedef NS_ENUM(NSUInteger, PlayListOrder){
     return _songs;
 }
 
+- (void)setSongs:(NSMutableArray *)songs {
+    if(_songs != songs) {
+        _songs = songs.mutableCopy;
+    }
+}
+
+- (void)setPlayList:(SongList *)playList {
+    if(_playList != playList) {
+        _playList = playList;
+        [self.songs removeAllObjects];
+        __weak typeof(self) weakSelf = self;
+        [_playList.tracks enumerateObjectsUsingBlock:^(SUTrackItem *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            [NetEaseMusic songURLWithID:obj.tid complection:^(NSData *data, NSURLResponse *response, NSError *error) {
+                if(error) {
+                    NSLog(@"请求歌曲地址错误 %@",error);
+                }
+                NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+                if(dict) {
+                    dict = dict[@"data"][0];
+                }
+                [weakSelf.songs addObject:dict[@"url"]];
+            }];
+        }];
+    }
+}
+
+- (SongList *)playList {
+    if(nil == _playList) {
+        _playList = [SongList new];
+    }
+    return _playList;
+}
+
+
 - (NELivePlayerController *)liveplayer {
     if(!_liveplayer) {
-        NSString *urlString = [self.songs objectAtIndex:_currentIdx];
+        NSString *urlString = @"http://m10.music.126.net/20171119171942/6e4a84f638dc22ca6ceb0a3a1f5f11c0/ymusic/9593/59ca/56ea/fc92992c2eac7137bf4cc1d7851fe094.mp3";
         _liveplayer = [[NELivePlayerController alloc] initWithContentURL:[NSURL URLWithString:urlString] error:nil];
         _liveplayer.view.frame = self.view.bounds;
         _liveplayer.shouldAutoplay = NO;

@@ -14,6 +14,8 @@
 @property(nonatomic, strong) UIButton *commentMenuBtn;
 @property(nonatomic, strong) UIButton *tranMenuBtn;
 @property(nonatomic, strong) UIButton *downloadMenuBtn;
+@property(nonatomic, strong) UILabel  *downloadLabel;
+
 @end
 
 @implementation SUSongListTopView
@@ -32,6 +34,12 @@
         [self addSubview:self.avatorIV];
         [self addSubview:self.likedMenuBtn];
         [self addSubview:self.likedNumLabel];
+        [self addSubview:self.commentMenuBtn];
+        [self addSubview:self.commentNumLabel];
+        [self addSubview:self.tranMenuBtn];
+        [self addSubview:self.trandNumLabel];
+        [self addSubview:self.downloadMenuBtn];
+        [self addSubview:self.downloadLabel];
         [self setUpSubViewsLayout];
     }
     return self;
@@ -51,13 +59,32 @@
     
     //头像
     self.avatorIV.size = CGSizeMake(kAvatorSize, kAvatorSize);
+    self.avatorIV.layer.cornerRadius = kAvatorSize/2;
+    self.avatorIV.layer.masksToBounds = YES;
     self.avatorIV.left = self.nameLabel.left;
     
+    CGFloat space = (self.size.width - kMenuSize*4) / 8;
     //收藏
     self.likedMenuBtn.size = CGSizeMake(kMenuSize, kMenuSize);
-    self.likedMenuBtn.left = 5*kPadding;
+    self.likedMenuBtn.left = space;
     self.likedMenuBtn.top  = self.coverIV.botton + 3*kPadding;
     self.likedNumLabel.top     = self.likedMenuBtn.botton + kPadding;
+    //评论
+    self.commentMenuBtn.size = CGSizeMake(kMenuSize, kMenuSize);
+    self.commentMenuBtn.left = self.likedMenuBtn.right + 2*space;
+    self.commentMenuBtn.centerY = self.likedMenuBtn.centerY;
+    self.commentNumLabel.top    =   self.commentMenuBtn.botton + kPadding;
+    //分享
+    self.tranMenuBtn.size   =   CGSizeMake(kMenuSize, kMenuSize);
+    self.tranMenuBtn.left   =   self.commentMenuBtn.right + 2*space;
+    self.tranMenuBtn.centerY    =   self.likedMenuBtn.centerY;
+    self.trandNumLabel.top      =   self.tranMenuBtn.botton + kPadding;
+    //下载
+    self.downloadMenuBtn.size   = CGSizeMake(kMenuSize, kMenuSize);
+    self.downloadMenuBtn.left   = self.tranMenuBtn.right + 2*space;
+    self.downloadMenuBtn.centerY = self.likedMenuBtn.centerY;
+    self.downloadLabel.top      = self.downloadMenuBtn.botton + kPadding;
+    self.downloadLabel.centerX  = self.downloadMenuBtn.centerX;
     
 }
 
@@ -71,6 +98,13 @@
 
     [self.likedNumLabel sizeToFit];
     self.likedNumLabel.centerX = self.likedMenuBtn.centerX;
+    
+    [self.commentNumLabel sizeToFit];
+    self.commentNumLabel.centerX = self.commentMenuBtn.centerX;
+    
+    [self.trandNumLabel sizeToFit];
+    self.trandNumLabel.centerX = self.tranMenuBtn.centerX;
+    
 
     
 }
@@ -112,7 +146,7 @@
 - (UILabel *)likedNumLabel {
     if(!_likedNumLabel) {
         _likedNumLabel = [UILabel new];
-        _likedNumLabel.text = @"9999";
+        _likedNumLabel.text = @"99999";
         _likedNumLabel.font = [UIFont systemFontOfSize:kFontSize];
     }
     return _likedNumLabel;
@@ -121,8 +155,21 @@
 - (UILabel *)trandNumLabel {
     if(!_trandNumLabel) {
         _trandNumLabel = [UILabel new];
+        _trandNumLabel.font = [UIFont systemFontOfSize:kFontSize];
+        _trandNumLabel.text = @"99999";
+
     }
     return _trandNumLabel;
+}
+
+- (UILabel *)downloadLabel {
+    if(nil == _downloadLabel) {
+        _downloadLabel = [UILabel new];
+        _downloadLabel.font = [UIFont systemFontOfSize:kFontSize];
+        _downloadLabel.text = @"下载";
+        [_downloadLabel sizeToFit];
+    }
+    return _downloadLabel;
 }
 
 - (UIButton *)likedMenuBtn {
@@ -131,6 +178,30 @@
         [_likedMenuBtn setImage:[UIImage imageNamed:@"image"] forState:UIControlStateNormal];
     }
     return _likedMenuBtn;
+}
+
+- (UIButton *)commentMenuBtn {
+    if(!_commentMenuBtn) {
+        _commentMenuBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_commentMenuBtn setImage:[UIImage imageNamed:@"image"] forState:UIControlStateNormal];
+    }
+    return _commentMenuBtn;
+}
+
+- (UIButton *)tranMenuBtn {
+    if(!_tranMenuBtn) {
+        _tranMenuBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_tranMenuBtn setImage:[UIImage imageNamed:@"image"] forState:UIControlStateNormal];
+    }
+    return _tranMenuBtn;
+}
+
+- (UIButton *)downloadMenuBtn {
+    if(!_downloadMenuBtn) {
+        _downloadMenuBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_downloadMenuBtn setImage:[UIImage imageNamed:@"image"] forState:UIControlStateNormal];
+    }
+    return _downloadMenuBtn;
 }
 
 

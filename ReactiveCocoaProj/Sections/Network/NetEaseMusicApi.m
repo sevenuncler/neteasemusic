@@ -24,6 +24,8 @@ NSString *REFERER = @"http://music.163.com/";
 NSString *secretKey = @"TA3YiYCfY2dDJQgg";
 NSString *encSecKey = @"84ca47bca10bad09a6b04c5c927ef077d9b9f1e37098aa3eac6ea70eb59df0aa28b691b7e75e4f1f9831754919ea784c8f74fbfadf2898b0be17849fd656060162857830e241aba44991601f137624094c114ea8d17bce815b0cd4e5b8e2fbaba978c6d1d14dc3d1faf852bdd28818031ccdaaa13a6018e1024e2aae98844210";
 
+
+NSString * const HOST = @"";
 @implementation NetEaseMusicApi
 {
     
@@ -46,13 +48,13 @@ NSString *encSecKey = @"84ca47bca10bad09a6b04c5c927ef077d9b9f1e37098aa3eac6ea70e
                                                              } options:NSJSONWritingPrettyPrinted error:nil];
 //    data = [NSString aesWithData:data withKey:NONCE];
 //    data = [NSString aesWithData:data withKey:secretKey];
-    NSString *params = [self convertDataToHexStr:data];
-    NSData *dataBody = [NSJSONSerialization dataWithJSONObject:@{
-                                                                 @"params": params,
-                                                                 @"encSecKey":encSecKey
-                                                                 } options:NSJSONWritingPrettyPrinted error:nil];
+//    NSString *params = [self convertDataToHexStr:data];
+//    NSData *dataBody = [NSJSONSerialization dataWithJSONObject:@{
+//                                                                 @"params": params,
+//                                                                 @"encSecKey":encSecKey
+//                                                                 } options:NSJSONWritingPrettyPrinted error:nil];
     
-    NSString *urlString = @"http://101.71.37.4:3000/login/cellphone";
+    NSString *urlString = @"http://10.240.76.186:3000/login/cellphone";
     urlString = [NSString stringWithFormat:@"%@?phone=%@&password=%@", urlString, username, password];
     NSMutableURLRequest *request = [self requestWithURLString:urlString];
     

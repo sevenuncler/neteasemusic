@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "SongList.h"
 
 @interface SUPlayerViewController : UIViewController
 @property (nonatomic, strong) NSMutableArray *songs;
 @property (nonatomic, weak)   UITabBarController *tabBarController;
+@property (nonatomic, strong) SongList *playList;
 + (instancetype)sharedInstance;
+- (void)startPlayList;
+- (void)playAtIndex:(NSIndexPath *)indexPath;
 @end

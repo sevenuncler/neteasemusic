@@ -29,6 +29,9 @@
 #import "GoHorseCollectionViewCell.h"
 #import "NetEaseMusicApi.h"
 #import "SongList.h"
+#import "NetEaseMusic.h"
+#import <MJExtension/MJExtension.h>
+#import "SUBannerItem.h"
 
 
 @interface MusicVC ()<UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
@@ -54,12 +57,12 @@ static BOOL stopFlag = YES;
     [self.view insertSubview:self.backgroundText belowSubview:self.collectionView];
 
     [self setUpGoHorseView];
-    [self setUpSetView];
-    [self setUpRecommandSongView];
-    [self setUpAnchorView];
-    [self setUpNewestView];
-    [self setUpMVView];
-    [self setUpExclusizeView];
+//    [self setUpSetView];
+//    [self setUpRecommandSongView];
+//    [self setUpAnchorView];
+//    [self setUpNewestView];
+//    [self setUpMVView];
+//    [self setUpExclusizeView];
 }
 
 
@@ -99,6 +102,7 @@ static BOOL stopFlag = YES;
     cell.collectionView.dataSource = generalModel.viewModel;
     cell.collectionView.delegate   = generalModel.viewModel;
     
+    //TODO 待优化，耦合度太高
     if([generalModel.viewModel isKindOfClass:[SUGoHorseLampViewModel class]]) {
         [cell.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:5000 inSection:0]atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
         SUGoHorseLampViewModel *vm = (SUGoHorseLampViewModel *)generalModel.viewModel;
@@ -123,6 +127,7 @@ static BOOL stopFlag = YES;
             
         };
         [vm.disposes addObject:disposable];
+        [vm startTimer];
     }
 
     return cell;
@@ -456,64 +461,6 @@ static BOOL stopFlag = YES;
     GeneralModel *generalModel = [GeneralModel new];
 
     RecommandSongViewModel *recommandSongVM = [RecommandSongViewModel new];
-//    {
-//        RecommandSong *recommandSong = [RecommandSong new];
-//        recommandSong.coverPath = @"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2876169151,2235209253&fm=27&gp=0.jpg";
-//        recommandSong.title     = @"如何把一份外卖吃出仪式感";
-//        recommandSong.listenedCount = @"999万";
-//        Layout *layout = [Layout new];
-//        layout.frame   = CGRectMake(0, 0, itemWidth, itemHeight);
-//        recommandSong.layout = layout;
-//        [recommandSongVM.items addObject:recommandSong];
-//    }
-//    {
-//        RecommandSong *recommandSong = [RecommandSong new];
-//        recommandSong.coverPath = @"https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3372103345,2665413911&fm=27&gp=0.jpg";
-//        recommandSong.title     = @"蓦然回首，极度荣庆";
-//        recommandSong.listenedCount = @"999万";
-//        Layout *layout = [Layout new];
-//        layout.frame   = CGRectMake(0, 0, itemWidth, itemHeight);
-//        recommandSong.layout = layout;
-//        [recommandSongVM.items addObject:recommandSong];
-//    }
-//    {
-//        RecommandSong *recommandSong = [RecommandSong new];
-//        recommandSong.coverPath = @"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2876169151,2235209253&fm=27&gp=0.jpg";
-//        recommandSong.title     = @"适合在婚礼上放的歌曲";
-//        recommandSong.listenedCount = @"999万";
-//        Layout *layout = [Layout new];
-//        layout.frame   = CGRectMake(0, 0, itemWidth, itemHeight);
-//        recommandSong.layout = layout;
-//        [recommandSongVM.items addObject:recommandSong];
-//    }
-//    {
-//        RecommandSong *recommandSong = [RecommandSong new];
-//        recommandSong.coverPath = @"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2876169151,2235209253&fm=27&gp=0.jpg";
-//        recommandSong.title     = @"兽人永不为奴";
-//        recommandSong.listenedCount = @"999万";
-//        Layout *layout = [Layout new];
-//        layout.frame   = CGRectMake(0, 0, itemWidth, itemHeight);
-//        recommandSong.layout = layout;
-//        [recommandSongVM.items addObject:recommandSong];
-//    }{
-//        RecommandSong *recommandSong = [RecommandSong new];
-//        recommandSong.coverPath = @"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2876169151,2235209253&fm=27&gp=0.jpg";
-//        recommandSong.title     = @"洛丹伦的夏天";
-//        recommandSong.listenedCount = @"999万";
-//        Layout *layout = [Layout new];
-//        layout.frame   = CGRectMake(0, 0, itemWidth, itemHeight);
-//        recommandSong.layout = layout;
-//        [recommandSongVM.items addObject:recommandSong];
-//    }{
-//        RecommandSong *recommandSong = [RecommandSong new];
-//        recommandSong.coverPath = @"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2876169151,2235209253&fm=27&gp=0.jpg";
-//        recommandSong.title     = @"巫妖王之怒";
-//        recommandSong.listenedCount = @"999万";
-//        Layout *layout = [Layout new];
-//        layout.frame   = CGRectMake(0, 0, itemWidth, itemHeight);
-//        recommandSong.layout = layout;
-//        [recommandSongVM.items addObject:recommandSong];
-//    }
     [recommandSongVM loadData];
     [recommandSongVM loadData];
     [recommandSongVM loadData];
@@ -534,17 +481,9 @@ static BOOL stopFlag = YES;
 }
 
 - (void)setUpGoHorseView {
-    SUGoHorseLampView *view = [[SUGoHorseLampView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WIDTH*0.382)];
+//    SUGoHorseLampView *view = [[SUGoHorseLampView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WIDTH*0.382)];
     SUGoHorseLampViewModel *viewModel;
     self.goHorseLampVM = [SUGoHorseLampViewModel new];
-    self.goHorseLampVM.items = @[@"http://p1.music.126.net/Sc2HDX2IvpHPK6xwjk9erQ==/18498183627794682.jpg", @"http://p1.music.126.net/wFXrgibvEmQbpFDCsqOtew==/18979769719067771.jpg", @"http://p1.music.126.net/fQWu3IsaWPPy0cAmbJS7nQ==/19151293533021281.jpg", @"http://p1.music.126.net/gxElIYa1lmLZSh-OiTWmaQ==/19149094509764777.jpg",@"http://p1.music.126.net/kDXfWJ_F52X2T2_TUsxjsQ==/18657612813802698.jpg",@"http://p1.music.126.net/KxGwDQvYnmb7lqwFXiDAPw==/18864320998122907.jpg"].mutableCopy;
-//    @weakify(view);
-//    [self.goHorseLampVM.timerSignal subscribeNext:^(id x) {
-//        @strongify(view);
-//        [view scrollToItemAtIndexPath:x atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
-//    }];
-    view.dataSource = self.goHorseLampVM;
-    view.delegate   = self.goHorseLampVM;
     viewModel = self.goHorseLampVM;
     
     GeneralModel *oneGeneralModel = [GeneralModel new];
@@ -553,7 +492,25 @@ static BOOL stopFlag = YES;
     layout.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WIDTH*0.382);;
     oneGeneralModel.layout = layout;
     oneGeneralModel.reuseID = [GoHorseCollectionViewCell reuseID];
-    [self.items addObject:oneGeneralModel];
+    
+    [NetEaseMusic bannerWithComplection:^(NSData *data, NSURLResponse *response, NSError *error) {
+        if(error) {
+            NSLog(@"加载Banner失败： %@", error);
+            return;
+        }
+        NSDictionary *responseDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+        NSArray *arrays = responseDict[@"banners"];
+        NSMutableArray *banners = @[].mutableCopy;
+        [arrays enumerateObjectsUsingBlock:^(NSDictionary  *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            SUBannerItem *bannerItem = [SUBannerItem new];
+            [bannerItem setValuesForKeysWithDictionary:obj];
+            [banners addObject:bannerItem];
+        }];
+        self.goHorseLampVM.items = banners.mutableCopy;
+        [self.items insertObject:oneGeneralModel atIndex:0];
+        [self.collectionView reloadData];
+    }];
+
 }
 
 - (void)setUpSetView {

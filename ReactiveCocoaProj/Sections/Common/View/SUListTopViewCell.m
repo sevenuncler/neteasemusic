@@ -7,15 +7,19 @@
 //
 
 #import "SUListTopViewCell.h"
+#import "SUSongListTopView.h"
+#import "Macros.h"
 
 @implementation SUListTopViewCell
+@synthesize songListTopView = _songListTopView;
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+
+
+- (SUSongListTopView *)songListTopView {
+    if(nil == _songListTopView) {
+        _songListTopView = [[SUSongListTopView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WIDTH*0.382f)];
+    }
+    return _songListTopView;
 }
-*/
 
 @end

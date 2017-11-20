@@ -10,10 +10,11 @@
 #import <UIKit/UIKit.h>
 #import <ReactiveCocoa/ReactiveCocoa.h>
 
+@class SUBannerItem;
 typedef void(^ScrollViewIndexHandler)(NSIndexPath *idx);
 @interface SUGoHorseLampViewModel : NSObject <UICollectionViewDataSource, UICollectionViewDelegate>
 
-@property (nonatomic, strong) NSMutableArray    *items;
+@property (nonatomic, strong) NSMutableArray<SUBannerItem *>    *items;
 @property (nonatomic, strong) dispatch_source_t timer;
 @property (nonatomic, strong) RACSubject        *timerSignal;
 @property (nonatomic, assign) Class             *registerClz;

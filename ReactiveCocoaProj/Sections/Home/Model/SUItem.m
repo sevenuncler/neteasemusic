@@ -10,6 +10,15 @@
 
 @implementation SUItem
 
+- (id)copyWithZone:(nullable NSZone *)zone {
+    SUItem *item = [SUItem allocWithZone:zone];
+    item.itemHeight = self.itemHeight;
+    item.subItems   = self.subItems.mutableCopy;
+    item.layout     = self.layout.copy;
+    item.hidden     = self.isHidden;
+    return item;
+}
+
 - (Layout *)layout {
     if(!_layout) {
         _layout = [Layout new];

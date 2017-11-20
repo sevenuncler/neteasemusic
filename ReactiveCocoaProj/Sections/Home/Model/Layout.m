@@ -10,4 +10,10 @@
 
 @implementation Layout
 
+- (id)copyWithZone:(NSZone *)zone {
+    Layout *layout = [Layout allocWithZone:zone];
+    layout.frame   = self.frame;
+    return layout;
+}
+
 @end

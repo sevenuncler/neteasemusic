@@ -18,7 +18,8 @@
 
 + (NSDictionary *)replacedKeyFromPropertyName{
     return @{
-             @"desc" : @"desciption"
+             @"desc" : @"desciption",
+             @"lid"  : @"id"
              };
 }
 

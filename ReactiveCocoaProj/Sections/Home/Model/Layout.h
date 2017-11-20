@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreGraphics/CoreGraphics.h>
 
-@interface Layout : NSObject
+@interface Layout : NSObject <NSCopying>
 
 @property (nonatomic, assign) CGRect frame;
 

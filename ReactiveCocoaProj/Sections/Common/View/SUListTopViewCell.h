@@ -8,6 +8,8 @@
 
 #import "SUTableViewCell.h"
 
-@interface SUListTopViewCell : SUTableViewCell
+@class SUSongListTopView;
 
+@interface SUListTopViewCell : SUTableViewCell
+@property(nonatomic,strong,readonly) SUSongListTopView  *songListTopView;
 @end

@@ -10,7 +10,7 @@
 #import "SUGoHorseLampCell.h"
 #import "SUImageManager.h"
 #import "Macros.h"
-
+#import "SUBannerItem.h"
 
 @interface SUGoHorseLampViewModel ()
 {
@@ -40,7 +40,7 @@
 }
 
 - (void)startTimer {
-    [[NSRunLoop currentRunLoop] addTimer:self.timerA forMode:NSDefaultRunLoopMode];
+    [[NSRunLoop mainRunLoop] addTimer:self.timerA forMode:NSDefaultRunLoopMode];
 }
 
 - (void)pauseTimer {
@@ -60,15 +60,13 @@
     static NSString * const reuseID = @"goHorseCell";
     self.isUsed = YES;
     collectionView.scrollEnabled = YES;
-//    static dispatch_once_t onceToken;
-//    dispatch_once(&onceToken, ^{
-        [collectionView registerClass:[SUGoHorseLampCell class] forCellWithReuseIdentifier:reuseID];
-//    });
+    [collectionView registerClass:[SUGoHorseLampCell class] forCellWithReuseIdentifier:reuseID];
     collectionView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
     SUGoHorseLampCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseID forIndexPath:indexPath];
     NSUInteger idx = indexPath.item % self.items.count;
+    SUBannerItem *bannerItem = self.items[idx];
     SUImageManager *imageManager = [SUImageManager defaultImageManager];
-    [[imageManager imageWithUrl:self.items[idx]] subscribeNext:^(id x) {
+    [[imageManager imageWithUrl:bannerItem.pic] subscribeNext:^(id x) {
         [cell.myImageView setImage:x];
     }];
     return cell;
@@ -104,6 +102,12 @@
             self.indexHandler(idx);
         }
     [self startTimer];
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSUInteger idx = indexPath.item % self.items.count;
+    SUBannerItem *bannerItem = self.items[idx];
+    NSLog(@"banner SelectedAt%@ %ld", indexPath, bannerItem.targetType);
 }
 
 #pragma mark - Getter & Setter

@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		0F7B868F777525EC68D76B4C /* Pods_ReactiveCocoaProj.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0704B9D92418B737A4BFEA8 /* Pods_ReactiveCocoaProj.framework */; };
+		4A78F7F81FC131D800C8A306 /* NetEaseMusic.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A78F7F71FC131D800C8A306 /* NetEaseMusic.m */; };
+		4A78F7FB1FC1352400C8A306 /* SUBannerItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A78F7FA1FC1352400C8A306 /* SUBannerItem.m */; };
+		4A78F8011FC15CC100C8A306 /* SUUserItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A78F8001FC15CC100C8A306 /* SUUserItem.m */; };
+		4A78F8041FC16C8000C8A306 /* SUListTopViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A78F8031FC16C8000C8A306 /* SUListTopViewCell.m */; };
 		87085DA61F7DC61B009065C8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 87085DA51F7DC61B009065C8 /* main.m */; };
 		87085DA91F7DC61B009065C8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 87085DA81F7DC61B009065C8 /* AppDelegate.m */; };
 		87085DAF1F7DC61B009065C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87085DAD1F7DC61B009065C8 /* Main.storyboard */; };
@@ -282,6 +286,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4A78F7F61FC131D800C8A306 /* NetEaseMusic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetEaseMusic.h; sourceTree = "<group>"; };
+		4A78F7F71FC131D800C8A306 /* NetEaseMusic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetEaseMusic.m; sourceTree = "<group>"; };
+		4A78F7F91FC1352400C8A306 /* SUBannerItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUBannerItem.h; sourceTree = "<group>"; };
+		4A78F7FA1FC1352400C8A306 /* SUBannerItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUBannerItem.m; sourceTree = "<group>"; };
+		4A78F7FF1FC15CC100C8A306 /* SUUserItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUUserItem.h; sourceTree = "<group>"; };
+		4A78F8001FC15CC100C8A306 /* SUUserItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUUserItem.m; sourceTree = "<group>"; };
+		4A78F8021FC16C8000C8A306 /* SUListTopViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUListTopViewCell.h; sourceTree = "<group>"; };
+		4A78F8031FC16C8000C8A306 /* SUListTopViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUListTopViewCell.m; sourceTree = "<group>"; };
 		87085DA11F7DC61B009065C8 /* ReactiveCocoaProj.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReactiveCocoaProj.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87085DA51F7DC61B009065C8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		87085DA71F7DC61B009065C8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -949,6 +961,8 @@
 				8713CD711FB9C876004B658F /* NetowrkVC.m */,
 				8713CD731FBBBF97004B658F /* NetEaseMusicApi.h */,
 				8713CD741FBBBF97004B658F /* NetEaseMusicApi.m */,
+				4A78F7F61FC131D800C8A306 /* NetEaseMusic.h */,
+				4A78F7F71FC131D800C8A306 /* NetEaseMusic.m */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -980,6 +994,8 @@
 			children = (
 				8713CD791FBC8766004B658F /* SongList.h */,
 				8713CD7A1FBC8766004B658F /* SongList.m */,
+				4A78F7FF1FC15CC100C8A306 /* SUUserItem.h */,
+				4A78F8001FC15CC100C8A306 /* SUUserItem.m */,
 				8713CD8B1FBE67F0004B658F /* SUTrackItem.h */,
 				8713CD8C1FBE67F0004B658F /* SUTrackItem.m */,
 				8713CD7F1FBE6349004B658F /* SUAlbumItem.h */,
@@ -988,6 +1004,8 @@
 				8713CD831FBE637E004B658F /* SUArtistsItem.m */,
 				8713CD851FBE6394004B658F /* SUMusicItem.h */,
 				8713CD861FBE6394004B658F /* SUMusicItem.m */,
+				4A78F7F91FC1352400C8A306 /* SUBannerItem.h */,
+				4A78F7FA1FC1352400C8A306 /* SUBannerItem.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -999,6 +1017,8 @@
 				8713CD7D1FBD0FAD004B658F /* SUSongListCell.m */,
 				8713CD8E1FBF2352004B658F /* SUSongListTopView.h */,
 				8713CD8F1FBF2352004B658F /* SUSongListTopView.m */,
+				4A78F8021FC16C8000C8A306 /* SUListTopViewCell.h */,
+				4A78F8031FC16C8000C8A306 /* SUListTopViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1638,13 +1658,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ReactiveCocoaProj-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B365C5A237D744422C271B7B /* [CP] Embed Pods Frameworks */ = {
@@ -1653,9 +1676,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ReactiveCocoaProj/Pods-ReactiveCocoaProj-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/FLAnimatedImage/FLAnimatedImage.framework",
+				"${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework",
+				"${BUILT_PRODUCTS_DIR}/ReactiveCocoa/ReactiveCocoa.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FLAnimatedImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJExtension.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveCocoa.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1679,6 +1709,7 @@
 				87085DD71F7F1D91009065C8 /* SUTableViewCell.m in Sources */,
 				872793451FAF45790095852E /* AccountVC.m in Sources */,
 				87A1917E1F9EBA1B00D7DC3B /* CatagoryView.m in Sources */,
+				4A78F8011FC15CC100C8A306 /* SUUserItem.m in Sources */,
 				8793B2D51F95820E006DDC24 /* SUCollectionViewCell.m in Sources */,
 				872793A31FB34CC80095852E /* GoHorseCollectionViewCell.m in Sources */,
 				875C2F8D1F97897000145E57 /* GeneralModel.m in Sources */,
@@ -1696,6 +1727,7 @@
 				8727934C1FAF5A440095852E /* SongStatusItem.m in Sources */,
 				8777DFA11FB6DEC70049892C /* CollectionViewController.m in Sources */,
 				875539B41FACC0D100A7628F /* MyMusicHeaderView.m in Sources */,
+				4A78F8041FC16C8000C8A306 /* SUListTopViewCell.m in Sources */,
 				87A1918D1FA0134C00D7DC3B /* SUPlayerViewController.m in Sources */,
 				875C2F901F9797DA00145E57 /* SetViewModel.m in Sources */,
 				8755398D1FAA946700A7628F /* MyMusicVC.m in Sources */,
@@ -1714,6 +1746,7 @@
 				87085DC81F7F1981009065C8 /* NavigationController.m in Sources */,
 				873B0D0E1FA4BD300088DFD0 /* SUURLAssetSourceLoader.m in Sources */,
 				8793B2D21F95812F006DDC24 /* RadioVC.m in Sources */,
+				4A78F7F81FC131D800C8A306 /* NetEaseMusic.m in Sources */,
 				874CE3161F9C9EE20075722A /* AlbumsViewModel.m in Sources */,
 				87085DCB1F7F19B6009065C8 /* SUHomeVC.m in Sources */,
 				87EF34CC1F96D26900B913F1 /* Layout.m in Sources */,
@@ -1740,6 +1773,7 @@
 				875C2F8A1F97858000145E57 /* ReuseCollectionViewCell.m in Sources */,
 				87085DD11F7F1AA7009065C8 /* SUGoHorseLampView.m in Sources */,
 				8793B2C51F94EE14006DDC24 /* AdVC.m in Sources */,
+				4A78F7FB1FC1352400C8A306 /* SUBannerItem.m in Sources */,
 				87085DA61F7DC61B009065C8 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1886,6 +1920,7 @@
 				);
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/ReactiveCocoaProj/include\"";
 				INFOPLIST_FILE = ReactiveCocoaProj/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1922,6 +1957,7 @@
 				);
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/ReactiveCocoaProj/include\"";
 				INFOPLIST_FILE = ReactiveCocoaProj/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

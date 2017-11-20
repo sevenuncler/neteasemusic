@@ -10,7 +10,7 @@
 #import <CoreGraphics/CoreGraphics.h>
 #import "Layout.h"
 
-@interface SUItem : NSObject
+@interface SUItem : NSObject <NSCopying>
 
 @property (nonatomic, assign) CGFloat         itemHeight;
 @property (nonatomic, strong) NSMutableArray  *subItems;
