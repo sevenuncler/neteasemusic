@@ -32,6 +32,7 @@
 #import "NetEaseMusic.h"
 #import <MJExtension/MJExtension.h>
 #import "SUBannerItem.h"
+#import "ExclusizeMVViewModel.h"
 
 
 @interface MusicVC ()<UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
@@ -57,10 +58,12 @@ static BOOL stopFlag = YES;
     [self.view insertSubview:self.backgroundText belowSubview:self.collectionView];
 
     [self setUpGoHorseView];
-//    [self setUpSetView];
-//    [self setUpRecommandSongView];
-//    [self setUpAnchorView];
-//    [self setUpNewestView];
+    [self setUpSetView];
+    [self setUpRecommandSongView];
+    [self setUpExclusiveMVView];
+    [self setUpNewestView];
+    [self setUpAnchorView];
+
 //    [self setUpMVView];
 //    [self setUpExclusizeView];
 }
@@ -282,81 +285,25 @@ static BOOL stopFlag = YES;
 }
 
 - (void)setUpNewestView {
-    CGFloat itemWidth  = SCREEN_WIDTH / 3 - 10;
     CGFloat itemHeight = SCREEN_WIDTH / 3 + 25;
     GeneralModel *generalModel = [GeneralModel new];
     
     AlbumsViewModel *viewModel = [AlbumsViewModel new];
-    {
-        AlbumsItem *item = [AlbumsItem new];
-        item.title     = @"鸟的相世";
-        item.subTitle  = @"唐映枫";
-        item.coverPath = @"https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3372103345,2665413911&fm=27&gp=0.jpg";
-        Layout *layout = [Layout new];
-        layout.frame   = CGRectMake(0, 0, itemWidth, itemHeight);
-        item.layout    = layout;
-        [viewModel.items addObject:item];
-    }
-    {
-        AlbumsItem *item = [AlbumsItem new];
-        item.title = @"鸟的相世";
-        item.subTitle = @"唐映枫";
-        item.coverPath = @"https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3372103345,2665413911&fm=27&gp=0.jpg";
-        Layout *layout = [Layout new];
-        layout.frame   = CGRectMake(0, 0, itemWidth, itemHeight);
-        item.layout    = layout;
-        [viewModel.items addObject:item];
-    }
-    {
-        AlbumsItem *item = [AlbumsItem new];
-        item.title = @"鸟的相世";
-        item.subTitle = @"唐映枫";
-        item.coverPath = @"https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3372103345,2665413911&fm=27&gp=0.jpg";
-        Layout *layout = [Layout new];
-        layout.frame   = CGRectMake(0, 0, itemWidth, itemHeight);
-        item.layout    = layout;
-        [viewModel.items addObject:item];
-    }
-    {
-        AlbumsItem *item = [AlbumsItem new];
-        item.title = @"鸟的相世";
-        item.subTitle = @"唐映枫";
-        item.coverPath = @"https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3372103345,2665413911&fm=27&gp=0.jpg";
-        Layout *layout = [Layout new];
-        layout.frame   = CGRectMake(0, 0, itemWidth, itemHeight);
-        item.layout    = layout;
-        [viewModel.items addObject:item];
-    }
-    {
-        AlbumsItem *item = [AlbumsItem new];
-        item.title = @"鸟的相世";
-        item.subTitle = @"唐映枫";
-        item.coverPath = @"https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3372103345,2665413911&fm=27&gp=0.jpg";
-        Layout *layout = [Layout new];
-        layout.frame   = CGRectMake(0, 0, itemWidth, itemHeight);
-        item.layout    = layout;
-        [viewModel.items addObject:item];
-    }
-    {
-        AlbumsItem *item = [AlbumsItem new];
-        item.title = @"鸟的相世";
-        item.subTitle = @"唐映枫";
-        item.coverPath = @"https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3372103345,2665413911&fm=27&gp=0.jpg";
-        Layout *layout = [Layout new];
-        layout.frame   = CGRectMake(0, 0, itemWidth, itemHeight);
-        item.layout    = layout;
-        [viewModel.items addObject:item];
-    }
+
     generalModel.viewModel = viewModel;
-    
+    [viewModel loadData];
     Layout *layout = [Layout new];
     layout.frame   = CGRectMake(0, 0, SCREEN_WIDTH, itemHeight * 2 + 20);
     generalModel.layout = layout;
     generalModel.headerSize = CGSizeMake(self.view.size.width, 44);
-    generalModel.headerTitle = @"独家放送";
+    generalModel.headerTitle = @"最新音乐";
     generalModel.reuseID = [ReuseCollectionViewCell reuseID];
-    
-    [self.items addObject:generalModel];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if(dispatch_semaphore_wait(viewModel.semaphore, DISPATCH_TIME_FOREVER) == 0) {
+            [self.items insertObject:generalModel atIndex:4];
+            [self.collectionView reloadData];
+        }
+    });
 }
 - (void)setUpAnchorView {
     __block NSDictionary *result = nil;
@@ -455,19 +402,35 @@ static BOOL stopFlag = YES;
     [self.items addObject:generalModel];
 }
 
+- (void)setUpExclusiveMVView {
+    CGFloat itemHeight = SCREEN_WIDTH / 3 + 25;
+    GeneralModel *generalModel = [GeneralModel new];
+    
+    ExclusizeMVViewModel *recommandSongVM = [ExclusizeMVViewModel new];
+    [recommandSongVM loadData];
+    
+    generalModel.viewModel = recommandSongVM;
+    
+    Layout *layout = [Layout new];
+    layout.frame   = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WIDTH/1.5 * 0.618);
+    generalModel.layout = layout;
+    generalModel.headerSize = CGSizeMake(self.view.size.width, 44);
+    generalModel.headerTitle = @"独家MV";
+    generalModel.reuseID = [ReuseCollectionViewCell reuseID];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if(dispatch_semaphore_wait(recommandSongVM.semaphore, DISPATCH_TIME_FOREVER) == 0) {
+            [self.items insertObject:generalModel atIndex:3];
+            [self.collectionView reloadData];
+        }
+    });
+}
+
 - (void)setUpRecommandSongView {
 //    CGFloat itemWidth  = SCREEN_WIDTH / 3 - 10;
     CGFloat itemHeight = SCREEN_WIDTH / 3 + 25;
     GeneralModel *generalModel = [GeneralModel new];
 
     RecommandSongViewModel *recommandSongVM = [RecommandSongViewModel new];
-    [recommandSongVM loadData];
-    [recommandSongVM loadData];
-    [recommandSongVM loadData];
-    [recommandSongVM loadData];
-    [recommandSongVM loadData];
-    [recommandSongVM loadData];
-    
     generalModel.viewModel = recommandSongVM;
     
     Layout *layout = [Layout new];
@@ -508,7 +471,9 @@ static BOOL stopFlag = YES;
         }];
         self.goHorseLampVM.items = banners.mutableCopy;
         [self.items insertObject:oneGeneralModel atIndex:0];
-        [self.collectionView reloadData];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.collectionView reloadData];
+        });
     }];
 
 }
@@ -522,6 +487,7 @@ static BOOL stopFlag = YES;
         SongSetItem *songSetItem = [SongSetItem new];
         songSetItem.coverImage = @"cm4_disc_topbtn_fm";
         songSetItem.title = @"私人FM";
+        songSetItem.songSetType = SongSetTypePrivateFM;
         Layout *layout = [Layout new];
         layout.frame   = CGRectMake(0, 0, width, height);
         songSetItem.layout = layout;
@@ -531,6 +497,7 @@ static BOOL stopFlag = YES;
         SongSetItem *songSetItem = [SongSetItem new];
         songSetItem.coverImage = @"cm4_disc_topbtn_daily";
         songSetItem.title = @"每日推荐";
+        songSetItem.songSetType = SongSetTypeDailyRecommend;
         Layout *layout = [Layout new];
         layout.frame   = CGRectMake(0, 0, width, height);
         songSetItem.layout = layout;
@@ -540,6 +507,7 @@ static BOOL stopFlag = YES;
         SongSetItem *songSetItem = [SongSetItem new];
         songSetItem.coverImage = @"cm4_disc_topbtn_list";
         songSetItem.title = @"歌单";
+        songSetItem.songSetType = SongSetTypePlayList;
         Layout *layout = [Layout new];
         layout.frame   = CGRectMake(0, 0, width, height);
         songSetItem.layout = layout;
@@ -549,6 +517,7 @@ static BOOL stopFlag = YES;
         SongSetItem *songSetItem = [SongSetItem new];
         songSetItem.coverImage = @"cm4_disc_topbtn_rank";
         songSetItem.title = @"排行榜";
+        songSetItem.songSetType = SongSetTypeRank;
         Layout *layout = [Layout new];
         layout.frame   = CGRectMake(0, 0, width, height);
         songSetItem.layout = layout;
@@ -572,6 +541,7 @@ static BOOL stopFlag = YES;
 - (UICollectionView *)collectionView {
     if(!_collectionView) {
         _collectionView = [[UICollectionView alloc] initWithFrame:self.view.frame collectionViewLayout:self.flowLayout];
+        _collectionView.size = CGSizeMake(self.view.size.width, self.view.size.height-200);
         _collectionView.backgroundColor = [UIColor clearColor];
         _collectionView.dataSource     = self;
         _collectionView.delegate       = self;
@@ -589,8 +559,6 @@ static BOOL stopFlag = YES;
     if(nil == _flowLayout) {
         _flowLayout = [[UICollectionViewFlowLayout alloc] init];
         _flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
-        _flowLayout.minimumLineSpacing = 0;
-        _flowLayout.minimumInteritemSpacing = 0;
     }
     return _flowLayout;
 }

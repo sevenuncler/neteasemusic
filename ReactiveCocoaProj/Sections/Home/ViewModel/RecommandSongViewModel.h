@@ -8,10 +8,16 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "PersonalizedItem.h"
+
+@interface InterModel : NSObject
+@property (nonatomic,copy) NSArray<PersonalizedItem *> *playLists;
+@end
 
 @interface RecommandSongViewModel : NSObject <UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (nonatomic, strong) NSMutableArray *items;
+@property (nonatomic, strong) InterModel     *interModel;
 
 - (void)loadData;
 

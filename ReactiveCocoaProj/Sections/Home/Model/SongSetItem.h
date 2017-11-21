@@ -8,10 +8,17 @@
 
 #import "SUItem.h"
 
+typedef NS_ENUM(NSInteger, SongSetType) {
+    SongSetTypePrivateFM,
+    SongSetTypeDailyRecommend,
+    SongSetTypePlayList,
+    SongSetTypeRank
+};
+
 @interface SongSetItem : SUItem
 
 @property (nonatomic, copy) NSString *coverImage;
 @property (nonatomic, copy) NSString *title;
-
+@property (nonatomic, assign) SongSetType songSetType;
 
 @end

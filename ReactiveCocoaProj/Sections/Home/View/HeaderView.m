@@ -46,6 +46,8 @@
     if(!_titleLable) {
         _titleLable = [UILabel new];
         _titleLable.text = @"推荐歌单";
+        _titleLable.size = CGSizeMake(200, 0);
+        [_titleLable sizeToFit];
         _titleLable.font = [UIFont systemFontOfSize:16];
     }
     return _titleLable;

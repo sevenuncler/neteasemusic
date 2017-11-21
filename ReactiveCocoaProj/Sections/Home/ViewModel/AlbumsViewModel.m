@@ -12,8 +12,34 @@
 #import "SUImageManager.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import "AlbumsItem.h"
+#import "NetEaseMusic.h"
+#import "NewSongItem.h"
+#import <MJExtension/MJExtension.h>
+#import "Macros.h"
 
 @implementation AlbumsViewModel
+
+- (void)loadData {
+    [NetEaseMusic newSongWithComplectionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        if(error) {
+            NSLog(@"推荐MV请求失败: %@", error);
+            return;
+        }
+        NSError *jsonError = nil;
+        NSDictionary *result = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&jsonError];
+        if(!jsonError && result) {
+            NSArray *MVs = result[@"result"];
+            CGFloat itemWidth  = SCREEN_WIDTH / 3 - 10;
+            CGFloat itemHeight = SCREEN_WIDTH / 3 + 25;
+
+            self.items = [NewSongItem mj_objectArrayWithKeyValuesArray:MVs];
+            [self.items enumerateObjectsUsingBlock:^(SUItem  *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                obj.layout.frame = CGRectMake(0, 0, itemWidth, itemHeight);
+            }];
+            dispatch_semaphore_signal(self.semaphore);
+        }
+    }];
+}
 
 #pragma mark - UICollectionViewDataSource
 
@@ -31,14 +57,15 @@
     collectionView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
     RecommandSongViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[RecommandSongViewCell description] forIndexPath:indexPath];
     
-    AlbumsItem *albumsItem = [self.items objectAtIndex:indexPath.section*2 +  indexPath.item];
+    NewSongItem *newSongItem = [self.items objectAtIndex:indexPath.section*2 +  indexPath.item];
+    SUArtistsItem *artistItem = newSongItem.song.artists[0];
     @weakify(cell);
-    [[[SUImageManager defaultImageManager] imageWithUrl:albumsItem.coverPath] subscribeNext:^(id x) {
+    [[[SUImageManager defaultImageManager] imageWithUrl:artistItem.picUrl] subscribeNext:^(id x) {
         @strongify(cell);
         cell.coverImageView.image = x;
     }];
-    cell.titleLabel.text = albumsItem.title;
-    cell.subTitleLabel.text = albumsItem.subTitle;
+    cell.titleLabel.text = newSongItem.name;
+    cell.subTitleLabel.text = artistItem.name;
     return cell;
 }
 #pragma mark - UICollectionViewDelegate
@@ -65,6 +92,12 @@
         _items = [NSMutableArray new];
     }
     return _items;
+}
+- (dispatch_semaphore_t)semaphore {
+    if(!_semaphore) {
+        _semaphore = dispatch_semaphore_create(0);
+    }
+    return _semaphore;
 }
 
 @end

@@ -42,8 +42,6 @@
 - (UICollectionViewFlowLayout *)flowLayout {
     if(!_flowLayout) {
         _flowLayout = [[UICollectionViewFlowLayout alloc] init];
-        _flowLayout.minimumLineSpacing = 0;
-        _flowLayout.minimumInteritemSpacing = 0;
         _flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     }
     return _flowLayout;

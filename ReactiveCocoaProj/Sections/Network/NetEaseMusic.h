@@ -16,4 +16,8 @@ typedef void (^NeteaseMusicCompletionHandler)(NSData * data, NSURLResponse * res
 + (void)playListDetailWithID:(NSString *)plid complection:(NeteaseMusicCompletionHandler)complectionHandler;
 + (void)songDetailWithID:(NSString *)songID complection:(NeteaseMusicCompletionHandler)complectionHandler;
 + (void)songURLWithID:(NSString *)songIDs complection:(NeteaseMusicCompletionHandler)complectionHandler;
++ (void)personalizedPlayListsWithComplectionHandler:(NeteaseMusicCompletionHandler)complectionHandler;
++ (void)excludeMVWithComplectionHandler:(NeteaseMusicCompletionHandler)complectionHandler;
++ (void)newSongWithComplectionHandler:(NeteaseMusicCompletionHandler)complectionHandler;
+
 @end

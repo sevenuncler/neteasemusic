@@ -12,6 +12,20 @@
 #import "SUImageManager.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import "Macros.h"
+#import "NetEaseMusic.h"
+#import <MJExtension/MJExtension.h>
+
+@implementation InterModel
+
++ (NSDictionary *)objectClassInArray{
+    return @{
+             @"playLists" : @"PersonalizedItem"
+             };
+}
+
+
+@end
+
 
 @interface RecommandSongViewModel () <NSURLSessionDataDelegate>
 @property (nonatomic, weak) UICollectionView *collection;
@@ -21,29 +35,35 @@
 @synthesize items = _items;
 - (instancetype)init {
     if(self = [super init]) {
-        
+        [self loadData];
     }
     return self;
 }
 
 - (void)loadData {
-    NSString *urlString = [NSString stringWithFormat:@"https://api.douban.com/v2/book/122%04d", arc4random()%10000];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]
-                                                           cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:30];
-    //    request.HTTPMethod = @"GET";
-    [request setValue:@"我只在乎你" forHTTPHeaderField:@"tag"];
-    //    [request setValue:@"周" forHTTPHeaderField:@"q"];
-    [request setValue:@"0" forHTTPHeaderField:@"start"];
-    [request setValue:@"12" forHTTPHeaderField:@"count"];
-    [request setValue:@"12" forHTTPHeaderField:@"apikey"];
-    
-    
-    
-    NSURLSessionConfiguration *sessionConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];
-    NSOperationQueue *operationQueue = [NSOperationQueue mainQueue];
-    NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfiguration delegate:self delegateQueue:operationQueue];
-    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request];
-    [dataTask resume];
+    [NetEaseMusic personalizedPlayListsWithComplectionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        if(error) {
+            NSLog(@"加载数据错误：%@", error);
+            return;
+        }
+        NSError *jsonError = nil;
+        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&jsonError];
+        if(!jsonError && json) {
+            json = json[@"result"];
+            self.items = [PersonalizedItem mj_objectArrayWithKeyValuesArray:json];
+            CGFloat itemWidth  = SCREEN_WIDTH / 3 - 10;
+            CGFloat itemHeight = SCREEN_WIDTH / 3 + 25;
+            [self.items enumerateObjectsUsingBlock:^(SUItem  *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                obj.layout.frame = CGRectMake(0, 0, itemWidth, itemHeight);
+            }];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                @synchronized (self) {
+                    if(self.collection)
+                        [self.collection reloadData];
+                }
+            });
+        }
+    }];
 }
 
 #pragma mark - NSURLSessionDataDelegate
@@ -70,10 +90,7 @@ didReceiveResponse:(NSURLResponse *)response
         layout.frame   = CGRectMake(0, 0, itemWidth, itemHeight);
         recommandSong.layout = layout;
         [self.items addObject:recommandSong];
-        @synchronized (self) {
-            [self.collection reloadData];
-
-        }
+        
     }
 }
 -(void)URLSession:(NSURLSession *)session didBecomeInvalidWithError:(NSError *)error{
@@ -100,18 +117,18 @@ didReceiveResponse:(NSURLResponse *)response
     collectionView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
     RecommandSongViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[RecommandSongViewCell description] forIndexPath:indexPath];
     
-    RecommandSong *recommandSong = [self.items objectAtIndex:indexPath.section*2 +  indexPath.item];
+    PersonalizedItem *recommandSong = [self.items objectAtIndex:indexPath.section*2 +  indexPath.item];
 //    NSLog(@">>>> %@", recommandSong.coverPath);
     @weakify(cell);
     @weakify(collectionView);
-    [[[SUImageManager defaultImageManager] imageWithUrl:recommandSong.coverPath] subscribeNext:^(id x) {
+    [[[SUImageManager defaultImageManager] imageWithUrl:recommandSong.picUrl] subscribeNext:^(id x) {
 //        NSLog(@">>>> %p %@",collectionView, x);
         @strongify(cell);
         @strongify(collectionView);
         cell.coverImageView.image = x;
-        [collectionView reloadItemsAtIndexPaths:@[indexPath]];
+//        [collectionView reloadItemsAtIndexPaths:@[indexPath]];
     }];
-    cell.titleLabel.text = recommandSong.title;
+    cell.titleLabel.text = recommandSong.name;
     cell.subTitleLabel.text = nil;
     return cell;
 }

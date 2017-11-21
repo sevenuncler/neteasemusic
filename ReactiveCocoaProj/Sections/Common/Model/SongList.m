@@ -27,7 +27,6 @@
     if([key isEqualToString:@"description"]) {
         self.desc = value;
     }
-    NSLog(@"%@ %@", value, key);
 }
 
 @end

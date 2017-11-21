@@ -12,5 +12,7 @@
 @interface AlbumsViewModel : NSObject <UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (nonatomic, strong) NSMutableArray *items;
+@property (nonatomic, strong) dispatch_semaphore_t semaphore;
 
+- (void)loadData;
 @end

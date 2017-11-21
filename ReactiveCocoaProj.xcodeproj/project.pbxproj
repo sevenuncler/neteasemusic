@@ -200,6 +200,11 @@
 		875C2F931F9822AE00145E57 /* SongSetItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 875C2F921F9822AE00145E57 /* SongSetItem.m */; };
 		875C2F961F99756A00145E57 /* HotCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 875C2F951F99756900145E57 /* HotCell.m */; };
 		8777DFA11FB6DEC70049892C /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8777DFA01FB6DEC70049892C /* CollectionViewController.m */; };
+		8785134F1FC30EF00096B9D5 /* PersonalizedItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8785134E1FC30EF00096B9D5 /* PersonalizedItem.m */; };
+		878513521FC319F90096B9D5 /* ExclusiveMVItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 878513511FC319F90096B9D5 /* ExclusiveMVItem.m */; };
+		878513551FC31B390096B9D5 /* MVViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 878513541FC31B390096B9D5 /* MVViewCell.m */; };
+		878513581FC31D930096B9D5 /* ExclusizeMVViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 878513571FC31D930096B9D5 /* ExclusizeMVViewModel.m */; };
+		8785135B1FC3A4520096B9D5 /* NewSongItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8785135A1FC3A4520096B9D5 /* NewSongItem.m */; };
 		8793B2C51F94EE14006DDC24 /* AdVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8793B2C41F94EE14006DDC24 /* AdVC.m */; };
 		8793B2C71F94F234006DDC24 /* LaunchImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 8793B2C61F94F234006DDC24 /* LaunchImage.png */; };
 		8793B2C91F94F438006DDC24 /* jhht.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8793B2C81F94F438006DDC24 /* jhht.jpg */; };
@@ -552,6 +557,16 @@
 		875C2F951F99756900145E57 /* HotCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HotCell.m; sourceTree = "<group>"; };
 		8777DF9F1FB6DEC70049892C /* CollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionViewController.h; sourceTree = "<group>"; };
 		8777DFA01FB6DEC70049892C /* CollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionViewController.m; sourceTree = "<group>"; };
+		8785134D1FC30EF00096B9D5 /* PersonalizedItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonalizedItem.h; sourceTree = "<group>"; };
+		8785134E1FC30EF00096B9D5 /* PersonalizedItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonalizedItem.m; sourceTree = "<group>"; };
+		878513501FC319F90096B9D5 /* ExclusiveMVItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExclusiveMVItem.h; sourceTree = "<group>"; };
+		878513511FC319F90096B9D5 /* ExclusiveMVItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExclusiveMVItem.m; sourceTree = "<group>"; };
+		878513531FC31B390096B9D5 /* MVViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MVViewCell.h; sourceTree = "<group>"; };
+		878513541FC31B390096B9D5 /* MVViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MVViewCell.m; sourceTree = "<group>"; };
+		878513561FC31D930096B9D5 /* ExclusizeMVViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExclusizeMVViewModel.h; sourceTree = "<group>"; };
+		878513571FC31D930096B9D5 /* ExclusizeMVViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExclusizeMVViewModel.m; sourceTree = "<group>"; };
+		878513591FC3A4520096B9D5 /* NewSongItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewSongItem.h; sourceTree = "<group>"; };
+		8785135A1FC3A4520096B9D5 /* NewSongItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewSongItem.m; sourceTree = "<group>"; };
 		8793B2C31F94EE14006DDC24 /* AdVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AdVC.h; sourceTree = "<group>"; };
 		8793B2C41F94EE14006DDC24 /* AdVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AdVC.m; sourceTree = "<group>"; };
 		8793B2C61F94F234006DDC24 /* LaunchImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchImage.png; sourceTree = "<group>"; };
@@ -844,6 +859,10 @@
 				874CE3091F9C59530075722A /* RecommandSong.m */,
 				874CE3111F9C9D9A0075722A /* AlbumsItem.h */,
 				874CE3121F9C9D9A0075722A /* AlbumsItem.m */,
+				878513501FC319F90096B9D5 /* ExclusiveMVItem.h */,
+				878513511FC319F90096B9D5 /* ExclusiveMVItem.m */,
+				878513591FC3A4520096B9D5 /* NewSongItem.h */,
+				8785135A1FC3A4520096B9D5 /* NewSongItem.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -879,6 +898,8 @@
 				873B0D7D1FA7FBEC0088DFD0 /* FooterView.m */,
 				872793A11FB34CC80095852E /* GoHorseCollectionViewCell.h */,
 				872793A21FB34CC80095852E /* GoHorseCollectionViewCell.m */,
+				878513531FC31B390096B9D5 /* MVViewCell.h */,
+				878513541FC31B390096B9D5 /* MVViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -894,6 +915,8 @@
 				874CE30C1F9C5A000075722A /* RecommandSongViewModel.m */,
 				874CE3141F9C9EE20075722A /* AlbumsViewModel.h */,
 				874CE3151F9C9EE20075722A /* AlbumsViewModel.m */,
+				878513561FC31D930096B9D5 /* ExclusizeMVViewModel.h */,
+				878513571FC31D930096B9D5 /* ExclusizeMVViewModel.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1006,6 +1029,8 @@
 				8713CD861FBE6394004B658F /* SUMusicItem.m */,
 				4A78F7F91FC1352400C8A306 /* SUBannerItem.h */,
 				4A78F7FA1FC1352400C8A306 /* SUBannerItem.m */,
+				8785134D1FC30EF00096B9D5 /* PersonalizedItem.h */,
+				8785134E1FC30EF00096B9D5 /* PersonalizedItem.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1667,7 +1692,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		B365C5A237D744422C271B7B /* [CP] Embed Pods Frameworks */ = {
@@ -1699,6 +1724,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8785135B1FC3A4520096B9D5 /* NewSongItem.m in Sources */,
 				8713CD8D1FBE67F0004B658F /* SUTrackItem.m in Sources */,
 				872793521FB131DC0095852E /* SUSettingItem.m in Sources */,
 				8713CD931FBFDD37004B658F /* NSString+Encrypt.m in Sources */,
@@ -1727,6 +1753,7 @@
 				8727934C1FAF5A440095852E /* SongStatusItem.m in Sources */,
 				8777DFA11FB6DEC70049892C /* CollectionViewController.m in Sources */,
 				875539B41FACC0D100A7628F /* MyMusicHeaderView.m in Sources */,
+				878513581FC31D930096B9D5 /* ExclusizeMVViewModel.m in Sources */,
 				4A78F8041FC16C8000C8A306 /* SUListTopViewCell.m in Sources */,
 				87A1918D1FA0134C00D7DC3B /* SUPlayerViewController.m in Sources */,
 				875C2F901F9797DA00145E57 /* SetViewModel.m in Sources */,
@@ -1741,6 +1768,7 @@
 				873B0D0B1FA4BD300088DFD0 /* SUAdvancePlayer.m in Sources */,
 				872793481FAF48400095852E /* StatusCell.m in Sources */,
 				8713CD721FB9C876004B658F /* NetowrkVC.m in Sources */,
+				878513521FC319F90096B9D5 /* ExclusiveMVItem.m in Sources */,
 				87085DDD1F85C7CE009065C8 /* SUCommodityItem.m in Sources */,
 				8713CD751FBBBF97004B658F /* NetEaseMusicApi.m in Sources */,
 				87085DC81F7F1981009065C8 /* NavigationController.m in Sources */,
@@ -1761,6 +1789,8 @@
 				874CE30A1F9C59530075722A /* RecommandSong.m in Sources */,
 				873B0D7E1FA7FBEC0088DFD0 /* FooterView.m in Sources */,
 				8713CD901FBF2352004B658F /* SUSongListTopView.m in Sources */,
+				8785134F1FC30EF00096B9D5 /* PersonalizedItem.m in Sources */,
+				878513551FC31B390096B9D5 /* MVViewCell.m in Sources */,
 				87A191811FA00BBD00D7DC3B /* PlayerView.m in Sources */,
 				875539C31FADF3B000A7628F /* FriendVC.m in Sources */,
 				873B0D0D1FA4BD300088DFD0 /* SURange.m in Sources */,
