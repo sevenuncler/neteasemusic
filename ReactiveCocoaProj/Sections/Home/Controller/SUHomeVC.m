@@ -47,8 +47,8 @@ static NSString * const reuseID = @"reuseID";
     
     
     [self.items addObject:[MusicVC new]];
-    [self.items addObject:[RadioVC new]];
     [self.items addObject:[VideoVC new]];
+    [self.items addObject:[RadioVC new]];
 
     [self.view addSubview:self.firstView];
     [self.view addSubview:self.collecctionView];

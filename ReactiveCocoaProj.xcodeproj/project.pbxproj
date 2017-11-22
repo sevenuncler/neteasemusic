@@ -205,6 +205,7 @@
 		878513551FC31B390096B9D5 /* MVViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 878513541FC31B390096B9D5 /* MVViewCell.m */; };
 		878513581FC31D930096B9D5 /* ExclusizeMVViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 878513571FC31D930096B9D5 /* ExclusizeMVViewModel.m */; };
 		8785135B1FC3A4520096B9D5 /* NewSongItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8785135A1FC3A4520096B9D5 /* NewSongItem.m */; };
+		878513631FC4661C0096B9D5 /* VideoViewCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 878513621FC4661C0096B9D5 /* VideoViewCell1.m */; };
 		8793B2C51F94EE14006DDC24 /* AdVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8793B2C41F94EE14006DDC24 /* AdVC.m */; };
 		8793B2C71F94F234006DDC24 /* LaunchImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 8793B2C61F94F234006DDC24 /* LaunchImage.png */; };
 		8793B2C91F94F438006DDC24 /* jhht.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8793B2C81F94F438006DDC24 /* jhht.jpg */; };
@@ -567,6 +568,8 @@
 		878513571FC31D930096B9D5 /* ExclusizeMVViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExclusizeMVViewModel.m; sourceTree = "<group>"; };
 		878513591FC3A4520096B9D5 /* NewSongItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewSongItem.h; sourceTree = "<group>"; };
 		8785135A1FC3A4520096B9D5 /* NewSongItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewSongItem.m; sourceTree = "<group>"; };
+		878513611FC4661C0096B9D5 /* VideoViewCell1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoViewCell1.h; sourceTree = "<group>"; };
+		878513621FC4661C0096B9D5 /* VideoViewCell1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoViewCell1.m; sourceTree = "<group>"; };
 		8793B2C31F94EE14006DDC24 /* AdVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AdVC.h; sourceTree = "<group>"; };
 		8793B2C41F94EE14006DDC24 /* AdVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AdVC.m; sourceTree = "<group>"; };
 		8793B2C61F94F234006DDC24 /* LaunchImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchImage.png; sourceTree = "<group>"; };
@@ -811,6 +814,7 @@
 		87085DBE1F7DC79D009065C8 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				8785135C1FC465050096B9D5 /* Video */,
 				87085DBF1F7DC79D009065C8 /* Controller */,
 				87085DC01F7DC79D009065C8 /* Model */,
 				87085DC11F7DC79D009065C8 /* View */,
@@ -828,8 +832,6 @@
 				87085DCA1F7F19B6009065C8 /* SUHomeVC.m */,
 				8793B2CA1F95810C006DDC24 /* MusicVC.h */,
 				8793B2CB1F95810C006DDC24 /* MusicVC.m */,
-				8793B2CD1F95811D006DDC24 /* VideoVC.h */,
-				8793B2CE1F95811D006DDC24 /* VideoVC.m */,
 				8793B2D01F95812F006DDC24 /* RadioVC.h */,
 				8793B2D11F95812F006DDC24 /* RadioVC.m */,
 				8777DF9F1FB6DEC70049892C /* CollectionViewController.h */,
@@ -1247,6 +1249,49 @@
 			children = (
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		8785135C1FC465050096B9D5 /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				8785135D1FC465050096B9D5 /* ViewModel */,
+				8785135E1FC465050096B9D5 /* Controller */,
+				8785135F1FC465050096B9D5 /* Model */,
+				878513601FC465050096B9D5 /* View */,
+			);
+			path = Video;
+			sourceTree = "<group>";
+		};
+		8785135D1FC465050096B9D5 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		8785135E1FC465050096B9D5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8793B2CD1F95811D006DDC24 /* VideoVC.h */,
+				8793B2CE1F95811D006DDC24 /* VideoVC.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		8785135F1FC465050096B9D5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		878513601FC465050096B9D5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				878513611FC4661C0096B9D5 /* VideoViewCell1.h */,
+				878513621FC4661C0096B9D5 /* VideoViewCell1.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		8793B2C21F94EDDC006DDC24 /* Ads */ = {
@@ -1766,6 +1811,7 @@
 				874CE3071F9C59300075722A /* Song.m in Sources */,
 				8713CD7E1FBD0FAD004B658F /* SUSongListCell.m in Sources */,
 				873B0D0B1FA4BD300088DFD0 /* SUAdvancePlayer.m in Sources */,
+				878513631FC4661C0096B9D5 /* VideoViewCell1.m in Sources */,
 				872793481FAF48400095852E /* StatusCell.m in Sources */,
 				8713CD721FB9C876004B658F /* NetowrkVC.m in Sources */,
 				878513521FC319F90096B9D5 /* ExclusiveMVItem.m in Sources */,

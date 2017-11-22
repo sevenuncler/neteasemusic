@@ -93,6 +93,9 @@ typedef NS_ENUM(NSUInteger, PlayListOrder){
 }
 
 - (NSString *)nextSong {
+    if(!self.playList || self.playList.tracks.count<1) {
+        return nil;
+    }
     switch (_playListOrder) {
         case PlayListOrderLoopOrder:
             _currentIdx = (_currentIdx+1)%self.playList.tracks.count;

@@ -59,6 +59,7 @@
     
     NewSongItem *newSongItem = [self.items objectAtIndex:indexPath.section*2 +  indexPath.item];
     SUArtistsItem *artistItem = newSongItem.song.artists[0];
+    NSLog(@"%@",artistItem.picUrl);
     @weakify(cell);
     [[[SUImageManager defaultImageManager] imageWithUrl:artistItem.picUrl] subscribeNext:^(id x) {
         @strongify(cell);

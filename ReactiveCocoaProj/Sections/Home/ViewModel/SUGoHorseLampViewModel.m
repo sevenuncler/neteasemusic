@@ -31,9 +31,9 @@
 
 - (instancetype)init {
     if(self = [super init]) {
-        _count = 10000;
+        _count = 5000;
         _countOfTimer = 0;
-        _currentIndex = _count / 2;
+        _currentIndex = _count/2;
         _isCanceled   = NO;
     }
     return self;
@@ -52,14 +52,19 @@
 #pragma mark - UICollectionViewDataSource
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return _count;
+    if(self.items.count>0)
+        return _count;
+    else {
+        return 0;
+    }
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
 
-    static NSString * const reuseID = @"goHorseCell";
+    static NSString * const reuseID = @"goHorseCellX";
     self.isUsed = YES;
     collectionView.scrollEnabled = YES;
+    collectionView.pagingEnabled = YES;
     [collectionView registerClass:[SUGoHorseLampCell class] forCellWithReuseIdentifier:reuseID];
     collectionView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
     SUGoHorseLampCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseID forIndexPath:indexPath];
@@ -108,6 +113,18 @@
     NSUInteger idx = indexPath.item % self.items.count;
     SUBannerItem *bannerItem = self.items[idx];
     NSLog(@"banner SelectedAt%@ %ld", indexPath, bannerItem.targetType);
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
+    return 0;
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
+    return 0;
+}
+
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
+    return UIEdgeInsetsMake(0, 0, 0, 0);
 }
 
 #pragma mark - Getter & Setter

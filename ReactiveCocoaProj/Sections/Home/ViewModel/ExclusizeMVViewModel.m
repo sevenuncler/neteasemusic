@@ -105,18 +105,25 @@ static NSString * const reuseID = @"reuseMVViewCell";
     SUItem *item = [self.items objectAtIndex:indexPath.section];
     return item.layout.frame.size;
 }
-
+//针对一个Section里item的行间距
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
     return 100;
 }
-
+//针对一个Section里item的挨着的间距
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
     return 190;
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
-    return UIEdgeInsetsMake(0, 0, 0, 5);
+    return UIEdgeInsetsMake(0, 0, 0, 0);
 }
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section {
+    if(section == 0) {
+        return CGSizeMake(10, 0);
+    }
+    return CGSizeZero;
+}
+
 
 - (dispatch_semaphore_t)semaphore {
     if(!_semaphore) {

@@ -119,17 +119,15 @@ didReceiveResponse:(NSURLResponse *)response
     
     PersonalizedItem *recommandSong = [self.items objectAtIndex:indexPath.section*2 +  indexPath.item];
 //    NSLog(@">>>> %@", recommandSong.coverPath);
-    @weakify(cell);
-    @weakify(collectionView);
     [[[SUImageManager defaultImageManager] imageWithUrl:recommandSong.picUrl] subscribeNext:^(id x) {
 //        NSLog(@">>>> %p %@",collectionView, x);
-        @strongify(cell);
-        @strongify(collectionView);
-        cell.coverImageView.image = x;
-//        [collectionView reloadItemsAtIndexPaths:@[indexPath]];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            cell.coverImageView.image = x;
+        });
     }];
     cell.titleLabel.text = recommandSong.name;
     cell.subTitleLabel.text = nil;
+    [cell setNeedsLayout];
     return cell;
 }
 

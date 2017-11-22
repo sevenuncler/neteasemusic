@@ -26,6 +26,7 @@
     self.leftView.centerY = self.size.height/2;
     
     [self.titleLable sizeToFit];
+    NSLog(@"%@", self.titleLable);
     self.titleLable.left = self.leftView.right+15;
     self.titleLable.centerY = self.size.height/2;
     
@@ -46,7 +47,7 @@
     if(!_titleLable) {
         _titleLable = [UILabel new];
         _titleLable.text = @"推荐歌单";
-        _titleLable.size = CGSizeMake(200, 0);
+        _titleLable.size = CGSizeMake(250, 0);
         [_titleLable sizeToFit];
         _titleLable.font = [UIFont systemFontOfSize:16];
     }

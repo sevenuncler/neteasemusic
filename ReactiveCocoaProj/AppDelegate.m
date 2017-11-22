@@ -19,6 +19,7 @@
 #import "WeiboSDK.h"
 #import "NetowrkVC.h"
 #import "SUListVC.h"
+#import "VideoVC.h"
 
 @interface AppDelegate () <WeiboSDKDelegate>
 

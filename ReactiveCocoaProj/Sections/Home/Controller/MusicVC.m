@@ -62,7 +62,7 @@ static BOOL stopFlag = YES;
     [self setUpRecommandSongView];
     [self setUpExclusiveMVView];
     [self setUpNewestView];
-    [self setUpAnchorView];
+//    [self setUpAnchorView];
 
 //    [self setUpMVView];
 //    [self setUpExclusizeView];
@@ -96,6 +96,7 @@ static BOOL stopFlag = YES;
     }else {
         reuseView = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:reuseFotter forIndexPath:indexPath];
     }
+    [reuseView setNeedsLayout];
     return reuseView;
 }
 
@@ -107,12 +108,12 @@ static BOOL stopFlag = YES;
     
     //TODO 待优化，耦合度太高
     if([generalModel.viewModel isKindOfClass:[SUGoHorseLampViewModel class]]) {
-        [cell.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:5000 inSection:0]atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
+//        [cell.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
         SUGoHorseLampViewModel *vm = (SUGoHorseLampViewModel *)generalModel.viewModel;
         
         GoHorseCollectionViewCell *goHorseCell = (GoHorseCollectionViewCell *)cell;
         goHorseCell.pageControl.numberOfPages = vm.items.count;
-        goHorseCell.pageControl.currentPage   = 5000 % vm.items.count;
+        goHorseCell.pageControl.currentPage   = 0 % vm.items.count;
         [vm.disposes enumerateObjectsUsingBlock:^(RACDisposable * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             [vm.disposes removeObject:obj];
             [obj dispose];
@@ -300,7 +301,11 @@ static BOOL stopFlag = YES;
     generalModel.reuseID = [ReuseCollectionViewCell reuseID];
     dispatch_async(dispatch_get_main_queue(), ^{
         if(dispatch_semaphore_wait(viewModel.semaphore, DISPATCH_TIME_FOREVER) == 0) {
-            [self.items insertObject:generalModel atIndex:4];
+            if(self.items.count>3) {
+                [self.items insertObject:generalModel atIndex:4];
+            }else {
+                [self.items addObject:generalModel];
+            }
             [self.collectionView reloadData];
         }
     });
@@ -398,8 +403,11 @@ static BOOL stopFlag = YES;
     generalModel.headerSize = CGSizeMake(self.view.size.width, 44);
     generalModel.headerTitle = @"主播电台";
     generalModel.reuseID = [ReuseCollectionViewCell reuseID];
-    
-    [self.items addObject:generalModel];
+    if(self.items.count>4) {
+        [self.items insertObject:generalModel atIndex:5];
+    }else {
+        [self.items addObject:generalModel];
+    }
 }
 
 - (void)setUpExclusiveMVView {
@@ -419,7 +427,11 @@ static BOOL stopFlag = YES;
     generalModel.reuseID = [ReuseCollectionViewCell reuseID];
     dispatch_async(dispatch_get_main_queue(), ^{
         if(dispatch_semaphore_wait(recommandSongVM.semaphore, DISPATCH_TIME_FOREVER) == 0) {
-            [self.items insertObject:generalModel atIndex:3];
+            if(self.items.count>2) {
+                [self.items insertObject:generalModel atIndex:3];
+            }else {
+                [self.items addObject:generalModel];
+            }
             [self.collectionView reloadData];
         }
     });
@@ -440,14 +452,17 @@ static BOOL stopFlag = YES;
     generalModel.headerTitle = @"推荐歌单";
     generalModel.reuseID = [ReuseCollectionViewCell reuseID];
     
-    [self.items addObject:generalModel];
+    if(self.items.count>1) {
+        [self.items insertObject:generalModel atIndex:2];
+    }else {
+        [self.items addObject:generalModel];
+    }
 }
 
 - (void)setUpGoHorseView {
 //    SUGoHorseLampView *view = [[SUGoHorseLampView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WIDTH*0.382)];
     SUGoHorseLampViewModel *viewModel;
-    self.goHorseLampVM = [SUGoHorseLampViewModel new];
-    viewModel = self.goHorseLampVM;
+    viewModel = [SUGoHorseLampViewModel new];
     
     GeneralModel *oneGeneralModel = [GeneralModel new];
     oneGeneralModel.viewModel = viewModel;
@@ -469,9 +484,10 @@ static BOOL stopFlag = YES;
             [bannerItem setValuesForKeysWithDictionary:obj];
             [banners addObject:bannerItem];
         }];
-        self.goHorseLampVM.items = banners.mutableCopy;
-        [self.items insertObject:oneGeneralModel atIndex:0];
+        viewModel.items = banners.mutableCopy;
         dispatch_async(dispatch_get_main_queue(), ^{
+            [self.items insertObject:oneGeneralModel atIndex:0];
+            
             [self.collectionView reloadData];
         });
     }];
@@ -532,7 +548,11 @@ static BOOL stopFlag = YES;
     layout.frame = CGRectMake(0, 0, SCREEN_WIDTH, height + 30);
     generalModel.layout = layout;
     generalModel.footerSize = CGSizeMake(self.view.size.width, 0.5);
-    [self.items addObject:generalModel];
+    if(self.items.count>0) {
+        [self.items insertObject:generalModel atIndex:1];
+    }else {
+        [self.items addObject:generalModel];
+    }
 }
 
 
